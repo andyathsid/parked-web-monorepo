@@ -7,8 +7,9 @@
     <title>Home</title>
     <link href="vendor/bootstrap-5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> --}}
     <link rel="stylesheet" href="vendor/fontawesome-free-6.6.0-web/css/all.css">
+    <link rel="icon" type="image/png" href="assets/logo/logo_ParkED.png" />
 </head>
 
 <body>

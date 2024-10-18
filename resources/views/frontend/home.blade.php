@@ -6,8 +6,7 @@
             <div class="col-md-6 hero-content">
                 <h1 class="display-4 fw-bold">Learn About Parkinson's Disease Predictor</h1>
                 <p class="lead">Discover way to manage</p>
-                <button class="btn btn-light btn-ripple" data-bs-toggle="modal" data-bs-target="#choiceModal">Diagnose
-                    Now</button>
+                <a class="btn btn-light btn-ripple" href="/patient-info">Diagnose Now</a>
             </div>
             <div class="col-md-6 hero-image"></div>
         </div>
@@ -95,25 +94,5 @@
                 </div>
             </div>
         </div>
-
-
     </div> <!-- Tutup container di sini -->
-
-    <!-- Modal -->
-    <div class="modal fade" id="choiceModal" tabindex="-1" aria-labelledby="choiceModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header border-0">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body text-center">
-                    <h5 class="modal-title mb-4" id="choiceModalLabel">Choose Your Role</h5>
-                    <div class="d-grid gap-3">
-                        <a href="/patient-info" class="btn btn-custom btn-lg">Patient</a>
-                        <a href="#" class="btn btn-custom btn-lg">Doctor</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 @endsection

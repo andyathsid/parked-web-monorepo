@@ -48,6 +48,53 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    const animatedElements = document.querySelectorAll(
+        ".bg-warning h1, .container:not(footer .container) h2, .container:not(footer .container) p, .card"
+    );
+
+    function isElementInViewport(el) {
+        const rect = el.getBoundingClientRect();
+        return (
+            rect.top <=
+                (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.bottom >= 0 &&
+            rect.left <=
+                (window.innerWidth || document.documentElement.clientWidth) &&
+            rect.right >= 0
+        );
+    }
+
+    function animateElements() {
+        animatedElements.forEach((element) => {
+            if (
+                isElementInViewport(element) &&
+                !element.classList.contains("animate")
+            ) {
+                element.classList.add("animate");
+            }
+        });
+    }
+
+    // Initial check
+    animateElements();
+
+    // Trigger animation for elements above the fold immediately
+    setTimeout(animateElements, 100);
+
+    // Check on scroll
+    window.addEventListener("scroll", animateElements);
+
+    // Fallback to ensure animation occurs
+    setTimeout(() => {
+        document.querySelectorAll(".bg-warning h1").forEach((el) => {
+            if (!el.classList.contains("animate")) {
+                el.classList.add("animate");
+            }
+        });
+    }, 1000);
+});
+
 chooseUpload.addEventListener("click", () => {
     uploadOption.classList.remove("d-none");
     recordOption.classList.add("d-none");
@@ -233,4 +280,51 @@ document.addEventListener("DOMContentLoaded", function () {
     inputs.forEach((input) => {
         input.addEventListener("input", checkInputs);
     });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const animatedElements = document.querySelectorAll(
+        ".bg-warning h1, .container:not(footer .container) h2, .container:not(footer .container) p, .card"
+    );
+
+    function isElementInViewport(el) {
+        const rect = el.getBoundingClientRect();
+        return (
+            rect.top <=
+                (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.bottom >= 0 &&
+            rect.left <=
+                (window.innerWidth || document.documentElement.clientWidth) &&
+            rect.right >= 0
+        );
+    }
+
+    function animateElements() {
+        animatedElements.forEach((element) => {
+            if (
+                isElementInViewport(element) &&
+                !element.classList.contains("animate")
+            ) {
+                element.classList.add("animate");
+            }
+        });
+    }
+
+    // Initial check
+    animateElements();
+
+    // Trigger animation for elements above the fold immediately
+    setTimeout(animateElements, 100);
+
+    // Check on scroll
+    window.addEventListener("scroll", animateElements);
+
+    // Fallback to ensure animation occurs
+    setTimeout(() => {
+        document.querySelectorAll(".bg-warning h1").forEach((el) => {
+            if (!el.classList.contains("animate")) {
+                el.classList.add("animate");
+            }
+        });
+    }, 1000);
 });

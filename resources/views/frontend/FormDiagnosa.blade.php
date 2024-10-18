@@ -2,6 +2,9 @@
 
 @section('content')
     <div class="main-content">
+        <section class="bg-warning">
+            <h1 class="text-center py-5 sect-2 text-bold"><br> Diagnoses Form <br><br> </h1>
+        </section>
         <div class="container">
             <form action="/patient-form" method="POST" enctype="multipart/form-data">
                 @csrf

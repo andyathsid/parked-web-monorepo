@@ -10,12 +10,8 @@ class HomeController extends Controller
     {
         return \view('frontend/home');
     }
-    public function patient()
+    public function Resources()
     {
-        return \view('frontend/InfoPatien');
-    }
-    public function DiagnosaForm()
-    {
-        return \view('frontend/FormDiagnosa');
+        return \view('frontend/Resources');
     }
 }
