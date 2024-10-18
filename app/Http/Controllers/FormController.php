@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Http;
 use App\Models\FormSubmission;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Spatie\FlareClient\Api;
 
 class FormController extends Controller
 {
@@ -141,8 +143,25 @@ class FormController extends Controller
             Storage::disk('public')->put($audioPath, $audioData);
             $uploadedData['audio'] = $audioPath;
         }
+        \dd($uploadedData);
+        // Kirim data Ke API Link
+        $response = Http::post('https://events.launchdarkly.com/events/bulk/60645109ece3b60c64ac5e02', $uploadedData);
 
-
+        // Periksa respons dari API
+        if ($response->successful()) {
+            // Respons berhasil
+            return response()->json([
+                'success' => true,
+                'data' => $response->json(),
+            ]);
+        } else {
+            // Respons gagal
+            return response()->json([
+                'success' => false,
+                'message' => 'Gagal mengirim data ke API.',
+                'error' => $response->body(),
+            ], $response->status());
+        }
 
         // \dd($uploadedData); 
 
