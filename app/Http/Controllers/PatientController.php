@@ -3,15 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PatientController extends Controller
 {
     public function index()
     {
-        return \view('frontend/InfoPatien');
+        $user = Auth::user();
+        $tittle = 'Info';
+
+        return \view('frontend/InfoPatien', \compact('user', 'tittle'));
     }
     public function DiagnosaForm()
     {
-        return \view('frontend/FormDiagnosa');
+        $user = Auth::user();
+        $tittle = 'Form Diagnosa';
+        return \view('frontend/FormDiagnosa', \compact('user', 'tittle'));
     }
 }

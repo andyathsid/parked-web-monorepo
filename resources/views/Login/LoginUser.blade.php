@@ -14,35 +14,63 @@
 <body>
     <div class="container" id="container">
         <div class="form-container sign-up">
-            <form>
+            <form action="{{ route('register.submit') }}" method="POST">
+                @csrf
                 <h1>Create Account</h1>
                 <div class="social-icons">
-                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a href="{{ route('auth-google') }}" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
                     <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
                     <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
                     <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
                 </div>
                 <span>or use your email for registeration</span>
-                <input type="text" placeholder="Name" />
-                <input type="email" placeholder="Email" />
-                <input type="password" placeholder="Password" />
-                <button>Sign Up</button>
+                <!-- First Name -->
+                <input type="text" placeholder="First Name" name="first_name" value="{{ old('first_name') }}"
+                    required />
+                @error('first_name')
+                    <span class="error-message" style="color: red; font-size: 12px;">{{ $message }}</span>
+                @enderror
+
+                <!-- Last Name -->
+                <input type="text" placeholder="Last Name" name="last_name" value="{{ old('last_name') }}"
+                    required />
+                @error('last_name')
+                    <span class="error-message" style="color: red; font-size: 12px;">{{ $message }}</span>
+                @enderror
+
+                <!-- Email -->
+                <input type="email" placeholder="Email" name="email" value="{{ old('email') }}" required />
+                @error('email')
+                    <span class="error-message" style="color: red; font-size: 12px;">{{ $message }}</span>
+                @enderror
+
+                <!-- Password -->
+                <input type="password" placeholder="Password" name="password" required />
+                @error('password')
+                    <span class="error-message" style="color: red; font-size: 12px;">{{ $message }}</span>
+                @enderror
+
+                <!-- Password confirmation field -->
+                <input type="password" name="password_confirmation" placeholder="Confirm Password" required />
+
+                <button type="submit">Sign Up</button>
             </form>
         </div>
         <div class="form-container sign-in">
-            <form>
+            <form action="{{ route('login.submit') }}" method="POST" enctype="multipart/form-data">
+                @csrf
                 <h1>Sign In</h1>
                 <div class="social-icons">
-                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a href="{{ route('auth-google') }}" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
                     <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
                     <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
                     <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
                 </div>
                 <span>or use your email password</span>
-                <input type="email" placeholder="Email" />
-                <input type="password" placeholder="Password" />
+                <input type="email" placeholder="Email" name="email" />
+                <input type="password" placeholder="Password" name="password" />
                 <a href="#">Forget Your Password?</a>
-                <button>Sign In</button>
+                <button type="submit">Sign In</button>
             </form>
         </div>
         <div class="toggle-container">

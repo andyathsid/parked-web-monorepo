@@ -19,6 +19,24 @@
                 </li>
             </ul>
         </div>
-        <a href="/login" class="btn bg-warning text-white d-none d-lg-block" type="button">Sign In</a>
+        @guest
+            <a href="/login" class="btn bg-warning text-white d-none d-lg-block" type="button">Sign In</a>
+        @endguest
+
+        @auth
+            <div class="dropdown d-none d-lg-block">
+                <button class="btn btn-user-dropdown" type="button" id="userDropdown" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <img src="{{ $user->photo }}" alt="" class="border rounded-circle" width="50px">
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                    <li><a class="dropdown-item" href="/profile">Account</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                </ul>
+            </div>
+        @endauth
     </div>
 </nav>
