@@ -8,13 +8,13 @@
         <div class="collapse navbar-collapse justify-content-center text-center" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" href="/">Home</a>
+                    <a class="nav-link {{ Request::is('/') ? 'actives' : '' }}" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('resources') ? 'active' : '' }}" href="/resources">Resources</a>
+                    <a class="nav-link {{ Request::is('resources') ? 'actives' : '' }}" href="/resources">Resources</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('information') ? 'active' : '' }}"
+                    <a class="nav-link {{ Request::is('information') ? 'actives' : '' }}"
                         href="/information">Information</a>
                 </li>
                 @guest
@@ -30,8 +30,8 @@
 
         @auth
             <div class="dropdown">
-                <button class="btn btn-user-dropdown d-none d-lg-block" type="button" id="userDropdown" data-bs-toggle="dropdown"
-                    aria-expanded="false">
+                <button class="btn btn-user-dropdown d-none d-lg-block" type="button" id="userDropdown"
+                    data-bs-toggle="dropdown" aria-expanded="false">
                     <img src="{{ $user->photo }}" alt="" class="border rounded-circle" width="50px">
                 </button>
                 <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="userDropdown">
