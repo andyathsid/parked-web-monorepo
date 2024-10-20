@@ -634,6 +634,25 @@ background-color: #FFF2C0; /* Warna oranye */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
+.formdiagnosa-preview-wrapper {
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.formdiagnosa-preview-wrapper img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.formdiagnosa-dropzone {
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .text-bold{
     font-weight: bold;
 }

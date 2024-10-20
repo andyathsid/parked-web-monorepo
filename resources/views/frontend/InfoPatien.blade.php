@@ -11,7 +11,7 @@
                             <h2 class="card-title">
                                 <strong class="disclaimer-title">Disclaimer</strong>
                             </h2>
-                            <p class="card-text">
+                            <p class="card-text ">
                                 This prediction tool utilizes machine learning algorithms to detect the likelihood of
                                 Parkinson's disease. Please note that while the tool has been trained on relevant
                                 data and has achieved an accuracy rate of [insert accuracy]%, the results
@@ -46,7 +46,7 @@
     <section class=" py-5">
         <h1 class="text-center pb-3 sect-2">Let's Get Started</h1>
         <div class="text-center pb-5">
-            <a href="/form-diagnosa" class="btn btn-custom btn-lg bg-warning">Diagnose Now!</a>
+            <a href="/form-diagnosa" class="btn btn-custom btn-lg bg-warning text-black">Diagnose Now!</a>
         </div>
     </section>
 @endsection

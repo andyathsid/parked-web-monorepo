@@ -5,7 +5,7 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+        <div class="collapse navbar-collapse justify-content-center text-center" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" href="/">Home</a>
@@ -17,6 +17,11 @@
                     <a class="nav-link {{ Request::is('information') ? 'active' : '' }}"
                         href="/information">Information</a>
                 </li>
+                @guest
+                    <li class="nav-item d-lg-none">
+                        <a class="nav-link" href="/login">Sign In</a>
+                    </li>
+                @endguest
             </ul>
         </div>
         @guest
@@ -24,12 +29,12 @@
         @endguest
 
         @auth
-            <div class="dropdown d-none d-lg-block">
-                <button class="btn btn-user-dropdown" type="button" id="userDropdown" data-bs-toggle="dropdown"
+            <div class="dropdown">
+                <button class="btn btn-user-dropdown d-none d-lg-block" type="button" id="userDropdown" data-bs-toggle="dropdown"
                     aria-expanded="false">
                     <img src="{{ $user->photo }}" alt="" class="border rounded-circle" width="50px">
                 </button>
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="userDropdown">
                     <li><a class="dropdown-item" href="/profile">Account</a></li>
                     <li>
                         <hr class="dropdown-divider">

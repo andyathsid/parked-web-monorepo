@@ -97,9 +97,10 @@
                                             id="formdiagnosa-drop-area">
                                             <input type="file" id="formdiagnosa-fileElem" accept="image/*"
                                                 onchange="handleFiles(this.files)" style="display:none" name="fileModel1">
-                                            <div id="formdiagnosa-preview-container" class="mb-3" style="display:none;">
+                                            <div id="formdiagnosa-preview-container" class="mb-3 formdiagnosa-preview-wrapper"
+                                                style="display:none;">
                                                 <img id="formdiagnosa-preview-image" src="" alt="Preview"
-                                                    style="max-width: 300px; max-height: 300px; object-fit: contain;">
+                                                    style="max-width: 100%; height: auto; object-fit: contain;">
                                             </div>
                                             <i class="fas fa-image fa-3x text-muted mb-3"></i>
                                             <p class="mb-2">Drag and drop an image here</p>
@@ -205,7 +206,7 @@
                                                         onclick="document.getElementById('audioFileElem').click()">Select
                                                         an audio file</button>
                                                 </div>
-                                                <p class="text-muted small text-center mt-2">MP3, WAV / Max. 10 MB / Max.
+                                                <p class="text-muted small text-center mt-2"> WAV / Max. 10 MB / Max.
                                                     30 seconds</p>
                                                 <div class="text-center mt-3">
                                                     <button type="button" class="btn btn-warning" id="changeAudioBtn"
@@ -218,10 +219,10 @@
                                                 <div class="text-center p-5 border border-dashed rounded">
                                                     <i class="fas fa-microphone fa-3x text-muted mb-3"></i>
                                                     <p class="mb-3">Click the button below to start recording</p>
-                                                    <button id="recordButton" class="btn btn-warning"
+                                                    <a href="record" id="recordButton" class="btn btn-warning"
                                                         name="recordedAudio">
                                                         <i class="fas fa-microphone"></i> Start Recording
-                                                    </button>
+                                                    </a>
                                                     <p id="recordingStatus" class="mt-3 d-none">Recording: <span
                                                             id="recordingTime">00:00</span></p>
                                                     <audio id="audioPlayback" controls class="mt-3 d-none"></audio>
@@ -300,9 +301,9 @@
                                             <input type="file" id="fileElem3" accept="image/*"
                                                 onchange="handleFiles3(this.files)" style="display:none"
                                                 name="fileModel3">
-                                            <div id="preview-container-3" class="mb-3" style="display:none;">
+                                            <div id="preview-container-3" class="class= mb-3 formdiagnosa-preview-wrapper" style="display:none;">
                                                 <img id="preview-image-3" src="" alt="Preview"
-                                                    style="max-width: 300px; max-height: 300px; object-fit: contain;">
+                                                    style="max-width: 100%; height: auto; object-fit: contain;">
                                             </div>
                                             <i class="fas fa-image fa-3x text-muted mb-3"></i>
                                             <p class="mb-2">Drag and drop an image here</p>

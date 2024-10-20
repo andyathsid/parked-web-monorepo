@@ -35,7 +35,7 @@
                 </div>
                 <div class="col-md-4 mb-4 resource-fade-in" style="animation-delay: 0.4s;">
                     <a href="{{ route('detail', ['id' => encrypt(2)]) }}" class="resource-card-link">
-                        <div class="card h-100 resource-card">
+                        <div class="card h-90 resource-card">
                             <div class="row g-0">
                                 <div class="col-4 col-md-5" style="max-width: 120px;">
                                     <img src="assets/img/speech-therapy.png"
@@ -44,8 +44,7 @@
                                 <div class="col-8 col-md-7">
                                     <div class="card-body text-black">
                                         <h5 class="card-title">Speech therapy</h5>
-                                        <p class="card-text">This therapy may be recommended if Parkinson's patients have
-                                            difficulty speaking and swallowing saliva or food.</p>
+                                        <p class="card-text">This therapy may be recommended if Parkinson's patients <br>have difficulty speaking and swallowing saliva or food.</p>
                                     </div>
                                 </div>
                             </div>
@@ -54,7 +53,7 @@
                 </div>
                 <div class="col-md-4 mb-4 resource-fade-in" style="animation-delay: 0.6s;">
                     <a href="{{ route('detail', ['id' => encrypt(3)]) }}" class="resource-card-link">
-                        <div class="card h-100 resource-card">
+                        <div class="card h-90 resource-card">
                             <div class="row g-0">
                                 <div class="col-4 col-md-5" style="max-width: 120px;">
                                     <img src="assets/img/psychoteraphy.jpg"

@@ -192,39 +192,31 @@ function handleDrop(e) {
 function handleFiles(files) {
     if (files.length > 0) {
         const file = files[0];
-        if (file.type.startsWith("image/")) {
+        if (file.type.startsWith('image/')) {
             const reader = new FileReader();
-            reader.onload = function (e) {
-                document.getElementById("formdiagnosa-preview-image").src =
-                    e.target.result;
-                document.getElementById(
-                    "formdiagnosa-preview-container"
-                ).style.display = "block";
-                document.getElementById(
-                    "formdiagnosa-changeFileBtn"
-                ).style.display = "inline-block";
-                document.querySelector(".fa-image").style.display = "none";
-                document.querySelector(".dropzone p").style.display = "none";
-                document.querySelector(".dropzone .btn-warning").style.display =
-                    "none";
+            reader.onload = function(e) {
+                const previewImage = document.getElementById('formdiagnosa-preview-image');
+                previewImage.src = e.target.result;
+                previewImage.style.maxHeight = '300px';
+                document.getElementById('formdiagnosa-preview-container').style.display = 'block';
+                document.getElementById('formdiagnosa-changeFileBtn').style.display = 'inline-block';
+                document.querySelector('#formdiagnosa-drop-area .fa-image').style.display = 'none';
+                document.querySelector('#formdiagnosa-drop-area p').style.display = 'none';
+                document.querySelector('#formdiagnosa-drop-area .btn-warning').style.display = 'none';
             };
             reader.readAsDataURL(file);
         } else {
-            alert("Please select an image file.");
+            alert('Please select an image file.');
         }
     }
 }
-
 function changeFile() {
     document.getElementById("formdiagnosa-fileElem").value = "";
-    document.getElementById("formdiagnosa-preview-container").style.display =
-        "none";
-    document.getElementById("formdiagnosa-changeFileBtn").style.display =
-        "none";
-    document.querySelector(".fa-image").style.display = "block";
-    document.querySelector(".dropzone p").style.display = "block";
-    document.querySelector(".dropzone .btn-warning").style.display =
-        "inline-block";
+    document.getElementById("formdiagnosa-preview-container").style.display = "none";
+    document.getElementById("formdiagnosa-changeFileBtn").style.display = "none";
+    document.querySelector("#formdiagnosa-drop-area .fa-image").style.display = "block";
+    document.querySelector("#formdiagnosa-drop-area p").style.display = "block";
+    document.querySelector("#formdiagnosa-drop-area .btn-warning").style.display = "inline-block";
 }
 
 let mediaRecorder;
