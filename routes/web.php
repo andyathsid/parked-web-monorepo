@@ -60,6 +60,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/patient-form', [FormController::class, 'pastientUpload'])->name('patient-form');
 });
 
+Route::get('/information', [HomeController::class, 'Information'])->name('information');
 Route::get('/resources', [HomeController::class, 'Resources'])->name('resources');
 // Route::get('/resources-detail', [HomeController::class, 'ResourcesDetail'])->name('resources-detail');
 Route::get('/{id}', [HomeController::class, 'ResourcesDetail'])->name('detail');

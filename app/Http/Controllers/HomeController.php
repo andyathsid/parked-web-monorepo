@@ -196,4 +196,10 @@ class HomeController extends Controller
 
         return \view('frontend.ResourceDetail', \compact('user', 'tittle', 'data'));
     }
+    public function information()
+    {
+        $user = Auth::user();
+        $tittle = 'Information';
+        return \view('frontend.Information', \compact('user', 'tittle'));
+    }
 }

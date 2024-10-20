@@ -863,3 +863,48 @@ background-color: #FFF2C0; /* Warna oranye */
     background-color: #FFA500;
     color: #ffffff;
 }
+/* information */
+.information-form-container {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.information-btn-primary {
+    background-color: #ffc107;
+    border-color: #ffc107;
+}
+
+.information-btn-primary:hover {
+    background-color: #ffca2c;
+    border-color: #ffca2c;
+}
+
+.information-text-bold{
+    font-weight: bold;
+}
+
+/* Add these styles to your existing <style> tag or CSS file */
+.information-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.information-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+.information-fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.information-fade-in.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+.information-icon-container {
+    transition: transform 0.3s ease;
+}
+.information-card:hover .information-icon-container {
+    transform: scale(1.1);
+}
