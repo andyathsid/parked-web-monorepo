@@ -13,6 +13,8 @@
 </head>
 
 <body>
+    @include('sweetalert::alert')
+
     @include('frontend.layout.navbar')
 
     @yield('content')
@@ -72,9 +74,21 @@
             </div>
     </footer>
     <script src="vendor/bootstrap-5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/sweetalert/sweetalert.all.js"></script>
 
     <script src="assets/js/script.js"></script>
 
+    <script>
+        // document.addEventListener('DOMContentLoaded', function() {
+        //     // Menggunakan SweetAlert untuk notifikasi sukses
+        //     Swal.fire({
+        //         title: 'Selamat Datang!',
+        //         text: 'Terima kasih telah mengunjungi ParkED!',
+        //         icon: 'success',
+        //         confirmButtonText: 'Oke'
+        //     });
+        // });
+    </script>
 </body>
 
 </html>

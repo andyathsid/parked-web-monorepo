@@ -38,7 +38,6 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/auth/google', [GoogleAuthController::class, 'redirect'])->name('auth-google');
 Route::get('auth/google/call-back', [GoogleAuthController::class, 'callbackGoogle'])->name('callback-google');
 
-Route::get('/resources', [HomeController::class, 'Resources'])->name('resources');
 
 Route::get('/email/verify/{id}/{hash}', function (Request $request) {
     $request->fulfill();
@@ -47,6 +46,7 @@ Route::get('/email/verify/{id}/{hash}', function (Request $request) {
 })->middleware(['signed'])->name('verification.verify');
 
 Route::post('/email/resend', [AuthController::class, 'resendVerificationEmail'])->name('verification.resend');
+
 
 
 Route::middleware(['auth'])->group(function () {
@@ -60,6 +60,9 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/patient-form', [FormController::class, 'pastientUpload'])->name('patient-form');
 });
 
+Route::get('/resources', [HomeController::class, 'Resources'])->name('resources');
+// Route::get('/resources-detail', [HomeController::class, 'ResourcesDetail'])->name('resources-detail');
+Route::get('/{id}', [HomeController::class, 'ResourcesDetail'])->name('detail');
 
 
 

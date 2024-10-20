@@ -15,7 +15,7 @@
 
             <div class="row mb-1">
                 <div class="col-md-4 mb-4 text-decoration-none resource-fade-in" style="animation-delay: 0.2s;">
-                    <a href="physiotherapy.html" class="resource-card-link">
+                    <a href="{{ route('detail', ['id' => encrypt(1)]) }}" class="resource-card-link">
                         <div class="card h-90 resource-card">
                             <div class="row g-0">
                                 <div class="col-4 col-md-5" style="max-width: 120px;">
@@ -34,7 +34,7 @@
                     </a>
                 </div>
                 <div class="col-md-4 mb-4 resource-fade-in" style="animation-delay: 0.4s;">
-                    <a href="speechtherapy.html" class="resource-card-link">
+                    <a href="{{ route('detail', ['id' => encrypt(2)]) }}" class="resource-card-link">
                         <div class="card h-100 resource-card">
                             <div class="row g-0">
                                 <div class="col-4 col-md-5" style="max-width: 120px;">
@@ -53,7 +53,7 @@
                     </a>
                 </div>
                 <div class="col-md-4 mb-4 resource-fade-in" style="animation-delay: 0.6s;">
-                    <a href="Psychotherapy.html" class="resource-card-link">
+                    <a href="{{ route('detail', ['id' => encrypt(3)]) }}" class="resource-card-link">
                         <div class="card h-100 resource-card">
                             <div class="row g-0">
                                 <div class="col-4 col-md-5" style="max-width: 120px;">
@@ -79,7 +79,7 @@
 
             <div class="row">
                 <div class="col-md-6 mb-4 px-3 resource-fade-in" style="animation-delay: 1s;">
-                    <a href="DBS.html" class="resource-card-link">
+                    <a href="{{ route('detail', ['id' => encrypt(4)]) }}" class="resource-card-link">
                         <div class="card h-90 resource-card">
                             <div class="row g-0">
                                 <div class="col-4 col-md-4" style="max-width: 120px;">
@@ -101,7 +101,7 @@
                     </a>
                 </div>
                 <div class="col-md-6 mb-4 px-3 resource-fade-in" style="animation-delay: 1.2s;">
-                    <a href="GammaKnife.html" class="resource-card-link">
+                    <a href="{{ route('detail', ['id' => encrypt(5)]) }}" class="resource-card-link">
                         <div class="card h-90 resource-card">
                             <div class="row g-0">
                                 <div class="col-4 col-md-4" style="max-width: 120px;">

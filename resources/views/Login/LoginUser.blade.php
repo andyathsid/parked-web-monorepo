@@ -8,10 +8,11 @@
     <link rel="stylesheet" href="assets/css/login.css" />
     <title>Login Page</title>
     <link rel="icon" type="image/png" href="assets/logo/logo_ParkED.png" />
-
 </head>
 
 <body>
+    @include('sweetalert::alert')
+
     <div class="container" id="container">
         <div class="form-container sign-up">
             <form action="{{ route('register.submit') }}" method="POST">
@@ -23,7 +24,7 @@
                     <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
                     <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
                 </div>
-                <span>or use your email for registeration</span>
+                <span>or use your email for registration</span>
                 <!-- First Name -->
                 <input type="text" placeholder="First Name" name="first_name" value="{{ old('first_name') }}"
                     required />
@@ -82,15 +83,49 @@
                 </div>
                 <div class="toggle-panel toggle-right">
                     <h1>Hello, Friend!</h1>
-                    <p>
-                        Register with your personal details to use all of site features
-                    </p>
+                    <p>Register with your personal details to use all of site features</p>
                     <button class="hidden" id="register">Sign Up</button>
                 </div>
             </div>
         </div>
     </div>
+
+    <script src="vendor/sweetalert/sweetalert.all.js"></script>
+
     <script>
+        // Menampilkan SweetAlert berdasarkan sesi
+        document.addEventListener('DOMContentLoaded', function() {
+            @if (session('loginBerhasil'))
+                Swal.fire({
+                    title: "Berhasil!",
+                    text: "{{ session('loginBerhasil') }}",
+                    icon: "success",
+                    button: "OK",
+                }).then(() => {
+                    window.location.href = "/profile";
+                });
+            @endif
+
+            @if (session('loginGagal'))
+                Swal.fire({
+                    title: "Error!",
+                    text: "{{ session('loginGagal') }}",
+                    icon: "error",
+                    button: "OK",
+                });
+            @endif
+            @if (session('Registrasi Sukses'))
+                Swal.fire({
+                    title: "Berhasil!",
+                    text: "{{ session('Registrasi Sukses') }}",
+                    icon: "success",
+                    button: "OK",
+                });
+            @endif
+        });
+
+
+
         const container = document.getElementById("container");
         const registerBtn = document.getElementById("register");
         const loginBtn = document.getElementById("login");

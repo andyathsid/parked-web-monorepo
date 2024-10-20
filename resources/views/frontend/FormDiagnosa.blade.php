@@ -1,279 +1,117 @@
 @extends('frontend.layout.app')
 
 @section('content')
-    <div class="main-content">
+    <form action="/patient-form" method="POST" enctype="multipart/form-data">
+        @csrf
         <section class="bg-warning">
-            <h1 class="text-center py-5 sect-2 text-bold"><br> Diagnoses Form <br><br> </h1>
+            <div class="container">
+                <h1 class="text-center py-5 text-bold text-white">Diagnosis form</h1>
+
+                <div class="row justify-content-center pb-5">
+                    <div class="col-md-6">
+                        <div id="formdiagnosa-nameForm" class="bg-white p-4 rounded shadow">
+                            <div class="mb-3">
+                                <label for="firstName" class="form-label">First Name</label>
+                                <input type="text" class="form-control" id="firstName"
+                                    placeholder="Enter your first name" name="first_name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="lastName" class="form-label">Last Name</label>
+                                <input type="text" class="form-control" id="lastName" placeholder="Enter your last name"
+                                    name="last_name" required>
+                            </div>
+                            <div class="text-center">
+                                <a onclick="fungsidisplay()" class="btn btn-warning">Continue</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
-        <div class="container">
-            <form action="/patient-form" method="POST" enctype="multipart/form-data">
-                @csrf
+
+        <div class="main-content" style="display: none;">
+            <div class="container">
                 <!-- Diagnosa 1 -->
-                <div class="diagnosis-section mb-4">
+                <div class="formdiagnosa-diagnosis-section mb-4 mt-4">
                     <h2 class="text-center mb-2">
                         <button class="btn btn-link text-decoration-none" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#diagnosa1" aria-expanded="true" aria-controls="diagnosa1">
-                            Diagnosa 1
+                            data-bs-target="#formdiagnosa1" aria-expanded="true" aria-controls="formdiagnosa1">
+                            Diagnosis 1
                         </button>
                     </h2>
-                    <div class="collapse show" id="diagnosa1">
-                        <div class="py-5 bg-cream">
-                            <h3 class="text-center text-muted mb-4">Upload Image Hasil Gambar</h3>
+                    <div class="collapse show" id="formdiagnosa1">
+                        <div class="py-5 formdiagnosa-bg-cream">
+                            <p class="text-center text-muted mb-4">Spiral Image Analysis</p>
 
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
                                     <div class="row">
-                                        <div class="mt-4">
-                                            <div class="dropzone text-center p-5 border border-dashed rounded"
-                                                id="drop-area-image">
-                                                <div class="upload-form">
-                                                    <input type="file" id="fileElem" name="fileImage" accept="image/*"
-                                                        onchange="handleImageUpload(this.files)" style="display: none" />
-                                                    <i class="fas fa-image fa-3x text-muted mb-3"></i>
-                                                    <p class="mb-2">Drag and drop an image here</p>
-                                                    <p class="text-muted small mb-3">or</p>
-                                                    <button type="button" class="btn btn-warning"
-                                                        onclick="document.getElementById('fileElem').click()">
-                                                        Select a file
-                                                    </button>
-                                                </div>
-                                                <div id="preview-area" class="mt-3"></div>
-                                            </div>
-                                            <p class="text-muted small text-center mt-2">
-                                                JPG, PNG / Max. 60 MB / Min. 224px x 224px
-                                            </p>
+                                        <div class="col-md-6 mb-4 mb-md-0">
+                                            <img src="assets/img/Spiral.png" alt="Spiral Image"
+                                                class="img-fluid rounded mb-3"
+                                                style="width: 100%; height: 300px; object-fit: cover;">
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Diagnosa 2 -->
-                    <div class="diagnosis-section mb-4">
-                        <h2 class="text-center mb-2">
-                            <button class="btn btn-link text-decoration-none" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#diagnosa2" aria-expanded="false" aria-controls="diagnosa2">
-                                Diagnosa 2
-                            </button>
-                        </h2>
-                        <div class="collapse" id="diagnosa2">
-                            <div class="py-5 bg-orange">
-                                <h3 class="text-center text-muted mb-4">Voice Upload</h3>
-
-                                <div class="row justify-content-center">
-                                    <div class="col-lg-8">
-                                        <div class="row">
-                                            <div class="mt-4">
-                                                <div class="dropzone text-center p-5 border border-dashed rounded"
-                                                    id="drop-area-audio">
-                                                    <div class="upload-form">
-                                                        <i class="fas fa-microphone-alt fa-3x text-muted mb-3"></i>
-                                                        <p class="mb-2">Choose an option</p>
-                                                        <div class="d-flex justify-content-center mb-3">
-                                                            <button type="button" class="btn btn-primary me-3"
-                                                                id="chooseUpload">Upload Audio</button>
-                                                            <button type="button" class="btn btn-warning"
-                                                                id="chooseRecord">Record Audio</button>
+                                        <div class="col-md-6">
+                                            <div class="formdiagnosa-diagnosis-content">
+                                                <div class="formdiagnosa-diagnosis-text">
+                                                    <div class="mb-3">
+                                                        <div class="d-flex align-items-start">
+                                                            <span class="formdiagnosa-number-circle">1</span>
+                                                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur
+                                                                adipiscing
+                                                                elit, sed do eiusmod tempor incididunt ut labore et dolore
+                                                                magna
+                                                                aliqua.</p>
                                                         </div>
-
-                                                        <div id="uploadOption" class="d-none">
-                                                            <input type="file" id="fileAudio" accept="audio/*"
-                                                                onchange="handleAudioUpload(this.files)"
-                                                                style="display: none" name="audioUpload" />
-                                                            <!-- Perbaikan di sini -->
-                                                            <button type="button" class="btn btn-info"
-                                                                onclick="document.getElementById('fileAudio').click()">
-                                                                Select a file
-                                                            </button>
-                                                            <center>
-                                                                <audio id="audioUploadPlay" class="mt-3" controls
-                                                                    style="display: none;"></audio>
-                                                            </center>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <div class="d-flex align-items-start">
+                                                            <span class="formdiagnosa-number-circle">2</span>
+                                                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur
+                                                                adipiscing
+                                                                elit, sed do eiusmod tempor incididunt ut labore et dolore
+                                                                magna
+                                                                aliqua.</p>
                                                         </div>
-
-                                                        <div id="recordOption" class="d-none">
-                                                            <button type="button" class="btn btn-warning" id="recordBtn">
-                                                                Start Recording
-                                                            </button>
-                                                            <button type="button" class="btn btn-danger d-none"
-                                                                id="stopBtn">
-                                                                Stop Recording
-                                                            </button>
-                                                            <p style="color: red"> belum bisa upload bang ntaar lagi cobanya
-                                                                yg ini</p>
-                                                            <center>
-                                                                <audio id="audioPlayback" class="mt-3" controls
-                                                                    style="display: none;"></audio>
-                                                            </center>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <div class="d-flex align-items-start">
+                                                            <span class="formdiagnosa-number-circle">3</span>
+                                                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur
+                                                                adipiscing
+                                                                elit, sed do eiusmod tempor incididunt ut labore et dolore
+                                                                magna
+                                                                aliqua.</p>
                                                         </div>
                                                     </div>
                                                 </div>
-
-                                                <p class="text-muted small text-center mt-2">
-                                                    Max. 60 MB / Audio file
-                                                </p>
+                                                <div class="formdiagnosa-diagnosis-actions">
+                                                    <button class="btn btn-warning">See guide</button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-                    <!-- Diagnosa 3 -->
-                    <div class="diagnosis-section mb-4">
-                        <h2 class="text-center mb-2">
-                            <button class="btn btn-link text-decoration-none" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#diagnosa3" aria-expanded="false" aria-controls="diagnosa3">
-                                Diagnosa 3
-                            </button>
-                        </h2>
-                        <div class="collapse" id="diagnosa3">
-                            <div class="py-5 bg-cream">
-                                <h3 class="text-center text-muted mb-4">Form Input Voice</h3>
-                                <div class="row justify-content-center">
-                                    <div class="col-lg-8">
-                                        <div class="row">
-                                            <!-- Input Form Section -->
-                                            <div class="col-md-4 mt-3">
-                                                <div class="form-floating-custom">
-                                                    <input type="number" class="form-control" id="mdvpFo"
-                                                        name="mdvpFo" placeholder=" ">
-                                                    <label for="mdvpFo">MDVP:Fo (Hz)</label>
-                                                </div>
+                                    <div class="mt-4 formdiagnosa-upload-section">
+                                        <div class="formdiagnosa-dropzone text-center p-5 border border-dashed rounded"
+                                            id="formdiagnosa-drop-area">
+                                            <input type="file" id="formdiagnosa-fileElem" accept="image/*"
+                                                onchange="handleFiles(this.files)" style="display:none" name="fileModel1">
+                                            <div id="formdiagnosa-preview-container" class="mb-3" style="display:none;">
+                                                <img id="formdiagnosa-preview-image" src="" alt="Preview"
+                                                    style="max-width: 300px; max-height: 300px; object-fit: contain;">
                                             </div>
-                                            <div class="col-md-4 mt-3">
-                                                <div class="form-floating-custom">
-                                                    <input type="number" class="form-control" id="mdvpFhi"
-                                                        name="mdvpFhi" placeholder=" ">
-                                                    <label for="mdvpFhi">MDVP:Fhi (Hz)</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 mt-3">
-                                                <div class="form-floating-custom">
-                                                    <input type="number" class="form-control" id="mdvpFlo"
-                                                        name="mdvpFlo" placeholder=" ">
-                                                    <label for="mdvpFlo">MDVP:Flo (Hz)</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 mt-3">
-                                                <div class="form-floating-custom">
-                                                    <input type="number" class="form-control" id="mdvpJitter"
-                                                        name="mdvpJitter" placeholder=" ">
-                                                    <label for="mdvpJitter">MDVP:Jitter (%)</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 mt-3">
-                                                <div class="form-floating-custom">
-                                                    <input type="number" class="form-control" id="mdvpJitterAbs"
-                                                        name="mdvpJitterAbs" placeholder=" ">
-                                                    <label for="mdvpJitterAbs">MDVP:Jitter (Abs)</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 mt-3">
-                                                <div class="form-floating-custom">
-                                                    <input type="number" class="form-control" id="mdvpRAP"
-                                                        name="mdvpRAP" placeholder=" ">
-                                                    <label for="mdvpRAP">MDVP:RAP</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 mt-3">
-                                                <div class="form-floating-custom">
-                                                    <input type="number" class="form-control" id="mdvpPPQ"
-                                                        name="mdvpPPQ" placeholder=" ">
-                                                    <label for="mdvpPPQ">MDVP:PPQ</label>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-4 mt-3">
-                                                <div class="form-floating-custom">
-                                                    <input type="number" class="form-control" id="jitterDDP"
-                                                        name="jitterDDP" placeholder=" ">
-                                                    <label for="jitterDDP">Jitter:DDP</label>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-4 mt-3">
-                                                <div class="form-floating-custom">
-                                                    <input type="number" class="form-control" id="mdvpShimmer"
-                                                        name="mdvpShimmer" placeholder=" ">
-                                                    <label for="mdvpShimmer">MDVP:Shimmer (dB)</label>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-4 mt-3">
-                                                <div class="form-floating-custom">
-                                                    <input type="number" class="form-control" id="mdvpShimmerDb"
-                                                        name="mdvpShimmerDb" placeholder=" ">
-                                                    <label for="mdvpShimmerDb">MDVP:Shimmer</label>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-4 mt-3">
-                                                <div class="form-floating-custom">
-                                                    <input type="number" class="form-control" id="shimmerAPQ3"
-                                                        name="shimmerAPQ3" placeholder=" ">
-                                                    <label for="shimmerAPQ3">Shimmer:APQ3</label>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-4 mt-3">
-                                                <div class="form-floating-custom">
-                                                    <input type="number" class="form-control" id="shimmerAPQ5"
-                                                        name="shimmerAPQ5" placeholder=" ">
-                                                    <label for="shimmerAPQ5">Shimmer:APQ5</label>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-4 mt-3">
-                                                <div class="form-floating-custom">
-                                                    <input type="number" class="form-control" id="mdvpAPQ"
-                                                        name="mdvpAPQ" placeholder=" ">
-                                                    <label for="mdvpAPQ">MDVP:APQ</label>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-4 mt-3">
-                                                <div class="form-floating-custom">
-                                                    <input type="number" class="form-control" id="shimmerDDA"
-                                                        name="shimmerDDA" placeholder=" ">
-                                                    <label for="shimmerDDA">Shimmer:DDA</label>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-4 mt-3">
-                                                <div class="form-floating-custom">
-                                                    <input type="number" class="form-control" id="nhr"
-                                                        name="nhr" placeholder=" ">
-                                                    <label for="nhr">NHR</label>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-4 mt-3">
-                                                <div class="form-floating-custom">
-                                                    <input type="number" class="form-control" id="hnr"
-                                                        name="hnr" placeholder=" ">
-                                                    <label for="hnr">HNR</label>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-4 mt-3">
-                                                <div class="form-floating-custom">
-                                                    <input type="number" class="form-control" id="rpde"
-                                                        name="rpde" placeholder=" ">
-                                                    <label for="rpde">RPDE</label>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-4 mt-3">
-                                                <div class="form-floating-custom">
-                                                    <input type="number" class="form-control" id="dfa"
-                                                        name="dfa" placeholder=" ">
-                                                    <label for="dfa">DFA</label>
-                                                </div>
-                                            </div>
-
+                                            <i class="fas fa-image fa-3x text-muted mb-3"></i>
+                                            <p class="mb-2">Drag and drop an image here</p>
+                                            <button type="button" class="btn btn-warning"
+                                                onclick="document.getElementById('formdiagnosa-fileElem').click()">Select a
+                                                file</button>
+                                        </div>
+                                        <p class="text-muted small text-center mt-2">JPG, PNG / Max. 60 MB / Min. 224px x
+                                            224px</p>
+                                        <div class="text-center mt-3">
+                                            <button type="button" class="btn btn-warning" id="formdiagnosa-changeFileBtn"
+                                                style="display:none;" onclick="changeFile()">Change file</button>
                                         </div>
                                     </div>
                                 </div>
@@ -281,18 +119,217 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Diagnosa 2 -->
+                <div class="formdiagnosa-diagnosis-section mb-4">
+                    <h2 class="text-center mb-2">
+                        <button class="btn btn-link text-decoration-none" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#formdiagnosa2" aria-expanded="false" aria-controls="formdiagnosa2">
+                            Diagnosis 2
+                        </button>
+                    </h2>
+                    <div class="collapse" id="formdiagnosa2">
+                        <div class="py-5 formdiagnosa-bg-orange">
+                            <p class="text-center text-muted mb-4">Voice Analysis</p>
+
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <div class="row">
+                                        <div class="col-md-6 mb-4 mb-md-0">
+                                            <img src="assets/img/Voice.png" alt="Voice Analysis"
+                                                class="img-fluid rounded mb-3"
+                                                style="width: 100%; height: 300px; object-fit: cover;">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="formdiagnosa-diagnosis-content">
+                                                <div class="formdiagnosa-diagnosis-text">
+                                                    <div class="mb-3">
+                                                        <div class="d-flex align-items-start">
+                                                            <span class="formdiagnosa-number-circle">1</span>
+                                                            <p class="mb-0">Prepare a quiet environment for clear voice
+                                                                recording.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <div class="d-flex align-items-start">
+                                                            <span class="formdiagnosa-number-circle">2</span>
+                                                            <p class="mb-0">Choose to either upload an audio file or
+                                                                record
+                                                                your voice directly.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <div class="d-flex align-items-start">
+                                                            <span class="formdiagnosa-number-circle">3</span>
+                                                            <p class="mb-0">Speak clearly and at a normal pace for
+                                                                accurate
+                                                                analysis.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="formdiagnosa-diagnosis-actions">
+                                                    <button class="btn btn-warning">See guide</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="mt-4 formdiagnosa-upload-section">
+                                        <ul class="nav nav-tabs" id="voiceAnalysisTabs" role="tablist">
+                                            <li class="nav-item" role="presentation">
+                                                <button class="nav-link active" id="upload-tab" data-bs-toggle="tab"
+                                                    data-bs-target="#upload" type="button" role="tab"
+                                                    aria-controls="upload" aria-selected="true">Upload Audio</button>
+                                            </li>
+                                            <li class="nav-item" role="presentation">
+                                                <button class="nav-link" id="record-tab" data-bs-toggle="tab"
+                                                    data-bs-target="#record" type="button" role="tab"
+                                                    aria-controls="record" aria-selected="false">Record Voice</button>
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content" id="voiceAnalysisTabContent">
+                                            <div class="tab-pane fade show active" id="upload" role="tabpanel"
+                                                aria-labelledby="upload-tab">
+                                                <div class="formdiagnosa-dropzone text-center p-5 border border-dashed rounded"
+                                                    id="drop-area-audio">
+                                                    <input type="file" id="audioFileElem" accept="audio/*"
+                                                        onchange="handleAudioFiles(this.files)" style="display:none"
+                                                        name="fileModel2">
+                                                    <div id="audio-preview-container" class="mb-3"
+                                                        style="display:none;">
+                                                        <audio id="audio-preview" controls></audio>
+                                                    </div>
+                                                    <i class="fas fa-microphone fa-3x text-muted mb-3"></i>
+                                                    <p class="mb-2">Drag and drop an audio file here</p>
+                                                    <button type="button" class="btn btn-warning"
+                                                        onclick="document.getElementById('audioFileElem').click()">Select
+                                                        an audio file</button>
+                                                </div>
+                                                <p class="text-muted small text-center mt-2">MP3, WAV / Max. 10 MB / Max.
+                                                    30 seconds</p>
+                                                <div class="text-center mt-3">
+                                                    <button type="button" class="btn btn-warning" id="changeAudioBtn"
+                                                        style="display:none;" onclick="changeAudioFile()">Change
+                                                        file</button>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade" id="record" role="tabpanel"
+                                                aria-labelledby="record-tab">
+                                                <div class="text-center p-5 border border-dashed rounded">
+                                                    <i class="fas fa-microphone fa-3x text-muted mb-3"></i>
+                                                    <p class="mb-3">Click the button below to start recording</p>
+                                                    <button id="recordButton" class="btn btn-warning"
+                                                        name="recordedAudio">
+                                                        <i class="fas fa-microphone"></i> Start Recording
+                                                    </button>
+                                                    <p id="recordingStatus" class="mt-3 d-none">Recording: <span
+                                                            id="recordingTime">00:00</span></p>
+                                                    <audio id="audioPlayback" controls class="mt-3 d-none"></audio>
+                                                    <br>
+                                                    <button id="deleteRecordingBtn" class="btn btn-warning mt-3 d-none"
+                                                        onclick="deleteRecording()">Delete Recording</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Diagnosa 3 -->
+                <div class="formdiagnosa-diagnosis-section mb-4">
+                    <h2 class="text-center mb-2">
+                        <button class="btn btn-link text-decoration-none" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#formdiagnosa3" aria-expanded="false" aria-controls="formdiagnosa3">
+                            Diagnosis 3
+                        </button>
+                    </h2>
+                    <div class="collapse" id="formdiagnosa3">
+                        <div class="py-5 formdiagnosa-bg-cream">
+                            <p class="text-center text-muted mb-4">CT Scan Brain Analysis</p>
+
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <img src="assets/img/Ctscan.jpg" alt="Brain Image"
+                                                class="img-fluid rounded mb-3"
+                                                style="width: 100%; height: 300px; object-fit: cover;">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <div class="d-flex align-items-center mb-2">
+                                                    <span
+                                                        class="bg-warning rounded-circle me-2 formdiagnosa-number-circle">1</span>
+                                                    <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing
+                                                        elit,
+                                                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <div class="d-flex align-items-center mb-2">
+                                                    <span
+                                                        class="bg-warning rounded-circle me-2 formdiagnosa-number-circle">2</span>
+                                                    <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing
+                                                        elit,
+                                                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <div class="d-flex align-items-center mb-2">
+                                                    <span
+                                                        class="bg-warning rounded-circle me-2 formdiagnosa-number-circle">3</span>
+                                                    <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing
+                                                        elit,
+                                                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <button class="btn btn-warning">See guide</button>
+                                        </div>
+                                    </div>
+
+                                    <!-- Input 4: Another Image Upload -->
+                                    <div class="mt-4 formdiagnosa-upload-section">
+                                        <div class="formdiagnosa-dropzone text-center p-5 border border-dashed rounded"
+                                            id="drop-area-3">
+                                            <input type="file" id="fileElem3" accept="image/*"
+                                                onchange="handleFiles3(this.files)" style="display:none"
+                                                name="fileModel3">
+                                            <div id="preview-container-3" class="mb-3" style="display:none;">
+                                                <img id="preview-image-3" src="" alt="Preview"
+                                                    style="max-width: 300px; max-height: 300px; object-fit: contain;">
+                                            </div>
+                                            <i class="fas fa-image fa-3x text-muted mb-3"></i>
+                                            <p class="mb-2">Drag and drop an image here</p>
+                                            <button type="button" class="btn btn-warning"
+                                                onclick="document.getElementById('fileElem3').click()">Select a
+                                                file</button>
+                                        </div>
+                                        <p class="text-muted small text-center mt-2">JPG, PNG / Max. 60 MB / Min. 224px x
+                                            224px</p>
+                                        <div class="text-center mt-3">
+                                            <button type="button" class="btn btn-warning" id="changeFileBtn3"
+                                                style="display:none;" onclick="changeFile3()">Change file</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <section class="bg-warning">
+                <h1 class="text-center py-5 text-bold text-white">All done!</h1>
+                <div class="text-center pb-5">
+                    <button type="submit" class="btn btn-custom btn-lg">Submit!</button>
+                </div>
+            </section>
         </div>
-    </div>
-    </div>
-    </div>
-    </div>
-
-    <div class="text-center pb-5">
-        <button type="submit" class="btn btn-input btn-lg">Diagnose Now!</button>
-    </div>
     </form>
-
-    </div>
-    </div>
-    </div>
 @endsection

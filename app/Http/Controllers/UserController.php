@@ -13,6 +13,7 @@ class UserController extends Controller
         $tittle = 'Profile User';
         return \view('frontend/user/profile', \compact('user', 'tittle'));
     }
+    public function updateProfile() {}
     public function history()
     {
         $user = Auth::user();

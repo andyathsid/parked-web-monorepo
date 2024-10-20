@@ -20,11 +20,12 @@
             <div class="col-md-8 col-lg-9">
                 <h1 class="text-center mb-4">Profile User</h1>
 
-                <form>
+                <form action="/update-profile" method="POST" enctype="multipart/form-data">
+                    @csrf
                     <div class="row">
                         <div class="col-md-3 mb-3 text-center">
                             <img id="imagePreview" src="{{ $user->photo }}" class="img-thumbnail" alt="Profile Picture"
-                                style="max-width: 300px; height: auto;">
+                                style="max-width: 150px; height: auto;">
                         </div>
 
                         <div class="col-md-9 mb-3">
@@ -68,8 +69,6 @@
                         <label for="occupation" class="form-label">Occupation</label>
                         <input type="text" class="form-control" id="occupation" value="{{ $user->occupation }}">
                     </div>
-
-
 
                     <div class="text-center">
                         <button type="submit" class="btn btn-primary">Save Changes</button>

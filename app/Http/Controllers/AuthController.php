@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
+use Illuminate\Console\View\Components\Alert;
+// use Alert;
 
 class AuthController extends Controller
 {
@@ -31,9 +33,9 @@ class AuthController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        $user->sendEmailVerificationNotification();
+        // $user->sendEmailVerificationNotification();
 
-        return redirect()->route('login')->with('message', 'Registrasi berhasil! Silakan verifikasi email Anda.');
+        return redirect()->route('login')->with('Registrasi Sukses', 'Registrasi berhasil! Silakan verifikasi email Anda.');
     }
 
     public function login(Request $request)
@@ -42,15 +44,16 @@ class AuthController extends Controller
             'email' => 'required|string|email',
             'password' => 'required|string',
         ]);
-
-        if (Auth::attempt($request->only('email', 'password'))) {
-
-            return redirect()->intended('/profile');
+        $user = User::where('email', $request->email)->first();
+        if ($user) {
+            if (Auth::attempt($request->only('email', 'password'))) {
+                return redirect()->route('login')->with('loginBerhasil', 'Login berhasil! Selamat datang!');
+            } else {
+                return redirect()->route('login')->with('loginGagal', 'Email atau Password Salah!');
+            }
+        } else {
+            return redirect()->route('login')->with('loginGagal', 'Email tidak terdaftar!');
         }
-
-        throw ValidationException::withMessages([
-            'email' => 'Email atau password salah.',
-        ]);
     }
 
     public function logout(Request $request)

@@ -1,14 +1,3 @@
-let chunks = [];
-let mediaRecorder;
-
-const recordBtn = document.getElementById("recordBtn");
-const stopBtn = document.getElementById("stopBtn");
-const audioPlayback = document.getElementById("audioPlayback");
-const uploadOption = document.getElementById("uploadOption");
-const recordOption = document.getElementById("recordOption");
-const chooseUpload = document.getElementById("chooseUpload");
-const chooseRecord = document.getElementById("chooseRecord");
-
 document.querySelectorAll(".btn-ripple").forEach((button) => {
     button.addEventListener("click", function (e) {
         let x = e.clientX - e.target.offsetLeft;
@@ -95,56 +84,77 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 1000);
 });
 
-chooseUpload.addEventListener("click", () => {
-    uploadOption.classList.remove("d-none");
-    recordOption.classList.add("d-none");
-    audioPlayback.style.display = "none";
-});
+document.addEventListener("DOMContentLoaded", function () {
+    // Seleksi semua input fields
+    const inputs = document.querySelectorAll(".form-control");
 
-chooseRecord.addEventListener("click", () => {
-    recordOption.classList.remove("d-none");
-    uploadOption.classList.add("d-none");
-    audioPlayback.style.display = "none";
-});
+    // Fungsi untuk mengecek apakah ada input yang terisi
+    function checkInputs() {
+        let isAnyFilled = false;
 
-recordBtn.addEventListener("click", async () => {
-    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-        try {
-            const stream = await navigator.mediaDevices.getUserMedia({
-                audio: true,
-            });
-            mediaRecorder = new MediaRecorder(stream);
+        // Cek apakah ada input yang memiliki nilai
+        inputs.forEach((input) => {
+            if (input.value.trim() !== "") {
+                isAnyFilled = true;
+            }
+        });
 
-            mediaRecorder.ondataavailable = (e) => {
-                chunks.push(e.data);
-            };
-
-            mediaRecorder.onstop = () => {
-                const blob = new Blob(chunks, {
-                    type: "audio/ogg; codecs=opus",
-                });
-                chunks = [];
-                const audioURL = window.URL.createObjectURL(blob);
-                audioPlayback.src = audioURL;
-                audioPlayback.style.display = "block";
-            };
-
-            mediaRecorder.start();
-            recordBtn.classList.add("d-none");
-            stopBtn.classList.remove("d-none");
-        } catch (err) {
-            console.error("Recording failed", err);
-        }
+        // Jika salah satu terisi, semua menjadi required
+        inputs.forEach((input) => {
+            if (isAnyFilled) {
+                input.setAttribute("required", true);
+            } else {
+                input.removeAttribute("required");
+            }
+        });
     }
+
+    // Event listener untuk setiap perubahan input
+    inputs.forEach((input) => {
+        input.addEventListener("input", checkInputs);
+    });
 });
 
-stopBtn.addEventListener("click", () => {
-    mediaRecorder.stop();
-    recordBtn.classList.remove("d-none");
-    stopBtn.classList.add("d-none");
-});
+function previewImage(event) {
+    const imagePreview = document.getElementById("imagePreview");
+    imagePreview.src = URL.createObjectURL(event.target.files[0]);
+    imagePreview.onload = function () {
+        URL.revokeObjectURL(imagePreview.src); // Free memory
+    };
+}
 
-let dropArea = document.getElementById("drop-area");
+// Form Diagnosa
+function fungsidisplay() {
+    const firstName = document.getElementById("firstName").value.trim();
+    const lastName = document.getElementById("lastName").value.trim();
+    const nameForm = document.getElementById("formdiagnosa-nameForm");
+    const diagnosisSection = document.querySelector(".main-content");
+
+    if (firstName === "" || lastName === "") {
+        Swal.fire({
+            title: "Empty Form",
+            text: "Please fill in both first name and last name.",
+            icon: "error",
+            confirmButtonText: "Oke",
+        });
+        return;
+    }
+
+    nameForm.style.transition = "opacity 0.5s ease";
+    nameForm.style.opacity = "0";
+
+    setTimeout(() => {
+        nameForm.style.display = "none";
+        diagnosisSection.style.display = "block";
+        diagnosisSection.style.opacity = "0";
+
+        setTimeout(() => {
+            diagnosisSection.style.transition = "opacity 0.5s ease";
+            diagnosisSection.style.opacity = "1";
+        }, 10);
+    }, 500);
+}
+let dropArea = document.getElementById("formdiagnosa-drop-area");
 
 ["dragenter", "dragover", "dragleave", "drop"].forEach((eventName) => {
     dropArea.addEventListener(eventName, preventDefaults, false);
@@ -179,160 +189,240 @@ function handleDrop(e) {
     handleFiles(files);
 }
 
-// Fungsi untuk menangani file yang diunggah
-function handleImageUpload(files) {
-    const previewArea = document.getElementById("preview-area");
-    previewArea.innerHTML = ""; // Clear previous content
-
+function handleFiles(files) {
     if (files.length > 0) {
         const file = files[0];
-        const fileSizeMB = file.size / (1024 * 1024); // Convert size to MB
-        const fileType = file.type;
-
-        // Batasi ukuran file menjadi 60MB
-        if (fileSizeMB > 60) {
-            previewArea.innerHTML =
-                '<p class="text-danger">File size exceeds 60 MB. Please upload a smaller image file.</p>';
-            return;
-        }
-
-        // Cek apakah file adalah gambar
-        if (fileType.startsWith("image/")) {
+        if (file.type.startsWith("image/")) {
             const reader = new FileReader();
             reader.onload = function (e) {
-                // Create an image element to display the uploaded image
-                const img = document.createElement("img");
-                img.src = e.target.result; // Set image source to the uploaded file
-                img.classList.add("img-fluid", "mt-3"); // Add Bootstrap classes for styling
-                previewArea.appendChild(img); // Append the image to the preview area
+                document.getElementById("formdiagnosa-preview-image").src =
+                    e.target.result;
+                document.getElementById(
+                    "formdiagnosa-preview-container"
+                ).style.display = "block";
+                document.getElementById(
+                    "formdiagnosa-changeFileBtn"
+                ).style.display = "inline-block";
+                document.querySelector(".fa-image").style.display = "none";
+                document.querySelector(".dropzone p").style.display = "none";
+                document.querySelector(".dropzone .btn-warning").style.display =
+                    "none";
             };
             reader.readAsDataURL(file);
         } else {
-            previewArea.innerHTML =
-                '<p class="text-danger">Please upload a valid image file.</p>';
+            alert("Please select an image file.");
         }
     }
 }
-function handleAudioUpload(files) {
-    const audioPlayback = document.getElementById("audioUploadPlay");
-    const previewArea = document.getElementById("preview-area");
-    previewArea.innerHTML = ""; // Clear previous content
-    audioPlayback.style.display = "none"; // Hide audio playback initially
 
-    if (files.length > 0) {
-        const file = files[0];
-        const fileSizeMB = file.size / (1024 * 1024); // Convert size to MB
-        const fileType = file.type;
-
-        // Batasi ukuran file menjadi 60MB
-        if (fileSizeMB > 60) {
-            previewArea.innerHTML =
-                '<p class="text-danger">File size exceeds 60 MB. Please upload a smaller audio file.</p>';
-            return;
-        }
-
-        // Cek apakah file adalah audio
-        if (fileType.startsWith("audio/")) {
-            const reader = new FileReader();
-            reader.onload = function (e) {
-                audioPlayback.src = e.target.result; // Set audio source to the uploaded file
-                audioPlayback.style.display = "block"; // Display audio controls
-            };
-            reader.readAsDataURL(file);
-        } else {
-            previewArea.innerHTML =
-                '<p class="text-danger">Please upload a valid audio file.</p>';
-        }
-    }
-}
-function uploadFile(file) {
-    // Implementasi upload file ke server Anda di sini
-    console.log("Uploading file:", file.name);
-    // Contoh: bisa menggunakan FormData dan fetch untuk mengirim file ke server
+function changeFile() {
+    document.getElementById("formdiagnosa-fileElem").value = "";
+    document.getElementById("formdiagnosa-preview-container").style.display =
+        "none";
+    document.getElementById("formdiagnosa-changeFileBtn").style.display =
+        "none";
+    document.querySelector(".fa-image").style.display = "block";
+    document.querySelector(".dropzone p").style.display = "block";
+    document.querySelector(".dropzone .btn-warning").style.display =
+        "inline-block";
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-    // Seleksi semua input fields
-    const inputs = document.querySelectorAll(".form-control");
+let mediaRecorder;
+let audioChunks = [];
+let isRecording = false;
+let recordingTimer;
 
-    // Fungsi untuk mengecek apakah ada input yang terisi
-    function checkInputs() {
-        let isAnyFilled = false;
+document
+    .getElementById("recordButton")
+    .addEventListener("click", toggleRecording);
 
-        // Cek apakah ada input yang memiliki nilai
-        inputs.forEach((input) => {
-            if (input.value.trim() !== "") {
-                isAnyFilled = true;
-            }
-        });
-
-        // Jika salah satu terisi, semua menjadi required
-        inputs.forEach((input) => {
-            if (isAnyFilled) {
-                input.setAttribute("required", true);
-            } else {
-                input.removeAttribute("required");
-            }
-        });
+function toggleRecording() {
+    if (!isRecording) {
+        startRecording();
+    } else {
+        stopRecording();
     }
+}
 
-    // Event listener untuk setiap perubahan input
-    inputs.forEach((input) => {
-        input.addEventListener("input", checkInputs);
-    });
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-    const animatedElements = document.querySelectorAll(
-        ".bg-warning h1, .container:not(footer .container) h2, .container:not(footer .container) p, .card"
-    );
-
-    function isElementInViewport(el) {
-        const rect = el.getBoundingClientRect();
-        return (
-            rect.top <=
-                (window.innerHeight || document.documentElement.clientHeight) &&
-            rect.bottom >= 0 &&
-            rect.left <=
-                (window.innerWidth || document.documentElement.clientWidth) &&
-            rect.right >= 0
-        );
-    }
-
-    function animateElements() {
-        animatedElements.forEach((element) => {
-            if (
-                isElementInViewport(element) &&
-                !element.classList.contains("animate")
-            ) {
-                element.classList.add("animate");
-            }
+async function startRecording() {
+    try {
+        const stream = await navigator.mediaDevices.getUserMedia({
+            audio: true,
         });
+        mediaRecorder = new MediaRecorder(stream);
+
+        mediaRecorder.ondataavailable = (event) => {
+            audioChunks.push(event.data);
+        };
+
+        mediaRecorder.onstop = () => {
+            const audioBlob = new Blob(audioChunks, { type: "audio/wav" });
+            const audioUrl = URL.createObjectURL(audioBlob);
+            document.getElementById("audioPlayback").src = audioUrl;
+        };
+
+        mediaRecorder.start();
+        isRecording = true;
+        document.getElementById("recordButton").innerHTML =
+            '<i class="fas fa-stop"></i> Stop Recording';
+        document.getElementById("recordingStatus").classList.remove("d-none");
+        startTimer();
+    } catch (err) {
+        console.error("Error accessing microphone:", err);
     }
+}
 
-    // Initial check
-    animateElements();
+function stopRecording() {
+    mediaRecorder.stop();
+    isRecording = false;
+    document.getElementById("recordButton").classList.add("d-none"); // Hide record button
+    document.getElementById("audioPlayback").classList.remove("d-none");
+    document.getElementById("deleteRecordingBtn").classList.remove("d-none");
+    clearInterval(recordingTimer);
+}
 
-    // Trigger animation for elements above the fold immediately
-    setTimeout(animateElements, 100);
-
-    // Check on scroll
-    window.addEventListener("scroll", animateElements);
-
-    // Fallback to ensure animation occurs
-    setTimeout(() => {
-        document.querySelectorAll(".bg-warning h1").forEach((el) => {
-            if (!el.classList.contains("animate")) {
-                el.classList.add("animate");
-            }
-        });
+function startTimer() {
+    let seconds = 0;
+    recordingTimer = setInterval(() => {
+        seconds++;
+        const minutes = Math.floor(seconds / 60);
+        const remainingSeconds = seconds % 60;
+        document.getElementById("recordingTime").textContent = `${minutes
+            .toString()
+            .padStart(2, "0")}:${remainingSeconds.toString().padStart(2, "0")}`;
     }, 1000);
+}
+
+function handleAudioFiles(files) {
+    if (files.length > 0) {
+        const file = files[0];
+        if (file.type.startsWith("audio/")) {
+            const audioPreview = document.getElementById("audio-preview");
+            audioPreview.src = URL.createObjectURL(file);
+            document.getElementById("audio-preview-container").style.display =
+                "block";
+            document.getElementById("changeAudioBtn").style.display =
+                "inline-block";
+            document.querySelector(
+                "#drop-area-audio .fa-microphone"
+            ).style.display = "none";
+            document.querySelector("#drop-area-audio p").style.display = "none";
+            document.querySelector(
+                "#drop-area-audio .btn-warning"
+            ).style.display = "none";
+        } else {
+            alert("Please select an audio file.");
+        }
+    }
+}
+
+function changeAudioFile() {
+    document.getElementById("audioFileElem").value = "";
+    document.getElementById("audio-preview-container").style.display = "none";
+    document.getElementById("changeAudioBtn").style.display = "none";
+    document.querySelector("#drop-area-audio .fa-microphone").style.display =
+        "block";
+    document.querySelector("#drop-area-audio p").style.display = "block";
+    document.querySelector("#drop-area-audio .btn-warning").style.display =
+        "inline-block";
+}
+
+let dropArea3 = document.getElementById("drop-area-3");
+
+["dragenter", "dragover", "dragleave", "drop"].forEach((eventName) => {
+    dropArea3.addEventListener(eventName, preventDefaults, false);
 });
 
-function previewImage(event) {
-    const imagePreview = document.getElementById("imagePreview");
-    imagePreview.src = URL.createObjectURL(event.target.files[0]);
-    imagePreview.onload = function () {
-        URL.revokeObjectURL(imagePreview.src); // Free memory
-    };
+["dragenter", "dragover"].forEach((eventName) => {
+    dropArea3.addEventListener(eventName, highlight3, false);
+});
+
+["dragleave", "drop"].forEach((eventName) => {
+    dropArea3.addEventListener(eventName, unhighlight3, false);
+});
+
+function highlight3(e) {
+    dropArea3.classList.add("highlight");
 }
+
+function unhighlight3(e) {
+    dropArea3.classList.remove("highlight");
+}
+
+dropArea3.addEventListener("drop", handleDrop3, false);
+
+function handleDrop3(e) {
+    let dt = e.dataTransfer;
+    let files = dt.files;
+    handleFiles3(files);
+}
+
+function handleFiles3(files) {
+    if (files.length > 0) {
+        const file = files[0];
+        if (file.type.startsWith("image/")) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                document.getElementById("preview-image-3").src =
+                    e.target.result;
+                document.getElementById("preview-container-3").style.display =
+                    "block";
+                document.getElementById("changeFileBtn3").style.display =
+                    "inline-block";
+                document.querySelector("#drop-area-3 .fa-image").style.display =
+                    "none";
+                document.querySelector("#drop-area-3 p").style.display = "none";
+                document.querySelector(
+                    "#drop-area-3 .btn-warning"
+                ).style.display = "none";
+            };
+            reader.readAsDataURL(file);
+        } else {
+            alert("Please select an image file.");
+        }
+    }
+}
+
+function changeFile3() {
+    document.getElementById("fileElem3").value = "";
+    document.getElementById("preview-container-3").style.display = "none";
+    document.getElementById("changeFileBtn3").style.display = "none";
+    document.querySelector("#drop-area-3 .fa-image").style.display = "block";
+    document.querySelector("#drop-area-3 p").style.display = "block";
+    document.querySelector("#drop-area-3 .btn-warning").style.display =
+        "inline-block";
+}
+
+function deleteRecording() {
+    // Reset audio playback
+    document.getElementById("audioPlayback").src = "";
+    document.getElementById("audioPlayback").classList.add("d-none");
+
+    // Show recording button
+    document.getElementById("recordButton").classList.remove("d-none");
+    document.getElementById("recordButton").innerHTML =
+        '<i class="fas fa-microphone"></i> Start Recording';
+
+    // Hide delete button
+    document.getElementById("deleteRecordingBtn").classList.add("d-none");
+
+    // Reset recording status
+    document.getElementById("recordingStatus").classList.add("d-none");
+
+    // Reset variables
+    audioChunks = [];
+    isRecording = false;
+}
+
+// Tambahkan event listener untuk audio playback
+document.getElementById("audioPlayback").addEventListener("play", function () {
+    document.getElementById("recordButton").classList.add("d-none");
+});
+
+document.getElementById("audioPlayback").addEventListener("pause", function () {
+    document.getElementById("recordButton").classList.remove("d-none");
+});
+
+document.getElementById("audioPlayback").addEventListener("ended", function () {
+    document.getElementById("recordButton").classList.remove("d-none");
+});

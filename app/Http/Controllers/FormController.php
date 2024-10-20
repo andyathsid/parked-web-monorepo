@@ -49,103 +49,47 @@ class FormController extends Controller
             'file_path' => isset($filePath) ? $filePath : null,
         ]);
     }
-    public function store(Request $request)
-    {
-        $validatedData = $request->validate([
-            'mdvpFo' => 'required|numeric',
-            'mdvpFhi' => 'required|numeric',
-            'mdvpFlo' => 'required|numeric',
-            'mdvpJitter' => 'required|numeric',
-            'mdvpJitterAbs' => 'required|numeric',
-            'mdvpRAP' => 'required|numeric',
-            'mdvpPPQ' => 'required|numeric',
-            'jitterDDP' => 'required|numeric',
-            'mdvpShimmer' => 'required|numeric',
-            'mdvpShimmerDb' => 'required|numeric',
-            'shimmerAPQ3' => 'required|numeric',
-            'shimmerAPQ5' => 'required|numeric',
-            'mdvpAPQ' => 'required|numeric',
-            'shimmerDDA' => 'required|numeric',
-            'nhr' => 'required|numeric',
-            'hnr' => 'required|numeric',
-            'rpde' => 'required|numeric',
-            'dfa' => 'required|numeric',
-        ]);
-        return response()->json([
-            'success' => true,
-            'data' => $validatedData,
-            'message' => 'Data berhasil diterima.'
-        ], 200);
-    }
 
     public function pastientUpload(Request $request)
     {
         $request->validate([
-            'fileImage' => 'nullable|image|mimes:jpg,png|max:61440',
-            'audioUplod' => 'nullable|mimes:mp3,wav|max:61440',
-            'mdvpFo' => 'nullable|numeric',
-            'mdvpFhi' => 'nullable|numeric',
-            'mdvpFlo' => 'nullable|numeric',
-            'mdvpJitter' => 'nullable|numeric',
-            'mdvpJitterAbs' => 'nullable|numeric',
-            'mdvpRAP' => 'nullable|numeric',
-            'mdvpPPQ' => 'nullable|numeric',
-            'jitterDDP' => 'nullable|numeric',
-            'mdvpShimmer' => 'nullable|numeric',
-            'mdvpShimmerDb' => 'nullable|numeric',
-            'shimmerAPQ3' => 'nullable|numeric',
-            'shimmerAPQ5' => 'nullable|numeric',
-            'mdvpAPQ' => 'nullable|numeric',
-            'shimmerDDA' => 'nullable|numeric',
-            'nhr' => 'nullable|numeric',
-            'hnr' => 'nullable|numeric',
-            'rpde' => 'nullable|numeric',
-            'dfa' => 'nullable|numeric',
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'fileModel1' => 'nullable|image|mimes:jpg,png|max:61440',
+            'fileModel2' => 'nullable|mimes:mp3,wav|max:61440',
+            'fileModel3' => 'nullable|image|mimes:jpg,png|max:61440',
         ]);
+        \dd($request);
         $uploadedData = [
-            'image' => null,
-            'audio' => null,
-            'inputs' => $request->only([
-                'mdvpFo',
-                'mdvpFhi',
-                'mdvpFlo',
-                'mdvpJitter',
-                'mdvpJitterAbs',
-                'mdvpRAP',
-                'mdvpPPQ',
-                'jitterDDP',
-                'mdvpShimmer',
-                'mdvpShimmerDb',
-                'shimmerAPQ3',
-                'shimmerAPQ5',
-                'mdvpAPQ',
-                'shimmerDDA',
-                'nhr',
-                'hnr',
-                'rpde',
-                'dfa',
-            ]),
+            'vm-file' => null,
+            'sd-file' => null,
+            'ni-file' => null
         ];
         // \dd($uploadedData);
-        if ($request->hasFile('fileImage')) {
-            $imagePath = $request->file('fileImage')->store('images', 'public');
-            $uploadedData['image'] = $imagePath;
+        if ($request->hasFile('fileModel1')) {
+            $imagePath = $request->file('fileModel1')->store('file_modul1', 'public');
+            $uploadedData['vm_file'] = $imagePath;
         }
 
-        if ($request->hasFile('audioUpload')) {
-            $audioPath = $request->file('audioUpload')->store('audios', 'public');
-            $uploadedData['audio'] = $audioPath;
+        if ($request->hasFile('fileModel2')) {
+            $audioPath = $request->file('fileModel2')->store('file_modul2', 'public');
+            $uploadedData['sd-file'] = $audioPath;
         } elseif ($request->input('recordedAudio')) { // masih belum dapet nilai ntar dibenerin
             $audioData = $request->input('recordedAudio');
             $audioData = str_replace('data:audio/wav;base64,', '', $audioData);
             $audioData = base64_decode($audioData);
             $audioPath = 'audios/recorded-' . time() . '.wav';
             Storage::disk('public')->put($audioPath, $audioData);
-            $uploadedData['audio'] = $audioPath;
+            $uploadedData['sd-file'] = $audioPath;
+        }
+
+        if ($request->hasFile('fileModel3')) {
+            $fileModel3 = $request->file('fileModel3')->store('file_modul3', 'public');
+            $uploadedData['ni-file'] = $fileModel3;
         }
         \dd($uploadedData);
         // Kirim data Ke API Link
-        $response = Http::post('https://events.launchdarkly.com/events/bulk/60645109ece3b60c64ac5e02', $uploadedData);
+        $response = Http::post('https://91qptmtp7e.execute-api.ap-southeast-1.amazonaws.com/test/predict', $uploadedData);
 
         // Periksa respons dari API
         if ($response->successful()) {

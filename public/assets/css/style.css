@@ -43,7 +43,10 @@ button {
     background-color: #ffc107 !important;
 }
 
-.active
+.active{
+    border-bottom: 2px solid #ffc107;
+    font-weight:600;
+}
 
 .navbar-brand {
     font-weight: bold;
@@ -479,12 +482,13 @@ footer a:hover {
 
 /* end disclaimer */
 /* diagnosa */
-
-.main-content {
-    flex: 1 0 auto;
+.formdiagnosa-bg-cream {
+    background-color: #FFF5E6; /* Warna krem lembut */
 }
-
-.number-circle {
+.formdiagnosa-bg-orange {
+background-color: #FFF2C0; /* Warna oranye */
+}
+.formdiagnosa-number-circle {
     width: 24px;
     height: 24px;
     display: flex;
@@ -492,92 +496,171 @@ footer a:hover {
     justify-content: center;
     font-weight: bold;
     flex-shrink: 0;
-    border: 1px solid black;
-    /* Menambahkan border hitam */
+    border: 1px solid black; /* Menambahkan border hitam */
 }
-
 .border-dashed {
     border-style: dashed !important;
 }
-
-.dropzone {
+.formdiagnosa-dropzone {
     background-color: #ffffff;
     cursor: pointer;
 }
-
-.dropzone:hover {
+.formdiagnosa-dropzone:hover {
     background-color: #f8f9fa;
 }
-
-.dropzone.highlight {
+.formdiagnosa-dropzone.highlight {
     border-color: #007bff;
     background-color: #e9ecef;
 }
-
-.diagnosis-section .btn-link {
+.formdiagnosa-diagnosis-section .btn-link {
     color: inherit;
     font-size: inherit;
     font-weight: inherit;
 }
 
-.diagnosis-section .btn-link:hover,
-.diagnosis-section .btn-link:focus {
+.formdiagnosa-diagnosis-section .btn-link:hover,
+.formdiagnosa-diagnosis-section .btn-link:focus {
     text-decoration: underline;
 }
-input[type="number"] {
-    border: 2px solid #ffc107;
-}
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-input[type="number"] {
-    -moz-appearance: textfield; 
+.social-icons a {
+    transition: transform 0.3s ease;
 }
 
-.form-floating-custom {
-    position: relative;
-    margin-bottom: 1.5rem;
+.social-icons a:hover {
+    transform: translateY(-3px);
 }
-.form-floating-custom label {
-    position: absolute;
-    top: 10px;
-    left: 12px;
-    color: #6c757d;
-    transition: all 0.2s;
-    pointer-events: none;
-}
-.form-floating-custom input {
-    padding: 12px 12px 8px;
-    border: 2px solid #ffc107;
-    border-radius: 5px;
-}
-.form-floating-custom input:focus {
-    outline: none;
-    border-color: #ff9800;
-}
-.form-floating-custom input:focus + label,
-.form-floating-custom input:not(:placeholder-shown) + label {
-    top: -24px;
-    left: 3px;
-    font-size: 15px;
-    color: #000000;
-}
-.btn-input {
-    background-color: #ffc107;
-    color: #000;
-    border: none;
+
+.formdiagnosa-diagnosis-section {
+    margin-bottom: 2rem;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
 }
 
-.btn-input:hover,
-.btn-input:focus {
-    background-color: #ffca2c;
-    color: #000;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.formdiagnosa-diagnosis-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
 }
+
+.formdiagnosa-diagnosis-section .btn-link {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.formdiagnosa-diagnosis-section .btn-link:hover,
+.formdiagnosa-diagnosis-section .btn-link:focus {
+    color: #FFA500;
+    text-decoration: none;
+}
+
+.formdiagnosa-bg-cream, .formdiagnosa-bg-orange {
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.formdiagnosa-bg-cream {
+    background-color: #FFF5E6;
+}
+
+.formdiagnosa-bg-orange {
+    background-color: #FFE0B2;
+}
+
+.formdiagnosa-number-circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #FFA500;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-right: 1rem;
+}
+
+.formdiagnosa-dropzone {
+    background-color: #ffffff;
+    border: 2px dashed #FFA500;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.formdiagnosa-dropzone:hover, .formdiagnosa-dropzone.highlight {
+    background-color: #FFF5E6;
+    border-color: #FF8C00;
+}
+
+.btn-warning {
+    background-color: #FFA500;
+    border-color: #FFA500;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.btn-warning:hover {
+    background-color: #FF8C00;
+    border-color: #FF8C00;
+    color: white;
+}
+
+.img-fluid {
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Add these new styles */
+.formdiagnosa-diagnosis-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.formdiagnosa-diagnosis-text {
+    flex-grow: 1;
+}
+
+.formdiagnosa-diagnosis-actions {
+    margin-top: 1rem;
+}
+
+.formdiagnosa-upload-section {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.text-bold{
+    font-weight: bold;
+}
+
+.btn-custom {
+    background-color: #ffffff;
+    color: #ffa500;
+    border: 2px solid #ffffff;
+    padding: 10px 30px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-custom:hover, .btn-custom:focus {
+    background-color: transparent;
+    color: #ffffff;
+    border-color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.btn-custom {
+    display: inline-block;
+}
+
 /* resources style bentrok */
 .resource-form-container {
     background-color: #f8f9fa;
