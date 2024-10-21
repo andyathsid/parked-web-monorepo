@@ -39,7 +39,7 @@
     <section class="bg-warning">
         <h1 class="text-center pt-5 pb-3 sect-2">What to do next when <br> Parkinson's disease is <br>suspected ?</h1>
         <div class="text-center pb-5">
-            <a href="/resources" class="btn btn-custom btn-lg">Read Resources</a>
+            <a href="/resources" class="btn btn-custom btn-lg text-black">Read Resources</a>
         </div>
     </section>
 

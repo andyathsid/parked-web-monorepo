@@ -17,6 +17,17 @@
                     <a class="nav-link {{ Request::is('information') ? 'actives' : '' }}"
                         href="/information">Information</a>
                 </li>
+                @auth
+                    <li class="nav-item d-lg-none">
+                        <a class="nav-link" href="/profile">Profile</a>
+                    </li>
+                    <li class="nav-item d-lg-none">
+                        <a class="nav-link" href="/history">History</a>
+                    </li>
+                    <li class="nav-item d-lg-none">
+                        <a class="nav-link" href="/logout">Logout</a>
+                    </li>
+                @endauth
                 @guest
                     <li class="nav-item d-lg-none">
                         <a class="nav-link" href="/login">Sign In</a>
@@ -29,16 +40,15 @@
         @endguest
 
         @auth
-            <div class="dropdown">
-                <button class="btn btn-user-dropdown d-none d-lg-block" type="button" id="userDropdown"
-                    data-bs-toggle="dropdown" aria-expanded="false">
+            <div class="dropdown d-none d-lg-block">
+                <button class="btn btn-user-dropdown" type="button" id="userDropdown" data-bs-toggle="dropdown"
+                    aria-expanded="false">
                     <img src="{{ $user->photo }}" alt="" class="border rounded-circle" width="50px">
                 </button>
                 <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="userDropdown">
-                    <li><a class="dropdown-item" href="/profile">Account</a></li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
+                    <li><a class="dropdown-item" href="/profile">Profile</a></li>
+                    <li><a class="dropdown-item" href="/history">History</a></li>
+                    <li><hr class="dropdown-divider"></li>
                     <li><a class="dropdown-item" href="/logout">Logout</a></li>
                 </ul>
             </div>

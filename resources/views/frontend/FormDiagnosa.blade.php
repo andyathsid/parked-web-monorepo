@@ -5,7 +5,7 @@
         @csrf
         <section class="bg-warning">
             <div class="container">
-                <h1 class="text-center py-5 text-bold text-white">Diagnosis form</h1>
+                <h1 class="text-center py-5 text-bold text-black">Diagnosis form</h1>
 
                 <div class="row justify-content-center pb-5">
                     <div class="col-md-6">
@@ -21,7 +21,7 @@
                                     name="last_name" required>
                             </div>
                             <div class="text-center">
-                                <a onclick="fungsidisplay()" class="btn btn-warning">Continue</a>
+                                <a onclick="fungsidisplay()" class="btn btn-warning text-black">Continue</a>
                             </div>
                         </div>
                     </div>
@@ -56,7 +56,7 @@
                                                 <div class="formdiagnosa-diagnosis-text">
                                                     <div class="mb-3">
                                                         <div class="d-flex align-items-start">
-                                                            <span class="formdiagnosa-number-circle">1</span>
+                                                            <span class="formdiagnosa-number-circle text-black">1</span>
                                                             <p class="mb-0">Lorem ipsum dolor sit amet, consectetur
                                                                 adipiscing
                                                                 elit, sed do eiusmod tempor incididunt ut labore et dolore
@@ -66,7 +66,7 @@
                                                     </div>
                                                     <div class="mb-3">
                                                         <div class="d-flex align-items-start">
-                                                            <span class="formdiagnosa-number-circle">2</span>
+                                                            <span class="formdiagnosa-number-circle text-black">2</span>
                                                             <p class="mb-0">Lorem ipsum dolor sit amet, consectetur
                                                                 adipiscing
                                                                 elit, sed do eiusmod tempor incididunt ut labore et dolore
@@ -76,7 +76,7 @@
                                                     </div>
                                                     <div class="mb-3">
                                                         <div class="d-flex align-items-start">
-                                                            <span class="formdiagnosa-number-circle">3</span>
+                                                            <span class="formdiagnosa-number-circle text-black">3</span>
                                                             <p class="mb-0">Lorem ipsum dolor sit amet, consectetur
                                                                 adipiscing
                                                                 elit, sed do eiusmod tempor incididunt ut labore et dolore
@@ -86,7 +86,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="formdiagnosa-diagnosis-actions">
-                                                    <button class="btn btn-warning">See guide</button>
+                                                    <button class="btn btn-warning text-black">See guide</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -104,14 +104,14 @@
                                             </div>
                                             <i class="fas fa-image fa-3x text-muted mb-3"></i>
                                             <p class="mb-2">Drag and drop an image here</p>
-                                            <button type="button" class="btn btn-warning"
+                                            <button type="button" class="btn btn-warning text-black"
                                                 onclick="document.getElementById('formdiagnosa-fileElem').click()">Select a
                                                 file</button>
                                         </div>
                                         <p class="text-muted small text-center mt-2">JPG, PNG / Max. 60 MB / Min. 224px x
                                             224px</p>
                                         <div class="text-center mt-3">
-                                            <button type="button" class="btn btn-warning" id="formdiagnosa-changeFileBtn"
+                                            <button type="button" class="btn btn-warning text-black" id="formdiagnosa-changeFileBtn"
                                                 style="display:none;" onclick="changeFile()">Change file</button>
                                         </div>
                                     </div>
@@ -146,14 +146,14 @@
                                                 <div class="formdiagnosa-diagnosis-text">
                                                     <div class="mb-3">
                                                         <div class="d-flex align-items-start">
-                                                            <span class="formdiagnosa-number-circle">1</span>
+                                                            <span class="formdiagnosa-number-circle text-black">1</span>
                                                             <p class="mb-0">Prepare a quiet environment for clear voice
                                                                 recording.</p>
                                                         </div>
                                                     </div>
                                                     <div class="mb-3">
                                                         <div class="d-flex align-items-start">
-                                                            <span class="formdiagnosa-number-circle">2</span>
+                                                            <span class="formdiagnosa-number-circle text-black">2</span>
                                                             <p class="mb-0">Choose to either upload an audio file or
                                                                 record
                                                                 your voice directly.</p>
@@ -161,7 +161,7 @@
                                                     </div>
                                                     <div class="mb-3">
                                                         <div class="d-flex align-items-start">
-                                                            <span class="formdiagnosa-number-circle">3</span>
+                                                            <span class="formdiagnosa-number-circle text-black">3</span>
                                                             <p class="mb-0">Speak clearly and at a normal pace for
                                                                 accurate
                                                                 analysis.</p>
@@ -169,7 +169,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="formdiagnosa-diagnosis-actions">
-                                                    <button class="btn btn-warning">See guide</button>
+                                                    <button class="btn btn-warning text-black">See guide</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -202,14 +202,14 @@
                                                     </div>
                                                     <i class="fas fa-microphone fa-3x text-muted mb-3"></i>
                                                     <p class="mb-2">Drag and drop an audio file here</p>
-                                                    <button type="button" class="btn btn-warning"
+                                                    <button type="button" class="btn btn-warning text-black"
                                                         onclick="document.getElementById('audioFileElem').click()">Select
                                                         an audio file</button>
                                                 </div>
                                                 <p class="text-muted small text-center mt-2"> WAV / Max. 10 MB / Max.
                                                     30 seconds</p>
                                                 <div class="text-center mt-3">
-                                                    <button type="button" class="btn btn-warning" id="changeAudioBtn"
+                                                    <button type="button" class="btn btn-warning text-black" id="changeAudioBtn"
                                                         style="display:none;" onclick="changeAudioFile()">Change
                                                         file</button>
                                                 </div>
@@ -263,7 +263,7 @@
                                             <div class="mb-3">
                                                 <div class="d-flex align-items-center mb-2">
                                                     <span
-                                                        class="bg-warning rounded-circle me-2 formdiagnosa-number-circle">1</span>
+                                                        class="bg-warning rounded-circle me-2 formdiagnosa-number-circle text-black">1</span>
                                                     <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing
                                                         elit,
                                                         sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -273,7 +273,7 @@
                                             <div class="mb-3">
                                                 <div class="d-flex align-items-center mb-2">
                                                     <span
-                                                        class="bg-warning rounded-circle me-2 formdiagnosa-number-circle">2</span>
+                                                        class="bg-warning rounded-circle me-2 formdiagnosa-number-circle text-black">2</span>
                                                     <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing
                                                         elit,
                                                         sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -283,14 +283,14 @@
                                             <div class="mb-3">
                                                 <div class="d-flex align-items-center mb-2">
                                                     <span
-                                                        class="bg-warning rounded-circle me-2 formdiagnosa-number-circle">3</span>
+                                                        class="bg-warning rounded-circle me-2 formdiagnosa-number-circle text-black">3</span>
                                                     <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing
                                                         elit,
                                                         sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                                                     </p>
                                                 </div>
                                             </div>
-                                            <button class="btn btn-warning">See guide</button>
+                                            <button class="btn btn-warning text-black">See guide</button>
                                         </div>
                                     </div>
 
@@ -307,14 +307,14 @@
                                             </div>
                                             <i class="fas fa-image fa-3x text-muted mb-3"></i>
                                             <p class="mb-2">Drag and drop an image here</p>
-                                            <button type="button" class="btn btn-warning"
+                                            <button type="button" class="btn btn-warning text-black"
                                                 onclick="document.getElementById('fileElem3').click()">Select a
                                                 file</button>
                                         </div>
                                         <p class="text-muted small text-center mt-2">JPG, PNG / Max. 60 MB / Min. 224px x
                                             224px</p>
                                         <div class="text-center mt-3">
-                                            <button type="button" class="btn btn-warning" id="changeFileBtn3"
+                                            <button type="button" class="btn btn-warning text-black" id="changeFileBtn3"
                                                 style="display:none;" onclick="changeFile3()">Change file</button>
                                         </div>
                                     </div>
@@ -326,9 +326,9 @@
             </div>
 
             <section class="bg-warning">
-                <h1 class="text-center py-5 text-bold text-white">All done!</h1>
+                <h1 class="text-center py-5 text-bold text-black">All done!</h1>
                 <div class="text-center pb-5">
-                    <button type="submit" class="btn btn-custom btn-lg">Submit!</button>
+                    <button type="submit" class="btn btn-custom btn-lg text-black">Submit!</button>
                 </div>
             </section>
         </div>

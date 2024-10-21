@@ -64,7 +64,7 @@
             <hr class="mt-4 mb-3">
             <div class="row">
                 <div class="col-md-6 small">
-                    &copy; 2023 ParkED. All rights reserved.
+                    &copy; 2024 ParkED. All rights reserved.
                 </div>
                 <div class="col-md-6 text-md-end small">
                     <a href="#" class="text-white text-decoration-none me-2">Privacy Policy</a>
