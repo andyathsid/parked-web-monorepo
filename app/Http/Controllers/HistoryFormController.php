@@ -10,6 +10,8 @@ class HistoryFormController extends Controller
     public function index()
     {
         $user = Auth::user();
-        return \view('backend.historyform', \compact('user'));
+        $tittle = 'History Form';
+
+        return \view('backend/story', \compact('user', 'tittle'));
     }
 }

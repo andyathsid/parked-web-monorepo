@@ -1,9 +1,10 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container-fluid">
-            <img src="{{ asset('assets\logo\logo_ParkED_with_text.png') }}" alt="logo"
-                style="height: 50px; width: auto;">
-            <a class="navbar-brand mx-3 text-bold" href="#">ParkED Admin</a>
+            <a class="navbar-brand mx-3 text-bold" href="/dashboard">
+                <img src="{{ asset('assets\logo\logo_ParkED_with_text.png') }}" alt="logo"
+                    style="height: 50px; width: auto;">
+                ParkED Admin</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -29,7 +30,9 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fas fa-user me-2"></i>{{ $user['first_name'] }}
+                            <img src="{{ asset($user['photo']) }}" alt="" width="40px"
+                                class="border rounded-circle" style="margin-right: 5px">{{ $user['first_name'] }}
+                            {{ $user['last_name'] }}
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="#">Profile</a></li>

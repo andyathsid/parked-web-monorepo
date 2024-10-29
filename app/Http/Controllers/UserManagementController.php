@@ -10,19 +10,24 @@ class UserManagementController extends Controller
     public function index()
     {
         $user = Auth::user();
-        return \view('backend/UserManagement/index', \compact('user'));
+        $tittle = 'User Management';
+
+
+
+        return \view('backend/UserManagement/index', \compact('user', 'tittle'));
     }
 
     public function tambah()
     {
         $user = Auth::user();
+        $tittle = 'Add User';
 
-        return \view('backend/UserManagement/add', \compact('user'));
+        return \view('backend/UserManagement/add', \compact('user', 'tittle'));
     }
     public function edit()
     {
         $user = Auth::user();
-
-        return \view('backend/UserManagement/edit', \compact('user'));
+        $tittle = 'Edit User';
+        return \view('backend/UserManagement/edit', \compact('user', 'tittle'));
     }
 }

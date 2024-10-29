@@ -57,7 +57,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/UserAdd', [UserManagementController::class, 'tambah'])->name('UserAdd');
     Route::get('/UserEdit', [UserManagementController::class, 'edit'])->name('UserEdit');
 
-    Route::get('/historyform', [DashboardController::class, 'history'])->name('HistoryForm');
+    Route::get('/historyform', [HistoryFormController::class, 'index'])->name('HistoryForm');
 });
 
 Route::middleware(['auth', 'verified'])->group(function () {
