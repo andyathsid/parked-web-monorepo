@@ -13,6 +13,14 @@ class GoogleAuthController extends Controller
     {
         return Socialite::driver('google')->redirect();
     }
+    protected function redirectBasedOnRole($user)
+    {
+        if ($user->role == 'admin') {
+            return \redirect()->intended('/dashboard');
+        } else if ($user->role == 'user') {
+            return \redirect()->intended('/profile');
+        }
+    }
 
     public function callbackGoogle()
     {
@@ -28,19 +36,20 @@ class GoogleAuthController extends Controller
                     'email' => $google_user->getEmail(),
                     'photo' => $google_user->getAvatar(),
                     'google_id' => $google_user->getId(),
+                    'role' => 'user',
+                    'email_verified_at' => \now(),
                 ]);
-
                 Auth::login($new_user);
 
-                return \redirect()->intended('/profile');
+                return $this->redirectBasedOnRole($new_user);
             } else {
                 Auth::login($user);
 
-                return \redirect()->intended('/profile');
+                return $this->redirectBasedOnRole($user);
             }
         } catch (\Throwable $th) {
-            \dd('something went wrong!' . $th->getMessage());
-            return redirect()->route('login')->withErrors('Login dengan Google gagal. Silakan coba lagi.');
+            // \dd('something went wrong!' . $th->getMessage());
+            return redirect()->route('login')->withErrors('loginGagal', 'Login dengan Google gagal. Silakan coba lagi.');
         }
     }
 }

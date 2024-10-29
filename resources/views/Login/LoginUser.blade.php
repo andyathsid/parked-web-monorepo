@@ -79,7 +79,7 @@
                 <div class="toggle-panel toggle-left">
                     <h1>Welcome Back!</h1>
                     <p>Enter your personal details to use all of site features</p>
-                    <button class="hidden" id="login">Sign In</button>
+                    <button type="submit" class="hidden" id="login">Sign In</button>
                 </div>
                 <div class="toggle-panel toggle-right">
                     <h1>Hello, Friend!</h1>
@@ -91,7 +91,6 @@
     </div>
 
     <script src="vendor/sweetalert/sweetalert.all.js"></script>
-
     <script>
         // Menampilkan SweetAlert berdasarkan sesi
         document.addEventListener('DOMContentLoaded', function() {
@@ -102,9 +101,17 @@
                     icon: "success",
                     button: "OK",
                 }).then(() => {
-                    window.location.href = "/profile";
+                    window.location.href =
+                        @php
+                            if ($user->role == 'admin') {
+                                '/dashboard';
+                            } elseif ($user->role == 'user') {
+                                '/dashboard';
+                            }
+                        @endphp;
                 });
             @endif
+
 
             @if (session('loginGagal'))
                 Swal.fire({

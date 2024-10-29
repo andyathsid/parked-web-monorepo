@@ -3,6 +3,7 @@
 namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -39,6 +40,28 @@ class Handler extends ExceptionHandler
     /**
      * Register the exception handling callbacks for the application.
      */
+    public function render($request, Throwable $exception)
+    {
+        if ($this->isHttpException($exception)) {
+            if ($exception instanceof \Symfony\Component\HttpKernel\Exception\NotFoundHttpException) {
+                $tittle = 'Error Not Found';
+                $imgError = 'assets/img/404.png';
+                $error = '404';
+                $desError = 'Page Not Found. Go Back.';
+                return response()->view('errorMessage', compact('tittle', 'imgError', 'error', 'desError'), 404);
+            }
+
+            if ($exception instanceof \Symfony\Component\HttpKernel\Exception\HttpException && $exception->getStatusCode() == 403) {
+                $tittle = "Don't have access";
+                $imgError = "assets/img/403.png";
+                $error = "403";
+                $desError = "Don't have access. Go Back.";
+                return response()->view('errorMessage', compact('tittle', 'imgError', 'error', 'desError'), 403);
+            }
+        }
+
+        return parent::render($request, $exception);
+    }
     public function register(): void
     {
         $this->reportable(function (Throwable $e) {

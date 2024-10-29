@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('photo')->nullable();
             $table->date('tgl_ulangtahun')->nullable();
             $table->text('address')->nullable();
+            $table->enum('role', ['admin', 'editor', 'user']);
             $table->string('phone_number')->nullable();
             $table->string('occupation')->nullable();
             $table->string('last_login')->nullable();

@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
     <div class="container">
-        <a class="navbar-brand" href="#"><img src="assets\logo\logo_ParkED_with_text.png" alt=""
-                width="70px"></a>
+        <a class="navbar-brand" href="#"><img src="{{ asset('assets\logo\logo_ParkED_with_text.png') }}"
+                alt="" width="70px"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -43,12 +43,14 @@
             <div class="dropdown d-none d-lg-block">
                 <button class="btn btn-user-dropdown" type="button" id="userDropdown" data-bs-toggle="dropdown"
                     aria-expanded="false">
-                    <img src="{{ $user->photo }}" alt="" class="border rounded-circle" width="50px">
+                    <img src="{{ asset($user->photo) }}" alt="" class="border rounded-circle" width="50px">
                 </button>
                 <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="userDropdown">
                     <li><a class="dropdown-item" href="/profile">Profile</a></li>
                     <li><a class="dropdown-item" href="/history">History</a></li>
-                    <li><hr class="dropdown-divider"></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
                     <li><a class="dropdown-item" href="/logout">Logout</a></li>
                 </ul>
             </div>
