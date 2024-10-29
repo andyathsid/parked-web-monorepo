@@ -39,9 +39,9 @@ document
 
         if (isValid) {
             // If all validations pass, you can submit the form or perform further actions
-            alert("Registration successful!");
+            // alert("Registration successful!");
             // Uncomment the next line to submit the form
-            // this.submit();
+            this.submit();
         }
     });
 

@@ -12,18 +12,28 @@
                         <h2 class="mb-0 fw-bold">Create Account</h2>
                     </div>
                     <div class="card-body">
-                        <form id="registerForm">
+                        <form action="{{ route('register.submit') }}" method="POST" id="registerForm">
+                            @csrf
                             <div class="mb-4">
                                 <label for="first_name" class="form-label">First Name</label>
                                 <input type="text" class="form-control" id="first_name" name="first_name" required>
+                                @error('first_name')
+                                    <span class="error-message" style="color: red; font-size: 12px;">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="mb-4">
                                 <label for="lastname" class="form-label">Last Name</label>
                                 <input type="text" class="form-control" id="lastname" name="last_name" required>
+                                @error('last_name')
+                                    <span class="error-message" style="color: red; font-size: 12px;">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="mb-4">
                                 <label for="email" class="form-label">Email address</label>
                                 <input type="email" class="form-control" id="email" name="email" required>
+                                @error('email')
+                                    <span class="error-message" style="color: red; font-size: 12px;">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="mb-4">
                                 <label for="password" class="form-label">Password</label>
@@ -59,7 +69,7 @@
                             </div>
                         </form>
                         <div class="mt-4 text-center">
-                            <p class="mb-0">Already have an account? <a href="login.html" class="fw-bold">Login</a>
+                            <p class="mb-0">Already have an account? <a href="/login" class="fw-bold">Login</a>
                             </p>
                         </div>
                     </div>
