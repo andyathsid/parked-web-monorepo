@@ -1,13 +1,16 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FormAPIController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\GoogleAuthController;
+use App\Http\Controllers\HistoryFormController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserManagementController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Auth\Notifications\VerifyEmail;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
@@ -49,9 +52,12 @@ Route::post('/email/resend', [AuthController::class, 'resendVerificationEmail'])
 
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('backend/dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/UserManagement', [UserManagementController::class, 'index'])->name('UserManagement');
+    Route::get('/UserAdd', [UserManagementController::class, 'tambah'])->name('UserAdd');
+    Route::get('/UserEdit', [UserManagementController::class, 'edit'])->name('UserEdit');
+
+    Route::get('/historyform', [DashboardController::class, 'history'])->name('HistoryForm');
 });
 
 Route::middleware(['auth', 'verified'])->group(function () {

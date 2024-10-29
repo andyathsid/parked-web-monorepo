@@ -69,10 +69,15 @@
 
 <body>
     <div class="main">
-        <img src="{{ asset($imgError) }}" alt="Deskripsi Gambar">
+        <img src="{{ asset($imgError) }}" alt="{{ $imgError }}">
         <h1>ERROR {{ $error }}</h1>
         <p>{{ $desError }}</p>
-        <a href="{{ url()->previous() }}">Go Back</a>
+        @if ($error == '403')
+            <a href="{{ url('/') }}">Go Back</a>
+        @else
+            <a href="{{ url()->previous() }}">Go Back</a>
+        @endif
+
     </div>
 </body>
 

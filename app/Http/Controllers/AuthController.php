@@ -68,7 +68,7 @@ class AuthController extends Controller
             }
             if (Auth::attempt($request->only('email', 'password'))) {
                 if ($user->role == 'admin') {
-                    return redirect()->route('login', \compact('user'))->with('loginAdmin', 'Login berhasil! Selamat datang!');
+                    return redirect()->route('login', \compact('user'))->with('loginAdmin', 'Login berhasil! Selamat datang Admin!');
                 } else if ($user->role == 'user') {
                     return redirect()->route('login', \compact('user'))->with('loginUser', 'Login berhasil! Selamat datang!');
                 }

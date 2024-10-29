@@ -53,7 +53,7 @@ class Handler extends ExceptionHandler
 
             if ($exception instanceof \Symfony\Component\HttpKernel\Exception\HttpException && $exception->getStatusCode() == 403) {
                 $tittle = "Don't have access";
-                $imgError = "assets/img/403.png";
+                $imgError = "assets/img/403.jpg";
                 $error = "403";
                 $desError = "Don't have access. Go Back.";
                 return response()->view('errorMessage', compact('tittle', 'imgError', 'error', 'desError'), 403);

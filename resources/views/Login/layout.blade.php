@@ -40,17 +40,17 @@
             @if (session('loginAdmin'))
                 Swal.fire({
                     title: "Berhasil!",
-                    text: "{{ session('loginBerhasil') }}",
+                    text: "{{ session('loginAdmin') }}",
                     icon: "success",
                     button: "OK",
                 }).then(() => {
-                    window.location.href = '/profile'
+                    window.location.href = '/dashboard'
                 });
             @endif
             @if (session('loginUser'))
                 Swal.fire({
                     title: "Berhasil!",
-                    text: "{{ session('loginBerhasil') }}",
+                    text: "{{ session('loginUser') }}",
                     icon: "success",
                     button: "OK",
                 }).then(() => {
