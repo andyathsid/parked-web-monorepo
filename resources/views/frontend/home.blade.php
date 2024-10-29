@@ -43,7 +43,7 @@
                                         loading="lazy">
                                     <div class="card-body">
                                         <h5 class="card-title">Diagnose 1</h5>
-                                        <p class="card-text">Using machine learning to analyze handmade spiral images
+                                        <p class="card-text">Spiral Image Analysis: Using machine learning to analyze handmade spiral images
                                             for early detection of Parkinson's disease</p>
                                     </div>
                                 </div>
@@ -55,7 +55,7 @@
                                     <div class="card-body">
                                         <h5 class="card-title">Diagnose 2</h5>
                                         <p class="card-text">Voice Analysis: Uses machine learning to analyze voice
-                                            patterns for early signs of Parkinson's</p>
+                                            patterns for early signs of Parkinson desease</p>
                                     </div>
                                 </div>
                             </div>
@@ -65,7 +65,7 @@
                                         loading="lazy">
                                     <div class="card-body">
                                         <h5 class="card-title">Diagnose 3</h5>
-                                        <p class="card-text">Using machine learning to analyze brain CT scan images for
+                                        <p class="card-text">CT Scan Analysis: Using machine learning to analyze brain CT scan images for
                                             first detection of Parkinson's disease </p>
                                     </div>
                                 </div>

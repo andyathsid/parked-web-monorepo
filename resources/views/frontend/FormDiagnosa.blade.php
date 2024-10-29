@@ -6,30 +6,9 @@
         <section class="bg-warning">
             <div class="container">
                 <h1 class="text-center py-5 text-bold text-black">Diagnosis form</h1>
-
-                <div class="row justify-content-center pb-5">
-                    <div class="col-md-6">
-                        <div id="formdiagnosa-nameForm" class="bg-white p-4 rounded shadow">
-                            <div class="mb-3">
-                                <label for="firstName" class="form-label">First Name</label>
-                                <input type="text" class="form-control" id="firstName"
-                                    placeholder="Enter your first name" name="first_name" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="lastName" class="form-label">Last Name</label>
-                                <input type="text" class="form-control" id="lastName" placeholder="Enter your last name"
-                                    name="last_name" required>
-                            </div>
-                            <div class="text-center">
-                                <a onclick="fungsidisplay()" class="btn btn-warning text-black">Continue</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </section>
 
-        <div class="main-content" style="display: none;">
+        <div class="main-content" style="display">
             <div class="container">
                 <!-- Diagnosa 1 -->
                 <div class="formdiagnosa-diagnosis-section mb-4 mt-4">

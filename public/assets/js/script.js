@@ -140,36 +140,7 @@ document.addEventListener("DOMContentLoaded", function () {
     fadeElems.forEach((elem) => observer.observe(elem));
 });
 // Form Diagnosa
-function fungsidisplay() {
-    const firstName = document.getElementById("firstName").value.trim();
-    const lastName = document.getElementById("lastName").value.trim();
-    const nameForm = document.getElementById("formdiagnosa-nameForm");
-    const diagnosisSection = document.querySelector(".main-content");
 
-    if (firstName === "" || lastName === "") {
-        Swal.fire({
-            title: "Empty Form",
-            text: "Please fill in both first name and last name.",
-            icon: "error",
-            confirmButtonText: "Oke",
-        });
-        return;
-    }
-
-    nameForm.style.transition = "opacity 0.5s ease";
-    nameForm.style.opacity = "0";
-
-    setTimeout(() => {
-        nameForm.style.display = "none";
-        diagnosisSection.style.display = "block";
-        diagnosisSection.style.opacity = "0";
-
-        setTimeout(() => {
-            diagnosisSection.style.transition = "opacity 0.5s ease";
-            diagnosisSection.style.opacity = "1";
-        }, 10);
-    }, 500);
-}
 let dropArea = document.getElementById("formdiagnosa-drop-area");
 
 ["dragenter", "dragover", "dragleave", "drop"].forEach((eventName) => {
