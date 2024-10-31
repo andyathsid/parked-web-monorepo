@@ -5,7 +5,7 @@
         @csrf
         <section class="bg-warning">
             <div class="container">
-                <h1 class="text-center py-5 text-bold text-black">Diagnosis form</h1>
+                <h1 class="text-center py-5 text-bold text-black">Formulir Diagnosis</h1>
         </section>
 
         <div class="main-content" style="display">
@@ -20,7 +20,7 @@
                     </h2>
                     <div class="collapse show" id="formdiagnosa1">
                         <div class="py-5 formdiagnosa-bg-cream">
-                            <p class="text-center text-muted mb-4">Spiral Image Analysis</p>
+                            <p class="text-center text-muted mb-4">Analisis Gambar Spiral</p>
 
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
@@ -65,7 +65,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="formdiagnosa-diagnosis-actions">
-                                                    <button class="btn btn-warning text-black">See guide</button>
+                                                    <button class="btn btn-warning text-black">Lihat panduan</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -82,16 +82,15 @@
                                                     style="max-width: 100%; height: auto; object-fit: contain;">
                                             </div>
                                             <i class="fas fa-image fa-3x text-muted mb-3"></i>
-                                            <p class="mb-2">Drag and drop an image here</p>
+                                            <p class="mb-2">Tarik dan letakkan gambar di sini</p>
                                             <button type="button" class="btn btn-warning text-black"
-                                                onclick="document.getElementById('formdiagnosa-fileElem').click()">Select a
-                                                file</button>
+                                                onclick="document.getElementById('formdiagnosa-fileElem').click()">Pilih berkas</button>
                                         </div>
                                         <p class="text-muted small text-center mt-2">JPG, PNG / Max. 60 MB / Min. 224px x
                                             224px</p>
                                         <div class="text-center mt-3">
                                             <button type="button" class="btn btn-warning text-black" id="formdiagnosa-changeFileBtn"
-                                                style="display:none;" onclick="changeFile()">Change file</button>
+                                                style="display:none;" onclick="changeFile()">Ganti berkas</button>
                                         </div>
                                     </div>
                                 </div>
@@ -110,7 +109,7 @@
                     </h2>
                     <div class="collapse" id="formdiagnosa2">
                         <div class="py-5 formdiagnosa-bg-orange">
-                            <p class="text-center text-muted mb-4">Voice Analysis</p>
+                            <p class="text-center text-muted mb-4">Analisis Suara</p>
 
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
@@ -126,29 +125,24 @@
                                                     <div class="mb-3">
                                                         <div class="d-flex align-items-start">
                                                             <span class="formdiagnosa-number-circle text-black">1</span>
-                                                            <p class="mb-0">Prepare a quiet environment for clear voice
-                                                                recording.</p>
+                                                            <p class="mb-0">Siapkan lingkungan yang tenang untuk perekaman suara yang jelas.</p>
                                                         </div>
                                                     </div>
                                                     <div class="mb-3">
                                                         <div class="d-flex align-items-start">
                                                             <span class="formdiagnosa-number-circle text-black">2</span>
-                                                            <p class="mb-0">Choose to either upload an audio file or
-                                                                record
-                                                                your voice directly.</p>
+                                                            <p class="mb-0">Pilih untuk mengunggah berkas audio atau merekam suara secara langsung.</p>
                                                         </div>
                                                     </div>
                                                     <div class="mb-3">
                                                         <div class="d-flex align-items-start">
                                                             <span class="formdiagnosa-number-circle text-black">3</span>
-                                                            <p class="mb-0">Speak clearly and at a normal pace for
-                                                                accurate
-                                                                analysis.</p>
+                                                            <p class="mb-0">Berbicaralah dengan jelas dan dengan kecepatan normal untuk analisis yang akurat.</p>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="formdiagnosa-diagnosis-actions">
-                                                    <button class="btn btn-warning text-black">See guide</button>
+                                                    <button class="btn btn-warning text-black">Lihat panduan</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -180,34 +174,32 @@
                                                         <audio id="audio-preview" controls></audio>
                                                     </div>
                                                     <i class="fas fa-microphone fa-3x text-muted mb-3"></i>
-                                                    <p class="mb-2">Drag and drop an audio file here</p>
+                                                    <p class="mb-2">Tarik dan letakkan berkas audio di sini</p>
                                                     <button type="button" class="btn btn-warning text-black"
-                                                        onclick="document.getElementById('audioFileElem').click()">Select
-                                                        an audio file</button>
+                                                        onclick="document.getElementById('audioFileElem').click()">Pilih berkas audio</button>
                                                 </div>
                                                 <p class="text-muted small text-center mt-2"> WAV / Max. 10 MB / Max.
                                                     30 seconds</p>
                                                 <div class="text-center mt-3">
                                                     <button type="button" class="btn btn-warning text-black" id="changeAudioBtn"
-                                                        style="display:none;" onclick="changeAudioFile()">Change
-                                                        file</button>
+                                                        style="display:none;" onclick="changeAudioFile()">Ganti berkas</button>
                                                 </div>
                                             </div>
                                             <div class="tab-pane fade" id="record" role="tabpanel"
                                                 aria-labelledby="record-tab">
                                                 <div class="text-center p-5 border border-dashed rounded">
                                                     <i class="fas fa-microphone fa-3x text-muted mb-3"></i>
-                                                    <p class="mb-3">Click the button below to start recording</p>
+                                                    <p class="mb-3">Klik tombol di bawah untuk mulai merekam</p>
                                                     <a href="record" id="recordButton" class="btn btn-warning"
                                                         name="recordedAudio">
-                                                        <i class="fas fa-microphone"></i> Start Recording
+                                                        <i class="fas fa-microphone"></i> Mulai Merekam
                                                     </a>
-                                                    <p id="recordingStatus" class="mt-3 d-none">Recording: <span
+                                                    <p id="recordingStatus" class="mt-3 d-none">Merekam: <span
                                                             id="recordingTime">00:00</span></p>
                                                     <audio id="audioPlayback" controls class="mt-3 d-none"></audio>
                                                     <br>
                                                     <button id="deleteRecordingBtn" class="btn btn-warning mt-3 d-none"
-                                                        onclick="deleteRecording()">Delete Recording</button>
+                                                        onclick="deleteRecording()">Hapus Rekaman</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -228,7 +220,7 @@
                     </h2>
                     <div class="collapse" id="formdiagnosa3">
                         <div class="py-5 formdiagnosa-bg-cream">
-                            <p class="text-center text-muted mb-4">CT Scan Brain Analysis</p>
+                            <p class="text-center text-muted mb-4">Analisis CT Scan Otak</p>
 
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
@@ -269,7 +261,7 @@
                                                     </p>
                                                 </div>
                                             </div>
-                                            <button class="btn btn-warning text-black">See guide</button>
+                                            <button class="btn btn-warning text-black">Lihat panduan</button>
                                         </div>
                                     </div>
 
@@ -285,16 +277,15 @@
                                                     style="max-width: 100%; height: auto; object-fit: contain;">
                                             </div>
                                             <i class="fas fa-image fa-3x text-muted mb-3"></i>
-                                            <p class="mb-2">Drag and drop an image here</p>
+                                            <p class="mb-2">Tarik dan letakkan gambar di sini</p>
                                             <button type="button" class="btn btn-warning text-black"
-                                                onclick="document.getElementById('fileElem3').click()">Select a
-                                                file</button>
+                                                onclick="document.getElementById('fileElem3').click()">Pilih berkas</button>
                                         </div>
                                         <p class="text-muted small text-center mt-2">JPG, PNG / Max. 60 MB / Min. 224px x
                                             224px</p>
                                         <div class="text-center mt-3">
                                             <button type="button" class="btn btn-warning text-black" id="changeFileBtn3"
-                                                style="display:none;" onclick="changeFile3()">Change file</button>
+                                                style="display:none;" onclick="changeFile3()">Ganti berkas</button>
                                         </div>
                                     </div>
                                 </div>
@@ -305,9 +296,9 @@
             </div>
 
             <section class="bg-warning">
-                <h1 class="text-center py-5 text-bold text-black">All done!</h1>
+                <h1 class="text-center py-5 text-bold text-black">Selesai!</h1>
                 <div class="text-center pb-5">
-                    <button type="submit" class="btn btn-custom btn-lg text-black">Submit!</button>
+                    <button type="submit" class="btn btn-custom btn-lg text-black">Kirim!</button>
                 </div>
             </section>
         </div>

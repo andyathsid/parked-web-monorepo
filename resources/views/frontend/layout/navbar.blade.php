@@ -8,35 +8,35 @@
         <div class="collapse navbar-collapse justify-content-center text-center" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('/') ? 'actives' : '' }}" href="/">Home</a>
+                    <a class="nav-link {{ Request::is('/') ? 'actives' : '' }}" href="/">Beranda</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('resources') ? 'actives' : '' }}" href="/resources">Resources</a>
+                    <a class="nav-link {{ Request::is('resources') ? 'actives' : '' }}" href="/resources">Sumber Daya</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ Request::is('information') ? 'actives' : '' }}"
-                        href="/information">Information</a>
+                        href="/information">Informasi</a>
                 </li>
                 @auth
                     <li class="nav-item d-lg-none">
-                        <a class="nav-link" href="/profile">Profile</a>
+                        <a class="nav-link" href="/profile">Profil</a>
                     </li>
                     <li class="nav-item d-lg-none">
-                        <a class="nav-link" href="/history">History</a>
+                        <a class="nav-link" href="/history">Riwayat</a>
                     </li>
                     <li class="nav-item d-lg-none">
-                        <a class="nav-link" href="/logout">Logout</a>
+                        <a class="nav-link" href="/logout">Keluar</a>
                     </li>
                 @endauth
                 @guest
                     <li class="nav-item d-lg-none">
-                        <a class="nav-link" href="/login">Sign In</a>
+                        <a class="nav-link" href="/login">Masuk</a>
                     </li>
                 @endguest
             </ul>
         </div>
         @guest
-            <a href="/login" class="btn bg-warning text-white d-none d-lg-block" type="button">Sign In</a>
+            <a href="/login" class="btn bg-warning text-white d-none d-lg-block" type="button">Masuk</a>
         @endguest
 
         @auth
@@ -47,13 +47,13 @@
                         class="border rounded-circle" width="50px">
                 </button>
                 <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="userDropdown">
-                    <li><a class="dropdown-item" href="/profile">Profile</a></li>
-                    <li><a class="dropdown-item" href="/history">History</a></li>
+                    <li><a class="dropdown-item" href="/profile">Profil</a></li>
+                    <li><a class="dropdown-item" href="/history">Riwayat</a></li>
                     <li>
                         <hr class="dropdown-divider">
                     </li>
                     <li>
-                        <a class="dropdown-item" href="#" onclick="confirmLogout(event)">Logout</a>
+                        <a class="dropdown-item" href="#" onclick="confirmLogout(event)">Keluar</a>
                     </li>
                 </ul>
             </div>
