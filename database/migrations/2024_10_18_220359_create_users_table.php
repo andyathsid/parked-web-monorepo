@@ -20,12 +20,13 @@ return new class extends Migration
             $table->string('password')->nullable();
             $table->string('google_id')->nullable();
             $table->string('photo')->nullable();
+            $table->string('google_photo')->nullable();
             $table->date('tgl_ulangtahun')->nullable();
             $table->text('address')->nullable();
             $table->enum('role', ['admin', 'editor', 'user']);
             $table->string('phone_number')->nullable();
             $table->string('occupation')->nullable();
-            $table->string('last_login')->nullable();
+            $table->timestamp('last_login')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

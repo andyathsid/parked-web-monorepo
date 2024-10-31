@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Form;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -11,14 +13,10 @@ class DashboardController extends Controller
     {
         $user = Auth::user();
         $tittle = 'Dashboard';
+        $totalUsers = User::count();
 
-        return \view('backend/dashboard', \compact('user', 'tittle'));
-    }
-    public function history()
-    {
-        $user = Auth::user();
-        $tittle = 'History Form';
+        $totalForms = Form::count();
 
-        return \view('backend/story', \compact('user', 'tittle'));
+        return \view('backend/dashboard', \compact('user', 'tittle', 'totalUsers', 'totalForms'));
     }
 }

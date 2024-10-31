@@ -22,7 +22,7 @@
                 <p class="text-center mb-5">Here's a record of your past diagnoses.</p>
 
                 <div class="table-responsive">
-                    <table class="table table-hover">
+                    <table class="table table-hover" id="historyTable">
                         <thead>
                             <tr>
                                 <th scope="col">Date</th>

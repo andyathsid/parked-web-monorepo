@@ -13,8 +13,7 @@ return new class extends Migration
     {
         Schema::create('form', function (Blueprint $table) {
             $table->id();
-            $table->string('first_name');
-            $table->string('last_name');
+            $table->integer('user_id');
             $table->string('file_diagnosa1')->nullable();
             $table->string('file_diagnosa2')->nullable();
             $table->string('file_diagnosa3')->nullable();
@@ -22,6 +21,8 @@ return new class extends Migration
             $table->string('hasil_diagnosa2')->nullable();
             $table->string('hasil_diagnosa3')->nullable();
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -30,6 +31,9 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::table('form', function (Blueprint $table) {
+            $table->dropForeign(['user_id']); // Drop foreign key sebelum menghapus tabel
+        });
         Schema::dropIfExists('form');
     }
 };

@@ -2,53 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Form;
 use Illuminate\Support\Facades\Http;
-use App\Models\FormSubmission;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Spatie\FlareClient\Api;
 
 class FormController extends Controller
 {
-    public function index()
-    {
-        $submissions = FormSubmission::all();
-        return view('tabel', compact('submissions'));
-    }
-    public function coba(Request $request)
-    {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|max:255',
-            'message' => 'required|string',
-            'file' => 'required|file|mimes:jpg,png,pdf|max:2048',
-        ]);
-
-        $name = $request->input('name');
-        $email = $request->input('email');
-        $message = $request->input('message');
-
-        if ($request->hasFile('file')) {
-            $file = $request->file('file');
-            $filePath = $file->store('uploads', 'public');
-        }
-
-        // \dd($filePath);
-        FormSubmission::create([
-            'name' => $name,
-            'email' => $email,
-            'message' => $message,
-            'file_paths' => $filePath,
-        ]);
-
-        return response()->json([
-            'success' => true,
-            'name' => $name,
-            'email' => $email,
-            'message' => $message,
-            'file_path' => isset($filePath) ? $filePath : null,
-        ]);
-    }
 
     public function pastientUpload(Request $request)
     {
@@ -74,7 +36,7 @@ class FormController extends Controller
         if ($request->hasFile('fileModel2')) {
             $audioPath = $request->file('fileModel2')->store('file_modul2', 'public');
             $uploadedData['sd-file'] = $audioPath;
-        } elseif ($request->input('recordedAudio')) { // masih belum dapet nilai ntar dibenerin
+        } elseif ($request->input('recordedAudio')) {
             $audioData = $request->input('recordedAudio');
             $audioData = str_replace('data:audio/wav;base64,', '', $audioData);
             $audioData = base64_decode($audioData);
@@ -88,7 +50,7 @@ class FormController extends Controller
             $uploadedData['ni-file'] = $fileModel3;
         }
         \dd($uploadedData);
-        // Kirim data Ke API Link
+
         $response = Http::post('https://91qptmtp7e.execute-api.ap-southeast-1.amazonaws.com/test/predict', $uploadedData);
 
         // Periksa respons dari API

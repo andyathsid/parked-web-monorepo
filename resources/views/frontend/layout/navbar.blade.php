@@ -43,7 +43,8 @@
             <div class="dropdown d-none d-lg-block">
                 <button class="btn btn-user-dropdown" type="button" id="userDropdown" data-bs-toggle="dropdown"
                     aria-expanded="false">
-                    <img src="{{ asset($user->photo) }}" alt="" class="border rounded-circle" width="50px">
+                    <img src="{{ $user->photo ? Storage::url($user->photo) : asset($user->google_photo) }}" alt=""
+                        class="border rounded-circle" width="50px">
                 </button>
                 <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="userDropdown">
                     <li><a class="dropdown-item" href="/profile">Profile</a></li>
@@ -51,7 +52,9 @@
                     <li>
                         <hr class="dropdown-divider">
                     </li>
-                    <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                    <li>
+                        <a class="dropdown-item" href="#" onclick="confirmLogout(event)">Logout</a>
+                    </li>
                 </ul>
             </div>
         @endauth

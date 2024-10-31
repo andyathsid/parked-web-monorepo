@@ -28,23 +28,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 //user manipulation
 $(document).ready(function () {
-    $("#addUserForm").submit(function (e) {
-        e.preventDefault();
-
-        // Perform form validation
-        if ($("#password").val() !== $("#confirmPassword").val()) {
-            $("#passwordMismatch").show();
-            return;
-        } else {
-            $("#passwordMismatch").hide();
-        }
-
-        // Here you would typically send the form data to your server
-        // For this example, we'll just simulate a successful addition
-        alert("User added successfully!");
-        window.location.href = "usermanage.html";
-    });
-
     // Add photo preview functionality
     $("#profilePhoto").change(function () {
         const file = this.files[0];
@@ -81,6 +64,61 @@ $(document).ready(function () {
         });
     });
 });
+
+function confirmDelete(id, photo) {
+    Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to undo this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#d33",
+        cancelButtonColor: "#3085d6",
+        confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+        if (result.isConfirmed) {
+            deleteData(id, photo);
+        }
+    });
+}
+
+function confirmDelete(id) {
+    console.log("Confirm delete for ID:", id); // Debugging
+
+    Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to undo this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#d33",
+        cancelButtonColor: "#3085d6",
+        confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = `/deleteUser/${id}`;
+        }
+    });
+}
+
+// function deleteData(id) {
+//     console.log("Attempting to delete data for ID:", id); // Debugging
+
+//     $.ajax({
+//         url: `/deleteUser/${id}`,
+//         type: "GET",
+//         success: function (response) {
+//             Swal.fire("Deleted!", response.message, "success").then(() => {
+//                 location.reload();
+//             });
+//         },
+//         error: function (xhr) {
+//             Swal.fire(
+//                 "Error!",
+//                 "Something went wrong. Please try again.",
+//                 "error"
+//             );
+//         },
+//     });
+// }
 
 //user manage
 // $(document).ready(function() {

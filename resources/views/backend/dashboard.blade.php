@@ -9,7 +9,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Total Users</h5>
-                        <h2 class="card-text">1,234</h2>
+                        <h2 class="card-text">{{ $totalUsers }}</h2>
                         <br>
                     </div>
                 </div>
@@ -18,7 +18,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Total Form</h5>
-                        <h2 class="card-text">56</h2>
+                        <h2 class="card-text">{{ $totalForms }}</h2>
                         <br>
                     </div>
                 </div>

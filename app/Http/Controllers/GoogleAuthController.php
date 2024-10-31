@@ -31,19 +31,33 @@ class GoogleAuthController extends Controller
 
             if (!$user) {
                 $new_user = User::create([
-                    'first_name' => $google_user->user['given_name'], // Menggunakan given_name dari Google
+                    'first_name' => $google_user->user['given_name'],
                     'last_name' => $google_user->user['family_name'],
                     'email' => $google_user->getEmail(),
-                    'photo' => $google_user->getAvatar(),
+                    'google_photo' => $google_user->getAvatar(),
                     'google_id' => $google_user->getId(),
                     'role' => 'user',
                     'email_verified_at' => \now(),
+                    'last_login' => \now()
                 ]);
                 Auth::login($new_user);
-
+                if ($user->role == 'admin') {
+                    $user->update(['last_login' => now()]);
+                    return redirect()->route('login', compact('user'))->with('loginAdmin', 'Login successful! Welcome, Admin!');
+                } else if ($user->role == 'user') {
+                    $user->update(['last_login' => now()]);
+                    return redirect()->route('login', compact('user'))->with('loginUser', 'Login successful! Welcome!');
+                }
                 return $this->redirectBasedOnRole($new_user);
             } else {
                 Auth::login($user);
+                if ($user->role == 'admin') {
+                    $user->update(['last_login' => now()]);
+                    return redirect()->route('login', compact('user'))->with('loginAdmin', 'Login successful! Welcome, Admin!');
+                } else if ($user->role == 'user') {
+                    $user->update(['last_login' => now()]);
+                    return redirect()->route('login', compact('user'))->with('loginUser', 'Login successful! Welcome!');
+                }
 
                 return $this->redirectBasedOnRole($user);
             }

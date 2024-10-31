@@ -84,6 +84,15 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 1000);
 });
 
+$(document).ready(function () {
+    $("#myDataTable").DataTable({
+        ordering: true,
+        paging: true,
+        searching: true,
+        info: true,
+    });
+});
+
 document.addEventListener("DOMContentLoaded", function () {
     // Seleksi semua input fields
     const inputs = document.querySelectorAll(".form-control");

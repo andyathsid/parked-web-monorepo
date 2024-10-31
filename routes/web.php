@@ -55,7 +55,11 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/UserManagement', [UserManagementController::class, 'index'])->name('UserManagement');
     Route::get('/UserAdd', [UserManagementController::class, 'tambah'])->name('UserAdd');
-    Route::get('/UserEdit', [UserManagementController::class, 'edit'])->name('UserEdit');
+    Route::post('/UserStore', [UserManagementController::class, 'store'])->name('store.User');
+    Route::get('/UserEdit/{id}', [UserManagementController::class, 'edit'])->name('UserEdit');
+    Route::post('/UserUpdate/{id}', [UserManagementController::class, 'update'])->name('update.User');
+    Route::get('/deleteUser/{id}', [UserManagementController::class, 'destroy'])->name('deleteUser');
+
 
     Route::get('/historyform', [HistoryFormController::class, 'index'])->name('HistoryForm');
 });

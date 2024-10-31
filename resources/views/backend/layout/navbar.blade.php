@@ -30,8 +30,9 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="{{ asset($user['photo']) }}" alt="" width="40px"
-                                class="border rounded-circle" style="margin-right: 5px">{{ $user['first_name'] }}
+                            <img src="{{ $user->photo ? Storage::url($user->photo) : asset($user->google_photo) }}"
+                                alt="" width="40px" class="border rounded-circle"
+                                style="margin-right: 5px">{{ $user['first_name'] }}
                             {{ $user['last_name'] }}
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -39,7 +40,9 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="#">Logout</a></li>
+                            <li>
+                                <a class="dropdown-item" href="#" onclick="confirmLogout(event)">Logout</a>
+                            </li>
                         </ul>
                     </li>
                 </ul>

@@ -24,8 +24,9 @@
                     @csrf
                     <div class="row">
                         <div class="col-md-3 mb-3 text-center">
-                            <img id="imagePreview" src="{{ $user->photo }}" class="img-thumbnail" alt="Profile Picture"
-                                style="max-width: 150px; height: auto;">
+                            <img id="imagePreview"
+                                src="{{ $user->photo ? Storage::url($user->photo) : asset($user->google_photo) }}"
+                                class="img-thumbnail" alt="Profile Picture" style="max-width: 150px; height: auto;">
                         </div>
 
                         <div class="col-md-9 mb-3">

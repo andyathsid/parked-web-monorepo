@@ -43,7 +43,8 @@ class AuthController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'photo' => 'assets/img/defaultUser.jpg',
-            'role' => 'user'
+            'role' => 'user',
+            'last_login' => \now(),
         ]);
 
         event(new Registered($user));
@@ -52,7 +53,7 @@ class AuthController extends Controller
 
         $user->sendEmailVerificationNotification();
 
-        return redirect()->route('login')->with('Registrasi Sukses', 'Registrasi berhasil! Silakan verifikasi email Anda.');
+        return redirect()->route('login')->with('Registrasi Sukses', 'Registration successful! Please verify your email.');
     }
 
     public function login(Request $request)
@@ -64,19 +65,21 @@ class AuthController extends Controller
         $user = User::where('email', $request->email)->first();
         if ($user) {
             if ($user->email_verified_at === null) {
-                return redirect()->route('login')->with('loginGagal', 'Anda belum memverifikasi email! Silakan cek email Anda untuk verifikasi.');
+                return redirect()->route('login')->with('loginGagal', "You haven't verified your email! Please check your email for verification.");
             }
             if (Auth::attempt($request->only('email', 'password'))) {
                 if ($user->role == 'admin') {
-                    return redirect()->route('login', \compact('user'))->with('loginAdmin', 'Login berhasil! Selamat datang Admin!');
+                    $user->update(['last_login' => now()]);
+                    return redirect()->route('login', compact('user'))->with('loginAdmin', 'Login successful! Welcome, Admin!');
                 } else if ($user->role == 'user') {
-                    return redirect()->route('login', \compact('user'))->with('loginUser', 'Login berhasil! Selamat datang!');
+                    $user->update(['last_login' => now()]);
+                    return redirect()->route('login', compact('user'))->with('loginUser', 'Login successful! Welcome!');
                 }
             } else {
-                return redirect()->route('login')->with('loginGagal', 'Email atau Password Salah!');
+                return redirect()->route('login')->with('loginGagal', 'Wrong Email or Password!');
             }
         } else {
-            return redirect()->route('login')->with('loginGagal', 'Email tidak terdaftar!');
+            return redirect()->route('login')->with('loginGagal', 'Email not registered!');
         }
     }
 
@@ -91,7 +94,7 @@ class AuthController extends Controller
     {
         $request->user()->sendEmailVerificationNotification();
 
-        return back()->with('message', 'Email verifikasi telah dikirim ulang.');
+        return back()->with('message', 'Verification email has been resent.');
     }
     public function notVerif()
     {
