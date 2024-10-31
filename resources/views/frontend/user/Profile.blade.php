@@ -31,44 +31,104 @@
 
                         <div class="col-md-9 mb-3">
                             <label for="photo" class="form-label">Profile Picture</label>
-                            <input type="file" class="form-control" id="photo" accept="image/*"
-                                onchange="previewImage(event)">
+                            <input type="file" class="form-control"
+                                value="{{ $user->photo ? $user->photo : $user->google_photo }}" id="photo"
+                                accept="image/*" onchange="previewImage(event)" name="photo">
+                            @error('photo')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
 
                     </div>
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="firstName" class="form-label">First Name</label>
-                            <input type="text" class="form-control" id="firstName" value="{{ $user->first_name }}"
-                                required>
+                            <input type="text" name="first_name" class="form-control" id="firstName"
+                                value="{{ $user->first_name }}" required>
+                            @error('first_name')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="lastName" class="form-label">Last Name</label>
                             <input type="text" class="form-control" id="lastName" value="{{ $user->last_name }}"
-                                required>
+                                name="last_name" required>
+                            @error('last_name')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                     </div>
+                    @if ($user->password == null)
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="firstName" class="form-label">Password</label>
+                                <input type="password" name="first_name" class="form-control" id="firstName" required>
+                                @error('first_name')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="lastName" class="form-label">Confirm Password</label>
+                                <input type="password" class="form-control" id="lastName" name="confirm" required>
+                            </div>
+                        </div>
+                    @else
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label for="firstName" class="form-label">Password</label>
+                                <input type="password" name="first_name" class="form-control" id="firstName" required>
+                                @error('old_password')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="firstName" class="form-label">Password</label>
+                                <input type="password" name="first_name" class="form-control" id="firstName" required>
+                                @error('password')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="lastName" class="form-label">Confirm Password</label>
+                                <input type="password" class="form-control" id="lastName" name="confirm" required>
+                            </div>
+                        </div>
+                    @endif
                     <div class="mb-3">
                         <label for="email" class="form-label">Email Address</label>
-                        <input type="email" class="form-control" id="email" value="{{ $user->email }}" required>
+                        <input type="email" class="form-control" id="email" value="{{ $user->email }}"
+                            name="email" readonly>
                     </div>
                     <div class="mb-3">
                         <label for="dateOfBirth" class="form-label">Date of Birth</label>
-                        <input type="date" class="form-control" id="dateOfBirth" required
+                        <input type="date" class="form-control" id="dateOfBirth" name="dateOfBirth" required
                             value="{{ $user->tgl_Ulangtahun }}">
+                        @error('dateOfBirth')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="mb-3">
                         <label for="address" class="form-label">Address</label>
-                        <textarea class="form-control" id="address" rows="3" required>{{ $user->address }}</textarea>
+                        <textarea class="form-control" id="address" rows="3" name="address" required>{{ $user->address }}</textarea>
+                        @error('address')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="mb-3">
                         <label for="phoneNumber" class="form-label">Phone Number</label>
-                        <input type="tel" class="form-control" id="phoneNumber" value="{{ $user->phone_number }}"
-                            required>
+                        <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber"
+                            value="{{ $user->phone_number }}" required>
+                        @error('phoneNumber')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="mb-3">
                         <label for="occupation" class="form-label">Occupation</label>
-                        <input type="text" class="form-control" id="occupation" value="{{ $user->occupation }}">
+                        <input type="text" class="form-control" id="occupation" name="occupation"
+                            value="{{ $user->occupation }}">
+                        @error('occupation')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
 
                     <div class="text-center">

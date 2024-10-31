@@ -66,6 +66,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/profile', [UserController::class, 'index'])->name('profile');
+    Route::post('/update-profile', [UserController::class, 'updateProfile'])->name('update-profile');
     Route::get('/history', [UserController::class, 'history'])->name('history');
     Route::get('/patient-info', [PatientController::class, 'index'])->name('patient-info');
     Route::get('/form-diagnosa', [PatientController::class, 'DiagnosaForm'])->name('form-diagnosa');

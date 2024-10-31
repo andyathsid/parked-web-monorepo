@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -18,32 +19,38 @@ class UserController extends Controller
     {
         $request->validate([
             'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Max size 2MB
-            'firstName' => 'required|string|max:255',
-            'lastName' => 'required|string|max:255',
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
             'dateOfBirth' => 'required|date',
             'address' => 'required|string|max:255',
             'phoneNumber' => 'required|string|max:15',
             'occupation' => 'nullable|string|max:255',
         ]);
 
-        $user = auth()->user();
+        // \dd($request);
+        $user = Auth::user();
+        $user = $user->id;
 
-        $user->first_name = $request->firstName;
-        $user->last_name = $request->lastName;
-        $user->tgl_Ulangtahun = $request->dateOfBirth;
-        $user->address = $request->address;
-        $user->phone_number = $request->phoneNumber;
-        $user->occupation = $request->occupation;
+        $users = User::find($user);
+
 
         if ($request->hasFile('photo')) {
-            if ($user->photo) {
-                Storage::delete($user->photo);
+            if ($users->photo && $users->photo !== 'profile_photos/defaultUser.jpg') {
+                Storage::disk('public')->delete($users->photo);
             }
 
-            $user->photo = $request->file('photo')->store('profile_photos', 'public');
+            $users->photo = $request->file('photo')->store('profile_photos', 'public');
         }
+        $users->update([
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'tgl_ulangtahun' => $request->dateOfBirth,
+            'address' => $request->address,
+            'phone_number' => $request->phoneNumber,
+            'occupation' => $request->occupation,
+            'photo' => $request->photo
+        ]);
 
-        // $user->update();
 
         return redirect('/profile')->with('success', 'Profile updated successfully!');
     }
