@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('form', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
+            $table->int('user_id');
             $table->string('file_diagnosa1')->nullable();
             $table->string('file_diagnosa2')->nullable();
             $table->string('file_diagnosa3')->nullable();
