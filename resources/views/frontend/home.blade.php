@@ -4,69 +4,69 @@
     <div class="container my-5">
         <div class="row hero-section animate-on-scroll">
             <div class="col-md-6 hero-content">
-                <h1 class="display-4 fw-bold">Learn About Parkinson's Disease Predictor</h1>
-                <p class="lead">Discover way to manage</p>
-                <a class="btn btn-light btn-ripple" href="/patient-info">Diagnose Now</a>
+                <h1 class="display-4 fw-bold">ParkED: Sistem Deteksi Dini Penyakit Parkinson Berbasis AI</h1>
+                <p class="lead">Temukan cara untuk mengelola</p>
+                <a class="btn btn-light btn-ripple" href="/patient-info">Diagnosa Sekarang</a>
             </div>
             <div class="col-md-6 hero-image"></div>
         </div>
 
         <div class="row mt-5">
             <div class="col-md-6">
-                <h2>What is Parkinson?</h2>
-                <h3>Understanding Parkinson's Disease</h3>
-                <p>Parkinson's disease is a progressive nervous system disorder that affects movement. Symptoms start
-                    gradually, sometimes with a barely noticeable tremor in just one hand. Tremors are common, but the
-                    disorder also commonly causes stiffness or slowing of movement. In the early stages of Parkinson's
-                    disease, your face may show little or no expression. Your arms may not swing when you walk. Your
-                    speech may become soft or slurred. Parkinson's disease symptoms worsen as your condition progresses
-                    over time.</p>
+                <h2>Apa itu Parkinson?</h2>
+                <h3>Memahami Penyakit Parkinson</h3>
+                <p>Penyakit Parkinson adalah gangguan sistem saraf progresif yang mempengaruhi gerakan. Gejala dimulai
+                    secara bertahap, terkadang dengan tremor yang hampir tidak terlihat pada satu tangan. Tremor adalah
+                    gejala umum, tetapi gangguan ini juga sering menyebabkan kekakuan atau perlambatan gerakan. Pada
+                    tahap awal penyakit Parkinson, wajah Anda mungkin menunjukkan sedikit atau tidak ada ekspresi.
+                    Lengan Anda mungkin tidak berayun saat Anda berjalan. Suara Anda mungkin menjadi lembut atau pelo.
+                    Gejala penyakit Parkinson memburuk seiring berjalannya waktu.</p>
             </div>
             <div class="col-md-6">
-                <img src="assets/img/Image (2).png" alt="Neurons" class="img-fluid rounded" loading="lazy">
+                <img src="assets/img/Image (2).png" alt="Neuron" class="img-fluid rounded" loading="lazy">
             </div>
         </div>
 
         <div class="predict-tool-section my-5 py-5 bg-warning animate-on-scroll">
             <div class="container">
-                <h2 class="text-center mb-3 text-bold section-title no-animation animate-on-scroll delay-1">Our Predict
-                    Tool</h2>
-                <p class="text-center mb-5 animate-on-scroll delay-2">Our platform offers three main features to help
-                    predict Parkinson's disease</p>
+                <h2 class="text-center mb-3 text-bold section-title no-animation animate-on-scroll delay-1">Alat Prediksi
+                    Kami</h2>
+                <p class="text-center mb-5 animate-on-scroll delay-2">Platform kami menawarkan tiga fitur utama untuk membantu
+                    memprediksi penyakit Parkinson</p>
 
                 <div class="row justify-content-center animate-on-scroll delay-3">
                     <div class="col-lg-8">
                         <div class="row row-cols-1 row-cols-md-3 g-4">
                             <div class="col">
                                 <div class="card h-100 bg-custom">
-                                    <img src="assets/img/Spiral.png" class="card-img-top py-2 px-2" alt="Brain Image"
+                                    <img src="assets/img/Spiral.png" class="card-img-top py-2 px-2" alt="Gambar Otak"
                                         loading="lazy">
                                     <div class="card-body">
-                                        <h5 class="card-title">Diagnose 1</h5>
-                                        <p class="card-text">Spiral Image Analysis: Using machine learning to analyze handmade spiral images
-                                            for early detection of Parkinson's disease</p>
+                                        <h5 class="card-title">Diagnosa 1</h5>
+                                        <p class="card-text">Analisis Gambar Spiral: Menggunakan pembelajaran mesin untuk menganalisis gambar spiral buatan tangan
+                                            untuk deteksi dini penyakit Parkinson</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="card h-100 bg-custom">
-                                    <img src="assets/img/Voice.png" class="card-img-top py-2 px-2" alt="Brain Image"
+                                    <img src="assets/img/Voice.png" class="card-img-top py-2 px-2" alt="Gambar Otak"
                                         loading="lazy">
                                     <div class="card-body">
-                                        <h5 class="card-title">Diagnose 2</h5>
-                                        <p class="card-text">Voice Analysis: Uses machine learning to analyze voice
-                                            patterns for early signs of Parkinson desease</p>
+                                        <h5 class="card-title">Diagnosa 2</h5>
+                                        <p class="card-text">Analisis Suara: Menggunakan pembelajaran mesin untuk menganalisis
+                                            pola suara untuk tanda-tanda awal penyakit Parkinson</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="card h-100 bg-custom">
-                                    <img src="assets/img/CTscan.png" class="card-img-top py-2 px-2" alt="Brain Image"
+                                    <img src="assets/img/CTscan.png" class="card-img-top py-2 px-2" alt="Gambar Otak"
                                         loading="lazy">
                                     <div class="card-body">
-                                        <h5 class="card-title">Diagnose 3</h5>
-                                        <p class="card-text">CT Scan Analysis: Using machine learning to analyze brain CT scan images for
-                                            first detection of Parkinson's disease </p>
+                                        <h5 class="card-title">Diagnosa 3</h5>
+                                        <p class="card-text">Analisis CT Scan: Menggunakan pembelajaran mesin untuk menganalisis gambar CT scan otak untuk
+                                            deteksi awal penyakit Parkinson</p>
                                     </div>
                                 </div>
                             </div>
@@ -80,19 +80,19 @@
             <div class="row align-items-center justify-content-between">
                 <div class="col-lg-5 col-md-6 mb-4 mb-md-0">
                     <div class="rounded-image-container">
-                        <img src="assets/img/AI-tools.jpg" alt="Neuron Image" class="neuron-image" loading="lazy">
+                        <img src="assets/img/AI-tools.jpg" alt="Gambar Neuron" class="neuron-image" loading="lazy">
                     </div>
                 </div>
                 <div class="col-lg-7 col-md-6">
-                    <h2 class="mb-3 section-title">How it Works?</h2>
-                    <h3 class="mb-4">Understanding Parkinson's Prediction Tools</h3>
-                    <p>Our machine learning models are trained on vast datasets of patient data to identify patterns and
-                        markers indicative of Parkinson's disease. By analyzing voice recordings, handwriting samples,
-                        and gait patterns, our algorithms can detect subtle changes that may indicate the early stages
-                        of the disease. The advantages of using machine learning include higher accuracy, early
-                        detection, and the ability to continuously improve as more data is collected.</p>
+                    <h2 class="mb-3 section-title">Bagaimana Cara Kerjanya?</h2>
+                    <h3 class="mb-4">Memahami Alat Prediksi Parkinson</h3>
+                    <p>Model pembelajaran mesin kami dilatih menggunakan kumpulan data pasien yang besar untuk mengidentifikasi pola dan
+                        penanda yang menunjukkan penyakit Parkinson. Dengan menganalisis rekaman suara, sampel tulisan tangan,
+                        dan pola cara berjalan, algoritma kami dapat mendeteksi perubahan halus yang mungkin menunjukkan tahap awal
+                        penyakit. Keuntungan menggunakan pembelajaran mesin termasuk akurasi yang lebih tinggi, deteksi
+                        dini, dan kemampuan untuk terus meningkat seiring bertambahnya data yang dikumpulkan.</p>
                 </div>
             </div>
         </div>
-    </div> <!-- Tutup container di sini -->
+    </div>
 @endsection
