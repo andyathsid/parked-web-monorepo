@@ -29,7 +29,7 @@
 
         <div class="predict-tool-section my-5 py-5 bg-warning animate-on-scroll">
             <div class="container">
-                <h2 class="text-center mb-3 text-bold section-title no-animation animate-on-scroll delay-1">Alat Prediksi
+                <h2 class="text-center mb-3 text-bold text-black section-title no-animation animate-on-scroll delay-1">Alat Prediksi
                     Kami</h2>
                 <p class="text-center mb-5 animate-on-scroll delay-2">Platform kami menawarkan tiga fitur utama untuk membantu
                     memprediksi penyakit Parkinson</p>
@@ -42,7 +42,7 @@
                                     <img src="assets/img/Spiral.png" class="card-img-top py-2 px-2" alt="Gambar Otak"
                                         loading="lazy">
                                     <div class="card-body">
-                                        <h5 class="card-title">Diagnosa 1</h5>
+                                        <h5 class="card-title">Skrining 1</h5>
                                         <p class="card-text">Analisis Gambar Spiral: Menggunakan pembelajaran mesin untuk menganalisis gambar spiral buatan tangan
                                             untuk deteksi dini penyakit Parkinson</p>
                                     </div>
@@ -53,7 +53,7 @@
                                     <img src="assets/img/Voice.png" class="card-img-top py-2 px-2" alt="Gambar Otak"
                                         loading="lazy">
                                     <div class="card-body">
-                                        <h5 class="card-title">Diagnosa 2</h5>
+                                        <h5 class="card-title">Skrining 2</h5>
                                         <p class="card-text">Analisis Suara: Menggunakan pembelajaran mesin untuk menganalisis
                                             pola suara untuk tanda-tanda awal penyakit Parkinson</p>
                                     </div>
@@ -64,7 +64,7 @@
                                     <img src="assets/img/CTscan.png" class="card-img-top py-2 px-2" alt="Gambar Otak"
                                         loading="lazy">
                                     <div class="card-body">
-                                        <h5 class="card-title">Diagnosa 3</h5>
+                                        <h5 class="card-title">Skrining 3</h5>
                                         <p class="card-text">Analisis CT Scan: Menggunakan pembelajaran mesin untuk menganalisis gambar CT scan otak untuk
                                             deteksi awal penyakit Parkinson</p>
                                     </div>

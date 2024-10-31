@@ -31,71 +31,74 @@ class HomeController extends Controller
         $tittle = 'Resources Detail';
         if ($id == 1) {
             $data = [
-                "judul" => "Physiotherapy for Parkinson's Disease",
+                "judul" => "Fisioterapi untuk Penyakit Parkinson",
                 "gambar" => "assets/img/physiotherapy.png",
                 "isi" => "
-                    <h2>What is Physiotherapy?</h2>
-                    <p>Physiotherapy is a crucial component in managing Parkinson's disease. It involves physical methods to
-                        improve movement, function, and overall well-being. For Parkinson's patients, physiotherapy aims to
-                        maintain and improve mobility, balance, and quality of life.</p>
+                    <h2>Apa itu Fisioterapi?</h2>
+                    <p>Fisioterapi adalah komponen penting dalam mengelola penyakit Parkinson. Ini melibatkan metode fisik untuk 
+                        meningkatkan gerakan, fungsi, dan kesejahteraan secara keseluruhan. Bagi pasien Parkinson, fisioterapi bertujuan untuk 
+                        mempertahankan dan meningkatkan mobilitas, keseimbangan, dan kualitas hidup.</p>
 
-                    <h3>Key Physiotherapy Techniques for Parkinson's:</h3>
+                    <h3>Teknik Utama Fisioterapi untuk Parkinson:</h3>
                     <ul>
-                        <li><strong>Gait Training:</strong> Improves walking pattern and reduces fall risk.</li>
-                        <li><strong>Balance Exercises:</strong> Enhances stability and prevents falls.</li>
-                        <li><strong>Stretching:</strong> Maintains flexibility and reduces muscle stiffness.</li>
-                        <li><strong>Strength Training:</strong> Builds muscle power and improves posture.</li>
-                        <li><strong>Aerobic Exercises:</strong> Boosts cardiovascular health and energy levels.</li>
-                        <li><strong>Fine Motor Skill Exercises:</strong> Improves hand dexterity for daily tasks.</li>
+                        <li><strong>Latihan Berjalan:</strong> Meningkatkan pola berjalan dan mengurangi risiko jatuh.</li>
+                        <li><strong>Latihan Keseimbangan:</strong> Meningkatkan stabilitas dan mencegah jatuh.</li>
+                        <li><strong>Peregangan:</strong> Mempertahankan fleksibilitas dan mengurangi kekakuan otot.</li>
+                        <li><strong>Latihan Kekuatan:</strong> Membangun kekuatan otot dan memperbaiki postur.</li>
+                        <li><strong>Latihan Aerobik:</strong> Meningkatkan kesehatan kardiovaskular dan tingkat energi.</li>
+                        <li><strong>Latihan Motorik Halus:</strong> Meningkatkan ketangkasan tangan untuk tugas sehari-hari.</li>
                     </ul>
 
-                    <h3>The Physiotherapy Process:</h3>
+                    <h3>Proses Fisioterapi:</h3>
                     <ol>
-                        <li><strong>Assessment:</strong> Evaluating the patient's condition and specific needs.</li>
-                        <li><strong>Goal Setting:</strong> Establishing realistic and achievable objectives.</li>
-                        <li><strong>Treatment Plan:</strong> Designing a personalized therapy program.</li>
-                        <li><strong>Regular Sessions:</strong> Implementing exercises and techniques under guidance.</li>
-                        <li><strong>Home Exercise Program:</strong> Providing exercises for continued practice at home.</li>
-                        <li><strong>Progress Monitoring:</strong> Regular evaluations to adjust the treatment plan as needed.
-                        </li>
+                        <li><strong>Penilaian:</strong> Mengevaluasi kondisi dan kebutuhan spesifik pasien.</li>
+                        <li><strong>Penetapan Tujuan:</strong> Menetapkan tujuan yang realistis dan dapat dicapai.</li>
+                        <li><strong>Rencana Perawatan:</strong> Merancang program terapi yang dipersonalisasi.</li>
+                        <li><strong>Sesi Rutin:</strong> Menerapkan latihan dan teknik di bawah bimbingan.</li>
+                        <li><strong>Program Latihan di Rumah:</strong> Memberikan latihan untuk praktik berkelanjutan di rumah.</li>
+                        <li><strong>Pemantauan Kemajuan:</strong> Evaluasi rutin untuk menyesuaikan rencana perawatan sesuai kebutuhan.</li>
                     </ol>
 
-                    <p>Physiotherapy for Parkinson's is an ongoing process, often requiring long-term commitment. It's most
-                        effective when started early and maintained consistently throughout the course of the disease.</p>
-                    "
-
+                    <p>Fisioterapi untuk Parkinson adalah proses berkelanjutan yang sering membutuhkan komitmen jangka panjang. 
+                        Ini paling efektif ketika dimulai sejak dini dan dipertahankan secara konsisten sepanjang perjalanan penyakit.</p>
+                "
             ];
         } else if ($id == 2) {
             $data = [
-                "judul" => "Speech Therapyp for Parkinson's Disease",
+                "judul" => "Terapi Wicara untuk Penyakit Parkinson",
                 "gambar" => "assets/img/speech-therapy.png",
                 "isi" => "
-                <h2>What is Speech Therapy?</h2>
-                <p>Speech therapy is a crucial component in managing communication and swallowing difficulties associated with Parkinson's disease. It involves working with a speech-language pathologist to improve speech, voice quality, and swallowing function. For Parkinson's patients, speech therapy aims to maintain and enhance communication abilities and safe swallowing.</p>
-                
-                <h3>Key Speech Therapy Techniques for Parkinson's:</h3>
-                <ul>
-                    <li><strong>Lee Silverman Voice Treatment (LSVT LOUD):</strong> Focuses on increasing vocal loudness and improving speech clarity.</li>
-                    <li><strong>Articulation Exercises:</strong> Improves clarity of speech and pronunciation.</li>
-                    <li><strong>Breath Support Techniques:</strong> Enhances breath control for better speech production.</li>
-                    <li><strong>Swallowing Exercises:</strong> Strengthens muscles involved in swallowing to prevent aspiration.</li>
-                    <li><strong>Facial Exercises:</strong> Improves facial muscle strength for better expression and speech.</li>
-                    <li><strong>Pitch and Intonation Practice:</strong> Helps maintain natural speech patterns and expressiveness.</li>
-                </ul>
-                
-                <h3>The Speech Therapy Process:</h3>
-                <ol>
-                    <li><strong>Initial Assessment:</strong> Evaluating the patient's speech, voice, and swallowing abilities.</li>
-                    <li><strong>Goal Setting:</strong> Establishing realistic objectives for improvement.</li>
-                    <li><strong>Treatment Plan:</strong> Designing a personalized therapy program.</li>
-                    <li><strong>Regular Sessions:</strong> Implementing exercises and techniques under guidance.</li>
-                    <li><strong>Home Practice:</strong> Providing exercises for continued practice at home.</li>
-                    <li><strong>Progress Monitoring:</strong> Regular evaluations to adjust the treatment plan as needed.</li>
-                </ol>
-                
-                <p>Speech therapy for Parkinson's is an ongoing process that can significantly improve quality of life and maintain communication abilities. It's most effective when started early and maintained consistently throughout the course of the disease.</p>
-                    "
+                    <h2>Apa itu Terapi Wicara?</h2>
+                    <p>Terapi wicara adalah komponen penting dalam mengelola kesulitan komunikasi dan menelan yang terkait dengan 
+                        penyakit Parkinson. Ini melibatkan kerja sama dengan ahli patologi wicara-bahasa untuk meningkatkan kemampuan 
+                        bicara, kualitas suara, dan fungsi menelan. Bagi pasien Parkinson, terapi wicara bertujuan untuk mempertahankan 
+                        dan meningkatkan kemampuan komunikasi dan menelan yang aman.</p>
 
+                    <h3>Teknik Utama Terapi Wicara untuk Parkinson:</h3>
+                    <ul>
+                        <li><strong>Pengobatan Suara Lee Silverman (LSVT LOUD):</strong> Fokus pada peningkatan kekerasan suara dan 
+                            memperbaiki kejelasan bicara.</li>
+                        <li><strong>Latihan Artikulasi:</strong> Meningkatkan kejelasan bicara dan pengucapan.</li>
+                        <li><strong>Teknik Dukungan Pernapasan:</strong> Meningkatkan kontrol napas untuk produksi suara yang lebih baik.</li>
+                        <li><strong>Latihan Menelan:</strong> Memperkuat otot yang terlibat dalam menelan untuk mencegah aspirasi.</li>
+                        <li><strong>Latihan Wajah:</strong> Meningkatkan kekuatan otot wajah untuk ekspresi dan bicara yang lebih baik.</li>
+                        <li><strong>Latihan Nada dan Intonasi:</strong> Membantu mempertahankan pola bicara alami dan ekspresif.</li>
+                    </ul>
+
+                    <h3>Proses Terapi Wicara:</h3>
+                    <ol>
+                        <li><strong>Penilaian Awal:</strong> Mengevaluasi kemampuan bicara, suara, dan menelan pasien.</li>
+                        <li><strong>Penetapan Tujuan:</strong> Menetapkan tujuan realistis untuk perbaikan.</li>
+                        <li><strong>Rencana Perawatan:</strong> Merancang program terapi yang dipersonalisasi.</li>
+                        <li><strong>Sesi Rutin:</strong> Menerapkan latihan dan teknik di bawah bimbingan.</li>
+                        <li><strong>Latihan di Rumah:</strong> Memberikan latihan untuk praktik berkelanjutan di rumah.</li>
+                        <li><strong>Pemantauan Kemajuan:</strong> Evaluasi rutin untuk menyesuaikan rencana perawatan sesuai kebutuhan.</li>
+                    </ol>
+
+                    <p>Terapi wicara untuk Parkinson adalah proses berkelanjutan yang dapat secara signifikan meningkatkan kualitas 
+                        hidup dan mempertahankan kemampuan komunikasi. Ini paling efektif ketika dimulai sejak dini dan dipertahankan 
+                        secara konsisten sepanjang perjalanan penyakit.</p>
+                "
             ];
         } else if ($id == 3) {
             $data = [

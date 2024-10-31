@@ -131,6 +131,25 @@ function previewImage(event) {
         URL.revokeObjectURL(imagePreview.src); // Free memory
     };
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+    const cards = document.querySelectorAll('.method-card');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+                observer.unobserve(entry.target); // Berhenti mengamati setelah muncul
+            }
+        });
+    }, {
+        threshold: 0.2 // Memicu ketika 20% card terlihat
+    });
+
+    cards.forEach(card => {
+        observer.observe(card);
+    });
+});
 // Infotmation
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -147,6 +166,25 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 
     fadeElems.forEach((elem) => observer.observe(elem));
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const sections = document.querySelectorAll('.fade-in-section');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target); // Berhenti mengamati setelah muncul
+            }
+        });
+    }, {
+        threshold: 0.2 // Memicu ketika 20% section terlihat
+    });
+
+    sections.forEach(section => {
+        observer.observe(section);
+    });
 });
 // Form Diagnosa
 
@@ -431,3 +469,7 @@ document.getElementById("audioPlayback").addEventListener("pause", function () {
 document.getElementById("audioPlayback").addEventListener("ended", function () {
     document.getElementById("recordButton").classList.remove("d-none");
 });
+
+
+
+
