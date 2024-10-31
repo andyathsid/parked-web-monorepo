@@ -908,3 +908,1045 @@ background-color: #FFF2C0; /* Warna oranye */
 .information-card:hover .information-icon-container {
     transform: scale(1.1);
 }
+
+/* Tambahkan style baru untuk instruksi */
+.instruction-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+}
+
+.instruction-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.instruction-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #FFF5E6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    flex-shrink: 0;
+}
+
+.instruction-icon i {
+    color: #ffc107;
+    font-size: 1.25rem;
+}
+
+.instruction-content {
+    flex: 1;
+}
+
+.instruction-content h6 {
+    color: #2c3e50;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.instruction-content p {
+    color: #6c757d;
+    font-size: 0.9rem;
+    margin-bottom: 0;
+    line-height: 1.5;
+}
+
+.instruction-section {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Test Cards Styling */
+.test-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 2rem;
+    height: 100%;
+    min-height: 400px; /* Tetapkan tinggi minimum yang sama */
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.test-card:hover {
+    transform: translateY(-5px);
+}
+
+.test-card-icon {
+    width: 80px;
+    height: 80px;
+    background: #fff8e1;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+}
+
+.test-card-icon i {
+    font-size: 2rem;
+    color: #ffc107;
+}
+
+.test-card-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.test-card-content h4 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.test-card-content p {
+    color: #6c757d;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    flex-grow: 1; /* Membuat paragraf mengambil ruang yang tersedia */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 4.8em; /* 3 baris x 1.6 line-height */
+}
+
+.test-card-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #f1f1f1;
+    margin-top: auto; /* Memastikan stats selalu di bawah */
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat-value {
+    display: block;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #ffc107;
+    margin-bottom: 0.25rem;
+}
+
+.stat-label {
+    display: block;
+    font-size: 0.9rem;
+    color: #6c757d;
+    font-weight: 500;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .test-card {
+        min-height: 350px;
+        margin-bottom: 2rem;
+    }
+    
+    .test-card-content h4 {
+        font-size: 1.25rem;
+    }
+    
+    .test-card-content p {
+        font-size: 0.9rem;
+    }
+    
+    .stat-value {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .test-card {
+        min-height: 300px;
+    }
+}
+
+.info-note {
+    background: rgba(255, 193, 7, 0.05);
+    border-radius: 15px;
+    padding: 1.5rem;
+    border: 1px dashed rgba(255, 193, 7, 0.3);
+    margin-top: 2rem;
+}
+
+.info-icon {
+    width: 40px;
+    height: 40px;
+    background: #ffc107;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+}
+
+.info-icon i {
+    color: white;
+    font-size: 1.2rem;
+}
+
+/* Typography Enhancements for Intro Section */
+.intro-title {
+    font-weight: 800;
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+}
+
+.intro-lead {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #6c757d;
+    margin-bottom: 2rem;
+}
+
+/* Welcome Section Styles */
+.welcome-card {
+    background: #fff;
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(255, 193, 7, 0.1);
+    margin-bottom: 2rem;
+}
+
+.welcome-icon {
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 193, 7, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+}
+
+.welcome-icon i {
+    font-size: 2.5rem;
+    color: #ffc107;
+}
+
+.welcome-title {
+    color: #2c3e50;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+}
+
+.welcome-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #6c757d;
+}
+
+/* Disclaimer Card Styles */
+.disclaimer-card {
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(255, 193, 7, 0.1);
+}
+
+.disclaimer-header {
+    background: rgba(255, 193, 7, 0.1);
+    padding: 2rem;
+    text-align: center;
+    border-bottom: 3px solid #ffc107;
+}
+
+.disclaimer-header i {
+    font-size: 2.5rem;
+    color: #ffc107;
+    margin-bottom: 1rem;
+}
+
+.disclaimer-header h2 {
+    color: #2c3e50;
+    font-weight: 800;
+    margin: 0;
+}
+
+.disclaimer-body {
+    padding: 2rem;
+}
+
+.disclaimer-section {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.disclaimer-section:last-child {
+    border-bottom: none;
+}
+
+.disclaimer-section h3 {
+    color: #2c3e50;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.disclaimer-section p {
+    color: #6c757d;
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 0;
+}
+
+.disclaimer-agreement {
+    background: rgba(255, 193, 7, 0.05);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-top: 2rem;
+}
+
+.disclaimer-agreement p {
+    color: #2c3e50;
+    font-weight: 500;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+/* Next Steps & Start Test Sections */
+.next-steps-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.section-icon {
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    transition: transform 0.3s ease;
+}
+
+.section-icon i {
+    font-size: 2.5rem;
+    color: #fff;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #fff;
+}
+
+.next-steps-content:hover .section-icon {
+    transform: scale(1.1);
+}
+
+.btn-custom {
+    background: #fff;
+    color: #ffc107;
+    border: 2px solid #fff;
+    padding: 15px 40px;
+    font-weight: 700;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.btn-custom:hover {
+    background: transparent;
+    color: #fff;
+}
+
+/* Start Test Section Specific Styles */
+.start-test-section {
+    background: #fff;
+}
+
+.start-test-section .section-icon {
+    background: rgba(255, 193, 7, 0.1);
+}
+
+.start-test-section .section-icon i {
+    color: #ffc107;
+}
+
+.start-test-section .section-title {
+    color: #2c3e50;
+}
+
+.start-test-btn {
+    background: #ffc107;
+    color: #fff;
+    border: 2px solid #ffc107;
+    padding: 15px 40px;
+    font-weight: 700;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.start-test-btn:hover {
+    background: #fff;
+    color: #ffc107;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .btn-custom, .start-test-btn {
+        padding: 12px 30px;
+    }
+}
+
+/* Resource Detail Page Styles */
+.resource-detail-page {
+    background-color: #f8f9fa;
+}
+
+.resource-hero {
+    background: linear-gradient(135deg, #ffc107 0%, #ffdb4d 100%);
+    padding: 3rem 0;
+    margin-bottom: 2rem;
+}
+
+.resource-hero h1 {
+    color: #2c3e50;
+    font-size: 2.5rem;
+    font-weight: 800;
+    text-transform: capitalize;
+}
+
+.divider {
+    width: 80px;
+    height: 4px;
+    background: #fff;
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+/* Image Styles */
+.resource-image-wrapper {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.resource-image-wrapper img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.resource-image-wrapper:hover img {
+    transform: scale(1.02);
+}
+
+/* Content Styles */
+.resource-content {
+    padding: 1rem;
+}
+
+.resource-content h2 {
+    color: #2c3e50;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.resource-content h3 {
+    color: #000000;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 2rem 0 1rem;
+}
+
+.resource-content p {
+    color: #6c757d;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.resource-content ul, 
+.resource-content ol {
+    color: #6c757d;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+}
+
+.resource-content li {
+    margin-bottom: 0.8rem;
+}
+
+.resource-content strong {
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+/* Custom Scrollbar */
+.resource-content {
+    max-height: 800px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #ffc107 #f8f9fa;
+}
+
+.resource-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.resource-content::-webkit-scrollbar-track {
+    background: #f8f9fa;
+}
+
+.resource-content::-webkit-scrollbar-thumb {
+    background-color: #ffc107;
+    border-radius: 4px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .resource-hero h1 {
+        font-size: 2rem;
+    }
+
+    .resource-content {
+        margin-top: 2rem;
+        max-height: none;
+        overflow-y: visible;
+    }
+}
+
+@media (max-width: 768px) {
+    .resource-hero {
+        padding: 2rem 0;
+    }
+
+    .resource-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .resource-content h3 {
+        font-size: 1.3rem;
+    }
+
+    .resource-content p,
+    .resource-content ul,
+    .resource-content ol {
+        font-size: 1rem;
+    }
+}
+
+/* Content Card Styling */
+.content-card h2 {
+    font-size: 1.8rem;
+    color: #2c3e50;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.content-card h3 {
+    font-size: 1.3rem;
+    color: #2c3e50;
+    font-weight: 600;
+    margin: 2rem 0 1rem;
+}
+
+.content-card p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #6c757d;
+    margin-bottom: 1.5rem;
+}
+
+/* Card and Image Styling */
+.predict-tool-section .card {
+    border: none;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.predict-tool-section .card:hover {
+    transform: translateY(-5px);
+}
+
+.predict-tool-section .card-img-top {
+    height: 200px; /* Set fixed height */
+    object-fit: contain; /* Maintain aspect ratio */
+    padding: 1.5rem;
+    background: white;
+    border-radius: 15px 15px 0 0;
+}
+
+.predict-tool-section .card-body {
+    padding: 1.5rem;
+    background: white;
+    border-radius: 0 0 15px 15px;
+}
+
+.predict-tool-section .card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.predict-tool-section .card-text {
+    font-size: 0.95rem;
+    color: #6c757d;
+    line-height: 1.6;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .predict-tool-section .card-img-top {
+        height: 180px;
+    }
+    
+    .predict-tool-section .card-body {
+        padding: 1.25rem;
+    }
+}
+
+/* Animation Keyframes */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Welcome Section */
+.welcome-section {
+    padding: 4rem 0;
+}
+
+.welcome-card {
+    animation: fadeInUp 0.6s ease-out;
+    background: #fff;
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.welcome-icon {
+    font-size: 3rem;
+    color: #ffc107;
+    margin-bottom: 1.5rem;
+}
+
+.welcome-title {
+    color: #2c3e50;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.welcome-text {
+    color: #6c757d;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* Disclaimer Card */
+.disclaimer-card {
+    animation: fadeInUp 0.6s ease-out 0.2s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+    background: #fff;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    margin-bottom: 3rem;
+}
+
+.disclaimer-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.disclaimer-header i {
+    font-size: 2rem;
+    color: #ffc107;
+}
+
+.disclaimer-header h2 {
+    color: #2c3e50;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.disclaimer-section {
+    margin-bottom: 2rem;
+    animation: fadeInUp 0.6s ease-out;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+.disclaimer-section:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.disclaimer-section:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+/* Next Steps Section */
+.next-steps-wrapper {
+    animation: fadeInUp 0.6s ease-out 0.5s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+.next-steps-content {
+    padding: 3rem 0;
+}
+
+.section-icon {
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.section-icon:hover {
+    transform: scale(1.1);
+}
+
+.section-title {
+    color: #2c3e50;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+/* Start Test Section */
+.start-test-section {
+    animation: fadeInUp 0.6s ease-out 0.6s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+.start-test-btn {
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.start-test-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 193, 7, 0.3);
+}
+
+/* Action Buttons */
+.action-button {
+    margin-top: 2rem;
+}
+
+.btn-custom {
+    background: #fff;
+    color: #ffc107;
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.btn-custom:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateY(-3px);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .welcome-title {
+        font-size: 2rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .disclaimer-header h2 {
+        font-size: 1.5rem;
+    }
+    
+    .welcome-card,
+    .disclaimer-card {
+        padding: 1.5rem;
+    }
+}
+
+/* Welcome Card Styles */
+.welcome-text {
+    color: #6c757d;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+/* Disclaimer Content Styles */
+.disclaimer-section p {
+    color: #6c757d;
+    font-size: 1rem;
+    line-height: 1.8;
+    text-align: justify;
+    text-justify: inter-word;
+    margin-bottom: 1.5rem;
+}
+
+.disclaimer-agreement p {
+    color: #6c757d;
+    font-size: 1rem;
+    line-height: 1.8;
+    text-align: justify;
+    text-justify: inter-word;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border-left: 4px solid #ffc107;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .welcome-text,
+    .disclaimer-section p,
+    .disclaimer-agreement p {
+        text-align: left; /* Pada layar mobile lebih baik menggunakan left alignment */
+    }
+}
+
+/* Modern Information Page Styles */
+.steps-section {
+    background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+}
+
+.section-header {
+    max-width: 800px;
+    margin: 0 auto 4rem;
+}
+
+.section-header h2 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.section-header .lead {
+    color: #6c757d;
+    font-size: 1.2rem;
+}
+
+/* Step Cards */
+.step-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.step-card:hover {
+    transform: translateY(-5px);
+}
+
+.step-number {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ffc107;
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.icon-wrapper {
+    width: 80px;
+    height: 80px;
+    background: #fff8e1;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem auto 2rem;
+}
+
+.icon-wrapper i {
+    font-size: 2rem;
+    color: #ffc107;
+}
+
+/* Method Cards */
+.method-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 2rem;
+    height: 100%;
+    min-height: 500px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+}
+
+.method-card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Delay untuk setiap card */
+.col-lg-4:nth-child(1) .method-card {
+    transition-delay: 0.1s;
+}
+
+.col-lg-4:nth-child(2) .method-card {
+    transition-delay: 0.3s;
+}
+
+.col-lg-4:nth-child(3) .method-card {
+    transition-delay: 0.5s;
+}
+
+/* Hover effect tetap ada */
+.method-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+/* Method Cards Base Styling */
+.method-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 2rem;
+    height: 100%;
+    min-height: 500px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+}
+
+/* Card Content Styling */
+.method-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+}
+
+.method-card h4 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.method-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+    flex-grow: 1;
+}
+
+.method-features li {
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+}
+
+.accuracy {
+    text-align: center;
+    padding: 1rem;
+    background: #fff8e1;
+    border-radius: 15px;
+    margin-top: auto;
+}
+
+/* Animation Classes */
+.method-card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animation Delays */
+.col-lg-4:nth-child(1) .method-card {
+    transition-delay: 0.1s;
+}
+
+.col-lg-4:nth-child(2) .method-card {
+    transition-delay: 0.3s;
+}
+
+.col-lg-4:nth-child(3) .method-card {
+    transition-delay: 0.5s;
+}
+
+/* Hover Effect */
+.method-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+/* Tambahkan style untuk animasi */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease-out;
+    visibility: hidden;
+}
+
+.fade-in-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+}
+
+/* Delay untuk child elements */
+.fade-in-section.visible .welcome-card,
+.fade-in-section.visible .disclaimer-card,
+.fade-in-section.visible .next-steps-content,
+.fade-in-section.visible .start-test-content {
+    opacity: 1;
+    transform: translateY(0);
+}
