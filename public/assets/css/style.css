@@ -2597,3 +2597,224 @@ background-color: #FFF2C0; /* Warna oranye */
         max-width: 840px;
     }
 }
+
+/* Perbaikan responsif untuk halaman result */
+@media (max-width: 768px) {
+    /* Card adjustments */
+    .col-md-4.mb-4 {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    /* Button container adjustments */
+    .text-center.mt-5 {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 0 1rem;
+    }
+
+    /* Button adjustments */
+    .text-center.mt-5 .btn {
+        width: 100%;
+        margin: 0 !important;
+        padding: 0.75rem 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Alert adjustments */
+    .alert.alert-warning {
+        margin: 2rem 1rem;
+    }
+
+    .alert.alert-warning .lead {
+        font-size: 1rem;
+    }
+}
+
+/* Tablet adjustments */
+@media (min-width: 769px) and (max-width: 991px) {
+    .text-center.mt-5 {
+        padding: 0 2rem;
+    }
+
+    .text-center.mt-5 .btn {
+        padding: 0.75rem 1.5rem;
+    }
+
+    .alert.alert-warning {
+        margin: 3rem 2rem;
+    }
+}
+
+/* Large screen adjustments */
+@media (min-width: 992px) {
+    .text-center.mt-5 .btn {
+        min-width: 200px;
+    }
+}
+
+/* Styling untuk disclaimer card */
+.disclaimer-card {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    margin: 2rem 0;
+}
+
+.disclaimer-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #ffc107;
+}
+
+.disclaimer-header i {
+    font-size: 2rem;
+    color: #ffc107;
+}
+
+.disclaimer-header h2 {
+    margin: 0;
+    font-weight: bold;
+}
+
+.disclaimer-section {
+    margin-bottom: 2rem;
+}
+
+.disclaimer-section h3 {
+    color: #333;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.disclaimer-section p,
+.disclaimer-agreement p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+.disclaimer-agreement {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .disclaimer-card {
+        padding: 1.5rem;
+    }
+
+    .disclaimer-header {
+        margin-bottom: 1.5rem;
+    }
+
+    .disclaimer-header i {
+        font-size: 1.8rem;
+    }
+
+    .disclaimer-header h2 {
+        font-size: 1.8rem;
+    }
+
+    .disclaimer-section h3 {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 991px) {
+    .col-lg-10 {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .disclaimer-card {
+        padding: 1.25rem;
+        margin: 1.5rem 0;
+    }
+
+    .disclaimer-header {
+        margin-bottom: 1.25rem;
+    }
+
+    .disclaimer-section {
+        margin-bottom: 1.5rem;
+    }
+
+    .disclaimer-section h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .disclaimer-section p,
+    .disclaimer-agreement p {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .disclaimer-card {
+        padding: 1rem;
+        margin: 1rem 0;
+    }
+
+    .disclaimer-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .disclaimer-header i {
+        font-size: 1.5rem;
+    }
+
+    .disclaimer-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .disclaimer-section {
+        margin-bottom: 1.25rem;
+    }
+
+    .disclaimer-section h3 {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .disclaimer-section p,
+    .disclaimer-agreement p {
+        font-size: 0.9rem;
+        text-align: left;
+    }
+
+    .disclaimer-agreement {
+        margin-top: 1.25rem;
+        padding-top: 0.75rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .disclaimer-card {
+        padding: 0.875rem;
+        margin: 0.75rem 0;
+    }
+
+    .disclaimer-header h2 {
+        font-size: 1.3rem;
+    }
+
+    .disclaimer-section p,
+    .disclaimer-agreement p {
+        font-size: 0.85rem;
+    }
+}
