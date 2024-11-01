@@ -6,7 +6,7 @@
             <!-- Sidebar starts here -->
             <div class="col-md-3 col-lg-2 me-md-4">
                 <div class="d-flex align-items-center mb-4">
-                    <h3 class="ms-3 mb-0 ">{{ $user->first_name }}</h3>
+                    <h3 class="ms-3 mb-0 ">{{ $user->first_name }} {{ $user->last_name }}</h3>
                 </div>
                 <ul class="list-unstyled border-top border-bottom py-3">
                     <li class="mb-2"><a href="/profile" class="text-decoration-none text-black">Biodata</a></li>
@@ -104,10 +104,13 @@
                                                                     {{ $his['hasil_diagnosa1'] !== null ? ($his['hasil_diagnosa1'] ? 'Terdeteksi' : 'Tidak Terdeteksi') : '-' }}
                                                                 </span>
                                                             </div>
-                                                            <button class="download-button">
-                                                                <i class="fas fa-download"></i>
-                                                                <span>Download</span>
-                                                            </button>
+                                                            @if ($his['file_diagnosa1'] !== null)
+                                                                <a href="{{ Storage::url($his['file_diagnosa1']) }}"
+                                                                    class="download-button" download>
+                                                                    <i class="fas fa-download"></i>
+                                                                    <span>Download</span>
+                                                                </a>
+                                                            @endif
                                                         </div>
                                                     </div>
 
@@ -124,10 +127,13 @@
                                                                     {{ $his['hasil_diagnosa2'] !== null ? ($his['hasil_diagnosa2'] ? 'Terdeteksi' : 'Tidak Terdeteksi') : '-' }}
                                                                 </span>
                                                             </div>
-                                                            <button class="download-button">
-                                                                <i class="fas fa-download"></i>
-                                                                <span>Download</span>
-                                                            </button>
+                                                            @if ($his['file_diagnosa2'] !== null)
+                                                                <a href="{{ Storage::url($his['file_diagnosa2']) }}"
+                                                                    class="download-button" download>
+                                                                    <i class="fas fa-download"></i>
+                                                                    <span>Download</span>
+                                                                </a>
+                                                            @endif
                                                         </div>
                                                     </div>
 
@@ -144,10 +150,13 @@
                                                                     {{ $his['hasil_diagnosa3'] !== null ? ($his['hasil_diagnosa3'] ? 'Terdeteksi' : 'Tidak Terdeteksi') : '-' }}
                                                                 </span>
                                                             </div>
-                                                            <button class="download-button">
-                                                                <i class="fas fa-download"></i>
-                                                                <span>Download</span>
-                                                            </button>
+                                                            @if ($his['file_diagnosa3'] !== null)
+                                                                <a href="{{ Storage::url($his['file_diagnosa3']) }}"
+                                                                    class="download-button" download>
+                                                                    <i class="fas fa-download"></i>
+                                                                    <span>Download</span>
+                                                                </a>
+                                                            @endif
                                                         </div>
                                                     </div>
                                                 </div>

@@ -35,7 +35,7 @@
                                         <h4>Gambar Spiral</h4>
                                         <p>Evaluasi kontrol motorik halus melalui analisis pola gambar spiral Archimedes.
                                         </p>
-                        
+
                                     </div>
                                 </div>
                             </div>
@@ -50,7 +50,7 @@
                                         <p>Analisis pola suara untuk mendeteksi tremor vokal dan perubahan dalam kemampuan
                                             berbicara.</p>
                                         <div class="test-card-stats">
-                                            
+
                                         </div>
                                     </div>
                                 </div>
@@ -67,7 +67,7 @@
                                     <div class="test-card-content">
                                         <h4>Citra Medis Otak</h4>
                                         <p>Analisis DaTscan untuk mengevaluasi aktivitas dopamin dalam otak.</p>
-                                        
+
                                     </div>
                                 </div>
                             </div>
@@ -190,7 +190,7 @@
                                                 </div>
 
                                                 <div class=" mt-2">
-                                                    <a href="assets/templates/spiral-template.pdf"
+                                                    <a href="{{ asset('assets/template/Test_Spiral.pdf') }}"
                                                         class="btn btn-warning text-black">
                                                         <i class="fas fa-download me-2"></i>Unduh Template
                                                     </a>
@@ -203,8 +203,7 @@
                                         <div class="formdiagnosa-dropzone text-center p-5 border border-dashed rounded"
                                             id="formdiagnosa-drop-area">
                                             <input type="file" id="formdiagnosa-fileElem" accept="image/*"
-                                                onchange="handleFiles(this.files)" style="display:none"
-                                                name="fileModel1">
+                                                onchange="handleFiles(this.files)" style="display:none" name="fileModel1">
                                             <div id="formdiagnosa-preview-container"
                                                 class="mb-3 formdiagnosa-preview-wrapper" style="display:none;">
                                                 <img id="formdiagnosa-preview-image" src="" alt="Preview"
@@ -407,7 +406,8 @@
                                                     <p id="recordingStatus" class="mt-3 d-none">
                                                         Merekam: <span id="recordingTime">00:00</span>
                                                         <br>
-                                                        <small class="text-muted">Rekaman akan berhenti otomatis setelah 60 detik</small>
+                                                        <small class="text-muted">Rekaman akan berhenti otomatis setelah 60
+                                                            detik</small>
                                                     </p>
                                                     <audio id="audioPlayback" controls class="mt-3 d-none"></audio>
                                                     <br>
