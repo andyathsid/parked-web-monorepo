@@ -43,8 +43,8 @@
             <div class="dropdown d-none d-lg-block">
                 <button class="btn btn-user-dropdown" type="button" id="userDropdown" data-bs-toggle="dropdown"
                     aria-expanded="false">
-                    <img src="{{ $user->photo ? Storage::url($user->photo) : asset($user->google_photo) }}" alt=""
-                        class="border rounded-circle" width="50px">
+                    <img src="{{ $user->photo ? Storage::url($user->photo) : asset($user->google_photo) }}" alt="Profile picture"
+                        class="border">
                 </button>
                 <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="userDropdown">
                     <li><a class="dropdown-item" href="/profile">Profil</a></li>

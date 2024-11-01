@@ -2942,3 +2942,71 @@ background-color: #FFF2C0; /* Warna oranye */
     font-size: 1.25rem;
   }
 }
+
+/* DaTscan example image styles */
+.formdiagnosa-example-image {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Container untuk gambar */
+.formdiagnosa-example-container {
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+/* Responsive breakpoints */
+@media (max-width: 1200px) {
+    .formdiagnosa-example-image {
+        max-height: 350px;
+    }
+}
+
+@media (max-width: 992px) {
+    .formdiagnosa-example-image {
+        max-height: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .formdiagnosa-example-image {
+        max-height: 250px;
+    }
+    
+    .formdiagnosa-example-container {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .formdiagnosa-example-image {
+        max-height: 200px;
+    }
+    
+    .formdiagnosa-example-container {
+        padding: 0.75rem;
+    }
+}
+
+/* Navbar profile image styles */
+.btn-user-dropdown img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* Responsive adjustments for profile image */
+@media (max-width: 991px) {
+    .btn-user-dropdown img {
+        width: 40px;
+        height: 40px;
+    }
+}
