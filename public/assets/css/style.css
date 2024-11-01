@@ -133,10 +133,7 @@ button {
 }
 
 .modal-content {
-    background-image: url('../img/Image\ \(4\).png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background-color: #ffffff;
     border-radius: 15px;
     border: none;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -144,26 +141,15 @@ button {
     overflow: hidden;
 }
 
-.modal-content::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(255, 255, 255, 0.7);
-    /* Warna putih dengan 70% opacity */
-    z-index: 0;
-}
-
 .modal-header,
 .modal-body {
     position: relative;
     z-index: 1;
+    background-color: #ffffff;
 }
 
 .modal-header {
-    border-bottom: none;
+    border-bottom: 1px solid #e9ecef;
     padding: 1rem 1rem 0.5rem;
 }
 
@@ -172,18 +158,19 @@ button {
 }
 
 .btn-custom {
-    background-color: #ffc107;
-    color: #000;
+    background-color: #ffffff;
+    color: #000000;
     border: none;
-    transition: all 0.3s ease;
+    padding: 10px 30px;
+    font-weight: bold;
+    transition: transform 0.3s ease;
 }
 
 .btn-custom:hover,
 .btn-custom:focus {
-    background-color: #ffca2c;
-    color: #000;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;  /* Tetap putih */
+    color: #000000;  /* Tetap hitam */
+    transform: translateY(-5px);
 }
 
 .btn-lg {
@@ -209,13 +196,11 @@ button {
 
 /* Efek hover untuk tombol Diagnose Now */
 .btn-light {
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
 .btn-light:hover {
-    background-color: #ffc107;
-    color: white;
-    transform: scale(1.05);
+    transform: translateY(-5px);
 }
 
 /* Efek hover untuk link di footer */
@@ -455,15 +440,14 @@ footer a:hover {
     border: none;
     padding: 10px 30px;
     font-weight: bold;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
 .btn-custom:hover,
 .btn-custom:focus {
-    background-color: #f8f9fa;
-    color: #000000;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;  /* Tetap putih */
+    color: #000000;  /* Tetap hitam */
+    transform: translateY(-5px);
 }
 
 .sect-2 {
@@ -2075,5 +2059,762 @@ background-color: #FFF2C0; /* Warna oranye */
     
     .paginate_button {
         padding: 6px 12px !important;
+    }
+}
+
+/* Modal Styling */
+.modal-content {
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+    padding: 1.5rem 2rem;
+}
+
+.modal-title {
+    font-size: 1.5rem;
+    color: #2d3436;
+}
+
+/* Date Card Styling */
+.date-card {
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 12px;
+}
+
+.date-icon {
+    width: 45px;
+    height: 45px;
+    background: #ffd43b;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+/* Result Cards */
+.result-card {
+    background: #fff;
+    border: 1px solid #e9ecef;
+    border-radius: 16px;
+    padding: 1.25rem;
+    transition: all 0.3s ease;
+}
+
+.result-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+.result-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.result-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    margin-right: 1rem;
+}
+
+.spiral-icon {
+    background: #e3f2fd;
+    color: #2196f3;
+}
+
+.voice-icon {
+    background: #e8f5e9;
+    color: #4caf50;
+}
+
+.datscan-icon {
+    background: #fff3e0;
+    color: #ff9800;
+}
+
+.result-info {
+    flex-grow: 1;
+}
+
+.result-info h6 {
+    color: #2d3436;
+    font-weight: 600;
+}
+
+/* Status Badges */
+.status-badge {
+    padding: 0.35rem 1rem;
+    border-radius: 50px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.status-danger {
+    background: #ffe3e3;
+    color: #e03e3e;
+}
+
+/* Download Button Styling */
+.download-button {
+    padding: 8px 16px;
+    border: none;
+    background: #ffc107;
+    color: #fff;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.download-button i {
+    font-size: 1rem;
+}
+
+.download-button:hover {
+    background: #ffca2c;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 193, 7, 0.2);
+}
+
+.download-button:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+/* Close Button Styling */
+.close-button {
+    padding: 10px 24px;
+    border: 2px solid #e9ecef;
+    background: #fff;
+    color: #495057;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.close-button i {
+    font-size: 1rem;
+}
+
+.close-button:hover {
+    background: #f8f9fa;
+    border-color: #dee2e6;
+    color: #212529;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.close-button:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .download-button, .close-button {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+    }
+    
+    .download-button i, .close-button i {
+        font-size: 0.9rem;
+    }
+}
+
+/* Responsive Table Styling */
+.table-responsive {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 15px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+}
+
+.custom-table {
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.custom-table thead th {
+    background: #f8f9fa;
+    padding: 15px;
+    font-weight: 600;
+    color: #2c3e50;
+    text-align: center;
+    border-bottom: 2px solid #ffc107;
+    white-space: nowrap;
+}
+
+.custom-table tbody tr {
+    border-bottom: 1px solid #eee;
+    transition: all 0.3s ease;
+}
+
+.custom-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.custom-table td {
+    padding: 15px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 768px) {
+    .table-responsive {
+        padding: 0;
+        box-shadow: none;
+    }
+
+    .custom-table {
+        border: 0;
+    }
+    
+    .custom-table thead {
+        display: none;
+    }
+    
+    .custom-table tbody tr {
+        display: block;
+        background: #fff;
+        padding: 15px;
+        margin-bottom: 15px;
+        border-radius: 10px;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+    }
+    
+    .custom-table tbody td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 15px;
+        text-align: right;
+        border: none;
+    }
+    
+    .custom-table tbody td:before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: #2c3e50;
+        text-align: left;
+    }
+    
+    .custom-table td:not(:last-child) {
+        border-bottom: 1px solid #eee;
+    }
+
+    /* Badge Styling */
+    .badge {
+        margin-left: 8px;
+        white-space: nowrap;
+    }
+
+    /* Button Styling */
+    .btn-outline-primary {
+        margin: 5px 0;
+        width: auto;
+        min-width: 120px;
+    }
+}
+
+/* Small Mobile Adjustments */
+@media screen and (max-width: 576px) {
+    .custom-table tbody tr {
+        margin-bottom: 10px;
+    }
+    
+    .custom-table tbody td {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+    
+    .badge {
+        font-size: 0.8rem;
+        padding: 5px 10px;
+    }
+    
+    .btn-outline-primary {
+        font-size: 0.9rem;
+        padding: 5px 15px;
+    }
+}
+
+/* Badge Styling */
+.badge {
+    padding: 8px 12px;
+    border-radius: 50px;
+    font-weight: 500;
+}
+
+.bg-success {
+    background-color: #28a745 !important;
+}
+
+.bg-danger {
+    background-color: #dc3545 !important;
+}
+
+/* Button Styling */
+.btn-outline-warning {
+    border-radius: 50px;
+    padding: 8px 16px;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-warning:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.15);
+}
+
+/* Perbaikan responsive untuk hero section */
+@media (max-width: 991px) {
+    .hero-section {
+        height: auto;
+        min-height: 300px;
+    }
+
+    .hero-content {
+        padding: 2rem;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-image {
+        min-height: 300px;
+    }
+}
+
+/* Perbaikan responsive untuk predict tool section */
+@media (max-width: 991px) {
+    .predict-tool-section .row-cols-md-3 {
+        row-gap: 1.5rem;
+    }
+
+    .predict-tool-section .card {
+        height: 100%;
+        margin: 0;
+    }
+
+    .predict-tool-section .card-img-top {
+        height: 160px;
+        object-fit: contain;
+    }
+}
+
+/* Perbaikan responsive untuk bagian "Bagaimana Cara Kerjanya?" */
+@media (max-width: 991px) {
+    .rounded-image-container {
+        margin-bottom: 2rem;
+        height: 300px;
+    }
+
+    .neuron-image {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    h3 {
+        font-size: 1.4rem;
+    }
+}
+
+/* Perbaikan spacing dan alignment umum untuk tablet */
+@media (max-width: 991px) {
+    .container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .row {
+        margin-left: -10px;
+        margin-right: -10px;
+    }
+
+    .col, [class*="col-"] {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .my-5 {
+        margin-top: 3rem !important;
+        margin-bottom: 3rem !important;
+    }
+
+    .py-5 {
+        padding-top: 3rem !important;
+        padding-bottom: 3rem !important;
+    }
+}
+
+/* Perbaikan untuk layar large (1200px - 900px) */
+@media (max-width: 1200px) {
+    /* Hero Section */
+    .hero-section {
+        height: auto;
+        min-height: 450px;
+    }
+
+    .hero-content {
+        padding: 2.5rem;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+        line-height: 1.2;
+    }
+
+    .hero-image {
+        min-height: 450px;
+        background-position: center center;
+    }
+
+    /* Predict Tool Section */
+    .predict-tool-section .card {
+        height: 100%;
+    }
+
+    .predict-tool-section .card-img-top {
+        height: 180px;
+        padding: 1rem;
+    }
+
+    .predict-tool-section .card-body {
+        padding: 1.25rem;
+    }
+
+    .predict-tool-section .card-title {
+        font-size: 1.2rem;
+    }
+
+    .predict-tool-section .card-text {
+        font-size: 0.9rem;
+    }
+
+    /* How it Works Section */
+    .rounded-image-container {
+        height: 400px;
+        margin-bottom: 0;
+    }
+
+    .neuron-image {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    /* Typography Adjustments */
+    h2 {
+        font-size: 2rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    /* Layout Adjustments */
+    .container {
+        max-width: 960px;
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .row {
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+
+    .col, [class*="col-"] {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    /* Spacing Adjustments */
+    .my-5 {
+        margin-top: 4rem !important;
+        margin-bottom: 4rem !important;
+    }
+
+    .py-5 {
+        padding-top: 4rem !important;
+        padding-bottom: 4rem !important;
+    }
+
+    /* Button Adjustments */
+    .btn {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+
+/* Specific fixes for screens between 900px and 991px */
+@media (min-width: 900px) and (max-width: 991px) {
+    .hero-section {
+        min-height: 400px;
+    }
+
+    .hero-image {
+        min-height: 400px;
+    }
+
+    .predict-tool-section .card-img-top {
+        height: 160px;
+    }
+
+    .rounded-image-container {
+        height: 350px;
+    }
+
+    .container {
+        max-width: 840px;
+    }
+}
+
+/* Perbaikan responsif untuk halaman result */
+@media (max-width: 768px) {
+    /* Card adjustments */
+    .col-md-4.mb-4 {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    /* Button container adjustments */
+    .text-center.mt-5 {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 0 1rem;
+    }
+
+    /* Button adjustments */
+    .text-center.mt-5 .btn {
+        width: 100%;
+        margin: 0 !important;
+        padding: 0.75rem 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Alert adjustments */
+    .alert.alert-warning {
+        margin: 2rem 1rem;
+    }
+
+    .alert.alert-warning .lead {
+        font-size: 1rem;
+    }
+}
+
+/* Tablet adjustments */
+@media (min-width: 769px) and (max-width: 991px) {
+    .text-center.mt-5 {
+        padding: 0 2rem;
+    }
+
+    .text-center.mt-5 .btn {
+        padding: 0.75rem 1.5rem;
+    }
+
+    .alert.alert-warning {
+        margin: 3rem 2rem;
+    }
+}
+
+/* Large screen adjustments */
+@media (min-width: 992px) {
+    .text-center.mt-5 .btn {
+        min-width: 200px;
+    }
+}
+
+/* Styling untuk disclaimer card */
+.disclaimer-card {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    margin: 2rem 0;
+}
+
+.disclaimer-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #ffc107;
+}
+
+.disclaimer-header i {
+    font-size: 2rem;
+    color: #ffc107;
+}
+
+.disclaimer-header h2 {
+    margin: 0;
+    font-weight: bold;
+}
+
+.disclaimer-section {
+    margin-bottom: 2rem;
+}
+
+.disclaimer-section h3 {
+    color: #333;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.disclaimer-section p,
+.disclaimer-agreement p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+.disclaimer-agreement {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .disclaimer-card {
+        padding: 1.5rem;
+    }
+
+    .disclaimer-header {
+        margin-bottom: 1.5rem;
+    }
+
+    .disclaimer-header i {
+        font-size: 1.8rem;
+    }
+
+    .disclaimer-header h2 {
+        font-size: 1.8rem;
+    }
+
+    .disclaimer-section h3 {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 991px) {
+    .col-lg-10 {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .disclaimer-card {
+        padding: 1.25rem;
+        margin: 1.5rem 0;
+    }
+
+    .disclaimer-header {
+        margin-bottom: 1.25rem;
+    }
+
+    .disclaimer-section {
+        margin-bottom: 1.5rem;
+    }
+
+    .disclaimer-section h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .disclaimer-section p,
+    .disclaimer-agreement p {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .disclaimer-card {
+        padding: 1rem;
+        margin: 1rem 0;
+    }
+
+    .disclaimer-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .disclaimer-header i {
+        font-size: 1.5rem;
+    }
+
+    .disclaimer-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .disclaimer-section {
+        margin-bottom: 1.25rem;
+    }
+
+    .disclaimer-section h3 {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .disclaimer-section p,
+    .disclaimer-agreement p {
+        font-size: 0.9rem;
+        text-align: left;
+    }
+
+    .disclaimer-agreement {
+        margin-top: 1.25rem;
+        padding-top: 0.75rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .disclaimer-card {
+        padding: 0.875rem;
+        margin: 0.75rem 0;
+    }
+
+    .disclaimer-header h2 {
+        font-size: 1.3rem;
+    }
+
+    .disclaimer-section p,
+    .disclaimer-agreement p {
+        font-size: 0.85rem;
     }
 }
