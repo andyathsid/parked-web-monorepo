@@ -21,7 +21,7 @@ class FormController extends Controller
             'fileModel2' => 'nullable|mimes:mp3,wav|max:61440',
             'fileModel3' => 'nullable|image|mimes:jpg,png|max:61440',
         ]);
-
+        
         if (!$request->hasFile('fileModel1') && !$request->hasFile('fileModel2') && !$request->input('recordedAudio') && !$request->hasFile('fileModel3')) {
             session()->flash('gagal', 'Anda harus mengunggah minimal satu file!');
             return redirect()->back();

@@ -294,22 +294,21 @@ function changeFile() {
     ).style.display = "inline-block";
 }
 
+const MAX_RECORDING_TIME = 60; // Maximum recording time in seconds
 let mediaRecorder;
 let audioChunks = [];
 let isRecording = false;
 let recordingTimer;
+let audioBlob = null;
 
-document
-    .getElementById("recordButton")
-    .addEventListener("click", toggleRecording);
-
-function toggleRecording() {
+document.getElementById("recordButton").addEventListener("click", function(e) {
+    e.preventDefault();
     if (!isRecording) {
         startRecording();
     } else {
         stopRecording();
     }
-}
+});
 
 async function startRecording() {
     try {
@@ -317,35 +316,109 @@ async function startRecording() {
             audio: true,
         });
         mediaRecorder = new MediaRecorder(stream);
+        audioChunks = [];
 
         mediaRecorder.ondataavailable = (event) => {
             audioChunks.push(event.data);
         };
 
         mediaRecorder.onstop = () => {
-            const audioBlob = new Blob(audioChunks, { type: "audio/wav" });
+            audioBlob = new Blob(audioChunks, { type: "audio/wav" });
             const audioUrl = URL.createObjectURL(audioBlob);
-            document.getElementById("audioPlayback").src = audioUrl;
+            
+            // Update audio player
+            const audioPlayback = document.getElementById("audioPlayback");
+            audioPlayback.src = audioUrl;
+            audioPlayback.classList.remove("d-none");
+            
+            // Create a File object from the Blob
+            const audioFile = new File([audioBlob], "recorded_audio.wav", {
+                type: "audio/wav",
+                lastModified: new Date().getTime()
+            });
+
+            // Create FormData and append file
+            const formData = new FormData();
+            formData.append('fileModel2', audioFile);
+
+            // Create a hidden input for the form
+            const input = document.createElement("input");
+            input.type = "file";
+            input.id = "recordedAudioInput";
+            input.name = "fileModel2";
+            input.style.display = "none";
+
+            // Use DataTransfer to set the file
+            const dataTransfer = new DataTransfer();
+            dataTransfer.items.add(audioFile);
+            input.files = dataTransfer.files;
+
+            // Remove existing input if any
+            const existingInput = document.getElementById("recordedAudioInput");
+            if (existingInput) {
+                existingInput.remove();
+            }
+
+            // Add to form
+            const form = document.querySelector('form[action="/patient-form"]');
+            form.appendChild(input);
+
+            // Update UI
+            document.getElementById("recordButton").classList.add("d-none");
+            document.getElementById("deleteRecordingBtn").classList.remove("d-none");
+            document.getElementById("recordingStatus").classList.add("d-none");
+
+            // Stop all tracks
+            stream.getTracks().forEach(track => track.stop());
         };
 
         mediaRecorder.start();
         isRecording = true;
-        document.getElementById("recordButton").innerHTML =
-            '<i class="fas fa-stop"></i> Stop Recording';
+        
+        // Update UI for recording state
+        document.getElementById("recordButton").innerHTML = '<i class="fas fa-stop"></i> Selesai Rekam';
         document.getElementById("recordingStatus").classList.remove("d-none");
+        document.getElementById("deleteRecordingBtn").classList.add("d-none");
         startTimer();
+
+        // Auto stop after MAX_RECORDING_TIME
+        setTimeout(() => {
+            if (isRecording) {
+                stopRecording();
+            }
+        }, MAX_RECORDING_TIME * 1000);
+
     } catch (err) {
         console.error("Error accessing microphone:", err);
+        alert("Error accessing microphone. Please ensure you have given permission to use the microphone.");
     }
 }
 
 function stopRecording() {
-    mediaRecorder.stop();
+    if (mediaRecorder && isRecording) {
+        mediaRecorder.stop();
+        isRecording = false;
+        clearInterval(recordingTimer);
+    }
+}
+
+function deleteRecording() {
+    const existingInput = document.getElementById("recordedAudioInput");
+    if (existingInput) {
+        existingInput.remove();
+    }
+
+    document.getElementById("audioPlayback").src = "";
+    document.getElementById("audioPlayback").classList.add("d-none");
+    document.getElementById("recordButton").classList.remove("d-none");
+    document.getElementById("recordButton").innerHTML = '<i class="fas fa-microphone"></i> Mulai Merekam';
+    document.getElementById("deleteRecordingBtn").classList.add("d-none");
+    document.getElementById("recordingStatus").classList.add("d-none");
+    document.getElementById("recordingTime").textContent = "00:00";
+
+    audioChunks = [];
+    audioBlob = null;
     isRecording = false;
-    document.getElementById("recordButton").classList.add("d-none"); // Hide record button
-    document.getElementById("audioPlayback").classList.remove("d-none");
-    document.getElementById("deleteRecordingBtn").classList.remove("d-none");
-    clearInterval(recordingTimer);
 }
 
 function startTimer() {
@@ -354,9 +427,12 @@ function startTimer() {
         seconds++;
         const minutes = Math.floor(seconds / 60);
         const remainingSeconds = seconds % 60;
-        document.getElementById("recordingTime").textContent = `${minutes
-            .toString()
-            .padStart(2, "0")}:${remainingSeconds.toString().padStart(2, "0")}`;
+        document.getElementById("recordingTime").textContent = 
+            `${minutes.toString().padStart(2, "0")}:${remainingSeconds.toString().padStart(2, "0")}`;
+        
+        if (seconds >= MAX_RECORDING_TIME) {
+            clearInterval(recordingTimer);
+        }
     }, 1000);
 }
 
@@ -460,38 +536,32 @@ function changeFile3() {
         "inline-block";
 }
 
-function deleteRecording() {
-    // Reset audio playback
-    document.getElementById("audioPlayback").src = "";
-    document.getElementById("audioPlayback").classList.add("d-none");
-
-    // Show recording button
-    document.getElementById("recordButton").classList.remove("d-none");
-    document.getElementById("recordButton").innerHTML =
-        '<i class="fas fa-microphone"></i> Start Recording';
-
-    // Hide delete button
-    document.getElementById("deleteRecordingBtn").classList.add("d-none");
-
-    // Reset recording status
-    document.getElementById("recordingStatus").classList.add("d-none");
-
-    // Reset variables
-    audioChunks = [];
-    isRecording = false;
-}
-
 // Tambahkan event listener untuk audio playback
-document.getElementById("audioPlayback").addEventListener("play", function () {
+document.getElementById("audioPlayback").addEventListener("play", function() {
+    // Optional: Jika Anda ingin menyembunyikan tombol lain saat audio diputar
     document.getElementById("recordButton").classList.add("d-none");
 });
 
-document.getElementById("audioPlayback").addEventListener("pause", function () {
-    document.getElementById("recordButton").classList.remove("d-none");
-});
+// Hapus event listener yang ada
+// document.getElementById("audioPlayback").addEventListener("pause", function () {
+//     document.getElementById("recordButton").classList.remove("d-none");
+// });
 
-document.getElementById("audioPlayback").addEventListener("ended", function () {
-    document.getElementById("recordButton").classList.remove("d-none");
+// document.getElementById("audioPlayback").addEventListener("ended", function () {
+//     document.getElementById("recordButton").classList.remove("d-none");
+// });
+
+// Tambahkan event listener untuk form submission
+document.querySelector('form[action="/patient-form"]').addEventListener('submit', function(e) {
+    // Jika ada rekaman audio yang belum selesai, hentikan dulu
+    if (isRecording) {
+        e.preventDefault();
+        stopRecording();
+        // Tunggu sebentar untuk memastikan file sudah siap
+        setTimeout(() => {
+            this.submit();
+        }, 500);
+    }
 });
 
 
