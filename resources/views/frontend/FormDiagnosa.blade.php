@@ -37,7 +37,7 @@
                                         </p>
                                         <div class="test-card-stats">
                                             <div class="stat">
-                                                <span class="stat-value">90%</span>
+                                                <span class="stat-value">91%</span>
                                                 <span class="stat-label">Akurasi</span>
                                             </div>
                                             <div class="stat">
@@ -60,7 +60,7 @@
                                             berbicara.</p>
                                         <div class="test-card-stats">
                                             <div class="stat">
-                                                <span class="stat-value">95%</span>
+                                                <span class="stat-value">96%</span>
                                                 <span class="stat-label">Akurasi</span>
                                             </div>
                                             <div class="stat">

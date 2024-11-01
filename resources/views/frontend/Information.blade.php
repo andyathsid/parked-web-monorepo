@@ -66,7 +66,7 @@
                             <li><strong>Metode:</strong> Feature extraction & classification</li>
                         </ul>
                         <div class="accuracy">
-                            <span class="accuracy-value">90%</span>
+                            <span class="accuracy-value">91%</span>
                             <span class="accuracy-label">Akurasi</span>
                         </div>
                     </div>
@@ -87,7 +87,7 @@
                             <li><strong>Metode:</strong> Deep learning & image processing</li>
                         </ul>
                         <div class="accuracy">
-                            <span class="accuracy-value">95%</span>
+                            <span class="accuracy-value">96%</span>
                             <span class="accuracy-label">Akurasi</span>
                         </div>
                     </div>
@@ -108,7 +108,7 @@
                             <li><strong>Metode:</strong> Hybrid CNN-KNN classification</li>
                         </ul>
                         <div class="accuracy">
-                            <span class="accuracy-value">99%</span>
+                            <span class="accuracy-value">98%</span>
                             <span class="accuracy-label">Akurasi</span>
                         </div>
                     </div>
