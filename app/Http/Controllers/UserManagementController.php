@@ -91,7 +91,7 @@ class UserManagementController extends Controller
 
         if ($request->hasFile('profilePhoto')) {
 
-            if ($user->photo !== 'profile_photos/defaultUser.jpg') {
+            if ($user->photo && $user->photo !== 'profile_photos/defaultUser.jpg') {
                 Storage::disk('public')->delete($user->photo);
             }
 
@@ -110,7 +110,7 @@ class UserManagementController extends Controller
         $user = User::find($id);
 
         if ($user) {
-            if ($user->photo !== 'profile_photos/defaultUser.jpg') {
+            if ($user->photo && $user->photo !== 'profile_photos/defaultUser.jpg') {
                 Storage::disk('public')->delete($user->photo);
             }
 

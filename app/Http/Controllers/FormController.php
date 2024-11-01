@@ -16,17 +16,21 @@ class FormController extends Controller
 
     public function pastientUpload(Request $request)
     {
+        // if (session()->has('uploaded')) {
+        //     return redirect()->route('form-diagnosa')->with('sukses', 'Data sudah berhasil diunggah!');
+        // }
         $request->validate([
             'fileModel1' => 'nullable|image|mimes:jpg,png|max:61440',
-            'fileModel2' => 'nullable|mimes:mp3,wav|max:61440',
+            'fileModel2' => 'nullable|mimes:wav|max:61440',
             'fileModel3' => 'nullable|image|mimes:jpg,png|max:61440',
+            'audioUpload' => 'nullable|mimes:,wav|max:61440'
         ]);
 
+        // \dd($request);
         if (!$request->hasFile('fileModel1') && !$request->hasFile('fileModel2') && !$request->input('recordedAudio') && !$request->hasFile('fileModel3')) {
             session()->flash('gagal', 'Anda harus mengunggah minimal satu file!');
             return redirect()->back();
         }
-
 
         $uploadedData = [
             'vm-url' => null,
@@ -56,42 +60,30 @@ class FormController extends Controller
             // $uploadedData['ni-url'] = url('storage/' . $fileModel3);
         }
 
-        // $uploadedData['hw-url'] = 'https://github.com/andyathsid/parked-ml-dev/blob/main/hand-writing-detection/data/raw/NewHandPD/HealthySpiral/sp1-H1.jpg?raw=true';
+        $uploadedData['hw-url'] = 'https://github.com/andyathsid/parked-ml-dev/blob/main/hand-writing-detection/data/raw/NewHandPD/HealthySpiral/sp1-H1.jpg?raw=true';
         // $uploadedData['vm-url'] = 'https://drive.google.com/uc?export=download&id=1LXfVMjs16Mb4JTbTAStBUxtqrOB5G6Zf';
         $uploadedData['vm-url'] = 'https://github.com/andyathsid/parked-ml-backend/blob/dev-alt/voice-measurements-detection-service/data/raw/FB1cdaopmoe67M2605161917.wav?raw=true';
         // Kirim POST request
         $response = Http::post('https://6suy7b2n3j.execute-api.ap-southeast-1.amazonaws.com/test/detect', $uploadedData);
 
-        return response()->json([
-            'success' => true,
-            'data' => $response->json(),
-            'upload' => $uploadedData
-        ]);
         if ($response->successful()) {
             $apiResponse = $response->json();
             // \dd();
-            if ($request->fileModel3 != NULL) {
-                DB::table('form')->insert([
-                    'user_id' => auth()->id(),
-                    'file_diagnosa1' => $fileModel1 ?? null,
-                    'file_diagnosa2' => $audioPath ?? null,
-                    'file_diagnosa3' => $fileModel3 ?? null,
-                    'hasil_diagnosa1' => $apiResponse['hw-result'] ?? null,
-                    'hasil_diagnosa2' => $apiResponse['vm-result'] ?? null,
-                    'hasil_diagnosa3' => $apiResponse['ni-result'] ?? null,
-                    'created_at' => now(),
-                    'updated_at' => now(),
-                ]);
-                $user = auth()->id();
-                return redirect()->route('result', compact('user', 'apiResponse'))->with('success', 'Data berhasil di proses!');
-            }
-
-
-            return response()->json([
-                'success' => true,
-                'data' => $apiResponse,
-                'upload' => $uploadedData
+            // if ($request->fileModel3 != NULL) {
+            DB::table('form')->insert([
+                'user_id' => auth()->id(),
+                'file_diagnosa1' => $fileModel1 ?? null,
+                'file_diagnosa2' => $audioPath ?? null,
+                'file_diagnosa3' => $fileModel3 ?? null,
+                'hasil_diagnosa1' => $apiResponse['hw-result'] ?? null,
+                'hasil_diagnosa2' => $apiResponse['vm-result'] ?? null,
+                'hasil_diagnosa3' => $apiResponse['ni-result'] ?? null,
+                'created_at' => now(),
+                'updated_at' => now(),
             ]);
+            session(['apiResponse' => $apiResponse]);
+
+            return redirect()->route('result')->with('success', 'Data berhasil diproses!');
         } else {
             return redirect()->route('form-diagnosa')->with('gagal', 'Data yang dikirim Gagal Di proses!');
         }
@@ -100,12 +92,14 @@ class FormController extends Controller
     {
         $user = Auth::user();
         $tittle = 'Hasil Diagnosa';
+
+        // Ambil apiResponse dari session
         $apiResponse = session('apiResponse');
-        // $apiResponse = [
-        //     'hw-result' => true,
-        //     'vm-result' => false,
-        //     'ni-result' => false,
-        // ];
-        return \view('frontend/resultDiagnosa', \compact('user', 'tittle', 'apiResponse'));
+
+        if (!$apiResponse) {
+            return redirect()->route('form-diagnosa')->with('gagal', 'Tidak ada data untuk ditampilkan.');
+        }
+
+        return view('frontend.resultDiagnosa', compact('user', 'tittle', 'apiResponse'));
     }
 }

@@ -41,11 +41,11 @@ class GoogleAuthController extends Controller
                     'last_login' => \now()
                 ]);
                 Auth::login($new_user);
-                if ($user->role == 'admin') {
-                    $user->update(['last_login' => now()]);
+                if ($new_user->role == 'admin') {
+                    $new_user->update(['last_login' => now()]);
                     return redirect()->route('login', compact('user'))->with('loginAdmin', 'Login successful! Welcome, Admin!');
-                } else if ($user->role == 'user') {
-                    $user->update(['last_login' => now()]);
+                } else if ($new_user->role == 'new_user') {
+                    $new_user->update(['last_login' => now()]);
                     return redirect()->route('login', compact('user'))->with('loginUser', 'Login successful! Welcome!');
                 }
                 return $this->redirectBasedOnRole($new_user);

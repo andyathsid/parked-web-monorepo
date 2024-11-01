@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Form;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -59,6 +60,8 @@ class UserController extends Controller
     {
         $user = Auth::user();
         $tittle = 'History User';
-        return \view('frontend/user/history', \compact('user', 'tittle'));
+        $history = Form::all();
+
+        return \view('frontend/user/history', \compact('user', 'tittle', 'history'));
     }
 }
