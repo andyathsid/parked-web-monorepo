@@ -57,16 +57,24 @@
                         <div class="method-icon">
                             <img src="assets/img/Voice.png" alt="Voice Analysis" class="img-fluid">
                         </div>
-                        <h4>Analisis Suara</h4>
+                        <h4>Diagnosis Melalui Pengukuran Suara</h4>
                         <ul class="method-features">
-                            <li><strong>Peneliti:</strong> Toye & Kompalli (2021)</li>
-                            <li><strong>Dataset:</strong> MDVR-KCL & Italian Voice Dataset</li>
-                            <li><strong>Algoritma:</strong> scikit-learn's KNN Classifier</li>
-                            <li><strong>Fitur:</strong> Analisis pitch, jitter, shimmer</li>
-                            <li><strong>Metode:</strong> Feature extraction & classification</li>
+                            <li>
+                                <strong>Sumber Penelitian:</strong>
+                                <p>Toye & Kompalli (2021)</p>
+                            </li>
+                            <li>
+                                <strong>Data:</strong>
+                                <p>MDVR-KCL Dataset</p>
+                                <p>Italian Voice and Speech Dataset</p>
+                            </li>
+                            <li>
+                                <strong>Model:</strong>
+                                <p>scikit-learn's KNN Classifier</p>
+                            </li>
                         </ul>
                         <div class="accuracy">
-                            <span class="accuracy-value">91%</span>
+                            <span class="accuracy-value">90%</span>
                             <span class="accuracy-label">Akurasi</span>
                         </div>
                     </div>
@@ -76,18 +84,26 @@
                 <div class="col-lg-4 col-md-6 mb-4 information-fade-in">
                     <div class="method-card">
                         <div class="method-icon">
-                            <img src="assets/img/Spiral.png" alt="Spiral Test" class="img-fluid">
+                            <img src="assets/img/Spiral copy.png" alt="Spiral Test" class="img-fluid">
                         </div>
-                        <h4>Analisis Gambar Spiral</h4>
+                        <h4>Diagnosis Melalui Gambar Spiral</h4>
                         <ul class="method-features">
-                            <li><strong>Peneliti:</strong> Zham et al. (2017) & Sasirekha et al. (2024)</li>
-                            <li><strong>Dataset:</strong> Parkinson's Drawing Dataset</li>
-                            <li><strong>Algoritma:</strong> TensorFlow/Keras CNN</li>
-                            <li><strong>Fitur:</strong> Feature extraction dari gambar spiral</li>
-                            <li><strong>Metode:</strong> Deep learning & image processing</li>
+                            <li>
+                                <strong>Sumber Penelitian:</strong>
+                                <p>Kamran et al. (2021)</p>
+                            </li>
+                            <li>
+                                <strong>Data:</strong>
+                                <p>NewHandPD Dataset</p>
+                            </li>
+                            <li>
+                                <strong>Model:</strong>
+                                <p>TensorFlow/Keras's ImageNet (Convolutional Layers/Base Model)</p>
+                                <p>TensorFlow/Keras's RasNet50 (Pre-Trained Model)</p>
+                            </li>
                         </ul>
                         <div class="accuracy">
-                            <span class="accuracy-value">96%</span>
+                            <span class="accuracy-value">97%</span>
                             <span class="accuracy-label">Akurasi</span>
                         </div>
                     </div>
@@ -99,13 +115,21 @@
                         <div class="method-icon">
                             <img src="assets/img/CTscan.png" alt="Medical Image Analysis" class="img-fluid">
                         </div>
-                        <h4>Analisis Citra Medis</h4>
+                        <h4>Diagnosis Melalui Citra Medis</h4>
                         <ul class="method-features">
-                            <li><strong>Peneliti:</strong> Shaffi et al. (2023)</li>
-                            <li><strong>Dataset:</strong> NTUA Parkinson Dataset</li>
-                            <li><strong>Algoritma:</strong> TensorFlow/Keras CNN & KNN</li>
-                            <li><strong>Fitur:</strong> Feature extraction dari citra medis</li>
-                            <li><strong>Metode:</strong> Hybrid CNN-KNN classification</li>
+                            <li>
+                                <strong>Sumber Penelitian:</strong>
+                                <p>Lakshmi et al. (2023)</p>
+                            </li>
+                            <li>
+                                <strong>Data:</strong>
+                                <p>PPMI's 2021 MRI Images Dataset</p>
+                            </li>
+                            <li>
+                                <strong>Model:</strong>
+                                <p>TensorFlow/Keras's ImageNet (Convolutional Layers/Base Model)</p>
+                                <p>TensorFlow/Keras's RasNet50 (Pre-Trained Model)</p>
+                            </li>
                         </ul>
                         <div class="accuracy">
                             <span class="accuracy-value">98%</span>
