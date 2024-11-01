@@ -62,11 +62,11 @@ class FormController extends Controller
         // Kirim POST request
         $response = Http::post('https://6suy7b2n3j.execute-api.ap-southeast-1.amazonaws.com/test/detect', $uploadedData);
 
-        // return response()->json([
-        //     'success' => true,
-        //     'data' => $response->json(),
-        //     'upload' => $uploadedData
-        // ]);
+        return response()->json([
+            'success' => true,
+            'data' => $response->json(),
+            'upload' => $uploadedData
+        ]);
         if ($response->successful()) {
             $apiResponse = $response->json();
             // \dd();
@@ -100,12 +100,12 @@ class FormController extends Controller
     {
         $user = Auth::user();
         $tittle = 'Hasil Diagnosa';
-        // $apiResponse = session('apiResponse');
-        $apiResponse = [
-            'hw-result' => true,
-            'vm-result' => false,
-            'ni-result' => false,
-        ];
+        $apiResponse = session('apiResponse');
+        // $apiResponse = [
+        //     'hw-result' => true,
+        //     'vm-result' => false,
+        //     'ni-result' => false,
+        // ];
         return \view('frontend/resultDiagnosa', \compact('user', 'tittle', 'apiResponse'));
     }
 }
