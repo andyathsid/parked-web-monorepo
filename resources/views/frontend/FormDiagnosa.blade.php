@@ -429,12 +429,15 @@
                                                         name="recordedAudio">
                                                         <i class="fas fa-microphone"></i> Mulai Merekam
                                                     </a>
-                                                    <p id="recordingStatus" class="mt-3 d-none">Merekam: <span
-                                                            id="recordingTime">00:00</span></p>
+                                                    <p id="recordingStatus" class="mt-3 d-none">
+                                                        Merekam: <span id="recordingTime">00:00</span>
+                                                        <br>
+                                                        <small class="text-muted">Rekaman akan berhenti otomatis setelah 60 detik</small>
+                                                    </p>
                                                     <audio id="audioPlayback" controls class="mt-3 d-none"></audio>
                                                     <br>
-                                                    <button id="deleteRecordingBtn" class="btn btn-warning mt-3 d-none"
-                                                        onclick="deleteRecording()">Hapus Rekaman</button>
+                                                    <a id="deleteRecordingBtn" class="btn btn-warning mt-3 d-none"
+                                                        onclick="deleteRecording()">Hapus Rekaman</a>
                                                 </div>
                                             </div>
                                         </div>
