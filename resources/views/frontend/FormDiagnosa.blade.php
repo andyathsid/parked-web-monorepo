@@ -538,7 +538,7 @@
                                             <div class="row justify-content-center">
                                                 <div class="col-md-8 mb-3">
                                                     <div class="position-relative">
-                                                        <img src="https://raw.githubusercontent.com/aaronstone1699/parkinson-s-diagnosis/602bd94d79b44f97a1b2290ffb48bcdb7be23d8f/images/test%20images/pd_raw_brain_mri_wo_sn_1.jpg" 
+                                                        <img src="https://raw.githubusercontent.com/aaronstone1699/parkinson-s-diagnosis/refs/heads/master/images/test%20images/pd_raw_brain_mri_w_sn_5.jpg" 
                                                              alt="Contoh DaTscan" 
                                                              class="img-fluid rounded shadow-sm mb-2">
                                                         <div class="text-center mt-2">
