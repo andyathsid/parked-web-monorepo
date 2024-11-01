@@ -526,6 +526,33 @@
                                         </div>
                                     </div>
 
+                                    <!-- New Image Examples Section -->
+                                    <div class="card border-warning mb-4">
+                                        <div class="card-header bg-warning bg-opacity-10">
+                                            <h5 class="card-title mb-0">
+                                                <i class="fas fa-images me-2"></i>
+                                                Contoh Gambar DaTscan
+                                            </h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row justify-content-center">
+                                                <div class="col-md-8 mb-3">
+                                                    <div class="position-relative">
+                                                        <img src="https://raw.githubusercontent.com/aaronstone1699/parkinson-s-diagnosis/refs/heads/master/images/test%20images/pd_raw_brain_mri_w_sn_5.jpg" 
+                                                             alt="Contoh DaTscan" 
+                                                             class="img-fluid rounded shadow-sm mb-2">
+                                                        <div class="text-center mt-2">
+                                                            <small class="text-muted">
+                                                                <i class="fas fa-info-circle me-1"></i>
+                                                                Contoh format gambar DaTscan yang dapat diunggah. Pastikan gambar yang Anda unggah memiliki kualitas yang baik dan jelas.
+                                                            </small>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     <!-- Upload Section -->
                                     <div class="mt-4 formdiagnosa-upload-section">
                                         <div class="formdiagnosa-dropzone text-center p-5 border border-dashed rounded"
