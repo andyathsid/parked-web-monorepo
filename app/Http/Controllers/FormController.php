@@ -16,9 +16,6 @@ class FormController extends Controller
 
     public function pastientUpload(Request $request)
     {
-        // if (session()->has('uploaded')) {
-        //     return redirect()->route('form-diagnosa')->with('sukses', 'Data sudah berhasil diunggah!');
-        // }
         $request->validate([
             'fileModel1' => 'nullable|image|mimes:jpg,png|max:61440',
             'fileModel2' => 'nullable|mimes:wav|max:61440',
@@ -40,24 +37,24 @@ class FormController extends Controller
 
         if ($request->hasFile('fileModel1')) {
             $fileModel1 = $request->file('fileModel1')->store('file_modul1', 'public');
-            // $uploadedData['hw-url'] = url('storage/' . $fileModel1);
+            $uploadedData['hw-url'] = url('storage/' . $fileModel1);
         }
 
         if ($request->hasFile('fileModel2')) {
             $audioPath = $request->file('fileModel2')->store('file_modul2', 'public');
-            // $uploadedData['vm-url'] = url('storage/' . $audioPath);
+            $uploadedData['vm-url'] = url('storage/' . $audioPath);
         } elseif ($request->input('recordedAudio')) {
             $audioData = $request->input('recordedAudio');
             $audioData = str_replace('data:audio/wav;base64,', '', $audioData);
             $audioData = base64_decode($audioData);
             $audioPath = 'audios/recorded-' . time() . '.wav';
             Storage::disk('public')->put($audioPath, $audioData);
-            // $uploadedData['vm-url'] = url('storage/' . $audioPath);
+            $uploadedData['vm-url'] = url('storage/' . $audioPath);
         }
 
         if ($request->hasFile('fileModel3')) {
             $fileModel3 = $request->file('fileModel3')->store('file_modul3', 'public');
-            // $uploadedData['ni-url'] = url('storage/' . $fileModel3);
+            $uploadedData['ni-url'] = url('storage/' . $fileModel3);
         }
 
         $uploadedData['hw-url'] = 'https://github.com/andyathsid/parked-ml-dev/blob/main/hand-writing-detection/data/raw/NewHandPD/HealthySpiral/sp1-H1.jpg?raw=true';

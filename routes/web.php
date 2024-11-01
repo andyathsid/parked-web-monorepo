@@ -60,6 +60,8 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/UserEdit/{id}', [UserManagementController::class, 'edit'])->name('UserEdit');
     Route::post('/UserUpdate/{id}', [UserManagementController::class, 'update'])->name('update.User');
     Route::get('/deleteUser/{id}', [UserManagementController::class, 'destroy'])->name('deleteUser');
+    Route::get('/profileAdmin', [DashboardController::class, 'profile'])->name('profileAdmin');
+
 
 
     Route::get('/historyform', [HistoryFormController::class, 'index'])->name('HistoryForm');

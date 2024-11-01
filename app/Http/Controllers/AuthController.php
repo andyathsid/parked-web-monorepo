@@ -42,7 +42,7 @@ class AuthController extends Controller
             'last_name' => $request->last_name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'photo' => 'assets/img/defaultUser.jpg',
+            'photo' => 'profile_photos/defaultUser.jpg',
             'role' => 'user',
             'last_login' => \now(),
         ]);
