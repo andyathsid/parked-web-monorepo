@@ -36,7 +36,7 @@
                             {{ $user['last_name'] }}
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <li><a class="dropdown-item" href="/profileAdmin">Profile</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>

@@ -19,4 +19,12 @@ class DashboardController extends Controller
 
         return \view('backend/dashboard', \compact('user', 'tittle', 'totalUsers', 'totalForms'));
     }
+
+    public function profile()
+    {
+        $user = Auth::user();
+        $tittle = 'profile';
+
+        return \view('backend/profile', \compact('user', 'tittle'));
+    }
 }
