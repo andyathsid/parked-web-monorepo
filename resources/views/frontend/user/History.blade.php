@@ -6,7 +6,7 @@
             <!-- Sidebar starts here -->
             <div class="col-md-3 col-lg-2 me-md-4">
                 <div class="d-flex align-items-center mb-4">
-                    <h3 class="ms-3 mb-0 ">Nama Akun</h3>
+                    <h3 class="ms-3 mb-0 ">{{ $user->first_name }}</h3>
                 </div>
                 <ul class="list-unstyled border-top border-bottom py-3">
                     <li class="mb-2"><a href="/profile" class="text-decoration-none text-black">Biodata</a></li>
@@ -37,17 +37,20 @@
                                 <tr>
                                     <td data-label="Tanggal">{{ $his['created_at'] }}</td>
                                     <td data-label="Tes Menggambar Spiral">
-                                        <span class="badge text-white {{ $his['hasil_diagnosa1'] !== null ? ($his['hasil_diagnosa1'] ? 'bg-danger' : 'bg-success') : '' }}">
+                                        <span
+                                            class="badge text-white {{ $his['hasil_diagnosa1'] !== null ? ($his['hasil_diagnosa1'] ? 'bg-danger' : 'bg-success') : '' }}">
                                             {{ $his['hasil_diagnosa1'] !== null ? ($his['hasil_diagnosa1'] ? 'Terdeteksi' : 'Tidak Terdeteksi') : '-' }}
                                         </span>
                                     </td>
                                     <td data-label="Tes Rekaman Suara">
-                                        <span class="badge text-white {{ $his['hasil_diagnosa2'] !== null ? ($his['hasil_diagnosa2'] ? 'bg-danger' : 'bg-success') : '' }}">
+                                        <span
+                                            class="badge text-white {{ $his['hasil_diagnosa2'] !== null ? ($his['hasil_diagnosa2'] ? 'bg-danger' : 'bg-success') : '' }}">
                                             {{ $his['hasil_diagnosa2'] !== null ? ($his['hasil_diagnosa2'] ? 'Terdeteksi' : 'Tidak Terdeteksi') : '-' }}
                                         </span>
                                     </td>
                                     <td data-label="Tes DaTScan">
-                                        <span class="badge text-white {{ $his['hasil_diagnosa3'] !== null ? ($his['hasil_diagnosa3'] ? 'bg-danger' : 'bg-success') : '' }}">
+                                        <span
+                                            class="badge text-white {{ $his['hasil_diagnosa3'] !== null ? ($his['hasil_diagnosa3'] ? 'bg-danger' : 'bg-success') : '' }}">
                                             {{ $his['hasil_diagnosa3'] !== null ? ($his['hasil_diagnosa3'] ? 'Terdeteksi' : 'Tidak Terdeteksi') : '-' }}
                                         </span>
                                     </td>
@@ -68,7 +71,8 @@
                                                 <h5 class="modal-title fw-bold" id="resultModalLabel{{ $his['id'] }}">
                                                     Detail Hasil Diagnosis
                                                 </h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
                                             </div>
 
                                             <div class="modal-body px-4 py-2">
@@ -95,7 +99,8 @@
                                                             </div>
                                                             <div class="result-info">
                                                                 <h6 class="mb-2">Tes Menggambar Spiral</h6>
-                                                                <span class="status-badge {{ $his['hasil_diagnosa1'] !== null ? ($his['hasil_diagnosa1'] ? 'status-danger' : 'status-success') : 'status-neutral' }}">
+                                                                <span
+                                                                    class="status-badge {{ $his['hasil_diagnosa1'] !== null ? ($his['hasil_diagnosa1'] ? 'status-danger' : 'status-success') : 'status-neutral' }}">
                                                                     {{ $his['hasil_diagnosa1'] !== null ? ($his['hasil_diagnosa1'] ? 'Terdeteksi' : 'Tidak Terdeteksi') : '-' }}
                                                                 </span>
                                                             </div>
@@ -114,7 +119,8 @@
                                                             </div>
                                                             <div class="result-info">
                                                                 <h6 class="mb-2">Tes Rekaman Suara</h6>
-                                                                <span class="status-badge {{ $his['hasil_diagnosa2'] !== null ? ($his['hasil_diagnosa2'] ? 'status-danger' : 'status-success') : 'status-neutral' }}">
+                                                                <span
+                                                                    class="status-badge {{ $his['hasil_diagnosa2'] !== null ? ($his['hasil_diagnosa2'] ? 'status-danger' : 'status-success') : 'status-neutral' }}">
                                                                     {{ $his['hasil_diagnosa2'] !== null ? ($his['hasil_diagnosa2'] ? 'Terdeteksi' : 'Tidak Terdeteksi') : '-' }}
                                                                 </span>
                                                             </div>
@@ -133,7 +139,8 @@
                                                             </div>
                                                             <div class="result-info">
                                                                 <h6 class="mb-2">Tes DaTScan</h6>
-                                                                <span class="status-badge {{ $his['hasil_diagnosa3'] !== null ? ($his['hasil_diagnosa3'] ? 'status-danger' : 'status-success') : 'status-neutral' }}">
+                                                                <span
+                                                                    class="status-badge {{ $his['hasil_diagnosa3'] !== null ? ($his['hasil_diagnosa3'] ? 'status-danger' : 'status-success') : 'status-neutral' }}">
                                                                     {{ $his['hasil_diagnosa3'] !== null ? ($his['hasil_diagnosa3'] ? 'Terdeteksi' : 'Tidak Terdeteksi') : '-' }}
                                                                 </span>
                                                             </div>

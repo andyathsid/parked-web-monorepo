@@ -101,7 +101,7 @@
                         <label for="dateOfBirth" class="form-label">Tanggal Lahir
                         </label>
                         <input type="date" class="form-control" id="dateOfBirth" name="dateOfBirth" required
-                            value="{{ $user->tgl_ulangtahun->format('Y-m-d') }}">
+                            value="{{ $user->formatted_tgl_ulangtahun }}">
                         @error('dateOfBirth')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror

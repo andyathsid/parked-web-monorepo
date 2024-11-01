@@ -25,6 +25,7 @@ class DashboardController extends Controller
         $user = Auth::user();
         $tittle = 'profile';
 
+
         return \view('backend/profile', \compact('user', 'tittle'));
     }
 }
