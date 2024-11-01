@@ -35,16 +35,7 @@
                                         <h4>Gambar Spiral</h4>
                                         <p>Evaluasi kontrol motorik halus melalui analisis pola gambar spiral Archimedes.
                                         </p>
-                                        <div class="test-card-stats">
-                                            <div class="stat">
-                                                <span class="stat-value">91%</span>
-                                                <span class="stat-label">Akurasi</span>
-                                            </div>
-                                            <div class="stat">
-                                                <span class="stat-value">5</span>
-                                                <span class="stat-label">Menit</span>
-                                            </div>
-                                        </div>
+                        
                                     </div>
                                 </div>
                             </div>
@@ -59,14 +50,7 @@
                                         <p>Analisis pola suara untuk mendeteksi tremor vokal dan perubahan dalam kemampuan
                                             berbicara.</p>
                                         <div class="test-card-stats">
-                                            <div class="stat">
-                                                <span class="stat-value">96%</span>
-                                                <span class="stat-label">Akurasi</span>
-                                            </div>
-                                            <div class="stat">
-                                                <span class="stat-value">2</span>
-                                                <span class="stat-label">Menit</span>
-                                            </div>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -83,16 +67,7 @@
                                     <div class="test-card-content">
                                         <h4>Citra Medis Otak</h4>
                                         <p>Analisis DaTscan untuk mengevaluasi aktivitas dopamin dalam otak.</p>
-                                        <div class="test-card-stats">
-                                            <div class="stat">
-                                                <span class="stat-value">98%</span>
-                                                <span class="stat-label">Akurasi</span>
-                                            </div>
-                                            <div class="stat">
-                                                <span class="stat-value">10</span>
-                                                <span class="stat-label">Menit</span>
-                                            </div>
-                                        </div>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -155,7 +130,7 @@
                                             <div class="position-relative">
                                                 <img src="assets/img/Spiral.png" alt="Spiral Image"
                                                     class="img-fluid rounded shadow-sm mb-3"
-                                                    style="width: 100%; height: 300px; object-fit: cover;">
+                                                    style="width: 100%; height: 600px; object-fit: cover;">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
