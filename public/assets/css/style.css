@@ -158,18 +158,19 @@ button {
 }
 
 .btn-custom {
-    background-color: #ffc107;
-    color: #000;
+    background-color: #ffffff;
+    color: #000000;
     border: none;
-    transition: all 0.3s ease;
+    padding: 10px 30px;
+    font-weight: bold;
+    transition: transform 0.3s ease;
 }
 
 .btn-custom:hover,
 .btn-custom:focus {
-    background-color: #ffca2c;
-    color: #000;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;  /* Tetap putih */
+    color: #000000;  /* Tetap hitam */
+    transform: translateY(-5px);
 }
 
 .btn-lg {
@@ -195,13 +196,11 @@ button {
 
 /* Efek hover untuk tombol Diagnose Now */
 .btn-light {
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
 .btn-light:hover {
-    background-color: #ffc107;
-    color: white;
-    transform: scale(1.05);
+    transform: translateY(-5px);
 }
 
 /* Efek hover untuk link di footer */
@@ -441,15 +440,14 @@ footer a:hover {
     border: none;
     padding: 10px 30px;
     font-weight: bold;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
 .btn-custom:hover,
 .btn-custom:focus {
-    background-color: #f8f9fa;
-    color: #000000;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;  /* Tetap putih */
+    color: #000000;  /* Tetap hitam */
+    transform: translateY(-5px);
 }
 
 .sect-2 {
@@ -2237,5 +2235,365 @@ background-color: #FFF2C0; /* Warna oranye */
     
     .download-button i, .close-button i {
         font-size: 0.9rem;
+    }
+}
+
+/* Responsive Table Styling */
+.table-responsive {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 15px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+}
+
+.custom-table {
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.custom-table thead th {
+    background: #f8f9fa;
+    padding: 15px;
+    font-weight: 600;
+    color: #2c3e50;
+    text-align: center;
+    border-bottom: 2px solid #ffc107;
+    white-space: nowrap;
+}
+
+.custom-table tbody tr {
+    border-bottom: 1px solid #eee;
+    transition: all 0.3s ease;
+}
+
+.custom-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.custom-table td {
+    padding: 15px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 768px) {
+    .table-responsive {
+        padding: 0;
+        box-shadow: none;
+    }
+
+    .custom-table {
+        border: 0;
+    }
+    
+    .custom-table thead {
+        display: none;
+    }
+    
+    .custom-table tbody tr {
+        display: block;
+        background: #fff;
+        padding: 15px;
+        margin-bottom: 15px;
+        border-radius: 10px;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+    }
+    
+    .custom-table tbody td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 15px;
+        text-align: right;
+        border: none;
+    }
+    
+    .custom-table tbody td:before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: #2c3e50;
+        text-align: left;
+    }
+    
+    .custom-table td:not(:last-child) {
+        border-bottom: 1px solid #eee;
+    }
+
+    /* Badge Styling */
+    .badge {
+        margin-left: 8px;
+        white-space: nowrap;
+    }
+
+    /* Button Styling */
+    .btn-outline-primary {
+        margin: 5px 0;
+        width: auto;
+        min-width: 120px;
+    }
+}
+
+/* Small Mobile Adjustments */
+@media screen and (max-width: 576px) {
+    .custom-table tbody tr {
+        margin-bottom: 10px;
+    }
+    
+    .custom-table tbody td {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+    
+    .badge {
+        font-size: 0.8rem;
+        padding: 5px 10px;
+    }
+    
+    .btn-outline-primary {
+        font-size: 0.9rem;
+        padding: 5px 15px;
+    }
+}
+
+/* Badge Styling */
+.badge {
+    padding: 8px 12px;
+    border-radius: 50px;
+    font-weight: 500;
+}
+
+.bg-success {
+    background-color: #28a745 !important;
+}
+
+.bg-danger {
+    background-color: #dc3545 !important;
+}
+
+/* Button Styling */
+.btn-outline-warning {
+    border-radius: 50px;
+    padding: 8px 16px;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-warning:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.15);
+}
+
+/* Perbaikan responsive untuk hero section */
+@media (max-width: 991px) {
+    .hero-section {
+        height: auto;
+        min-height: 300px;
+    }
+
+    .hero-content {
+        padding: 2rem;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-image {
+        min-height: 300px;
+    }
+}
+
+/* Perbaikan responsive untuk predict tool section */
+@media (max-width: 991px) {
+    .predict-tool-section .row-cols-md-3 {
+        row-gap: 1.5rem;
+    }
+
+    .predict-tool-section .card {
+        height: 100%;
+        margin: 0;
+    }
+
+    .predict-tool-section .card-img-top {
+        height: 160px;
+        object-fit: contain;
+    }
+}
+
+/* Perbaikan responsive untuk bagian "Bagaimana Cara Kerjanya?" */
+@media (max-width: 991px) {
+    .rounded-image-container {
+        margin-bottom: 2rem;
+        height: 300px;
+    }
+
+    .neuron-image {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    h3 {
+        font-size: 1.4rem;
+    }
+}
+
+/* Perbaikan spacing dan alignment umum untuk tablet */
+@media (max-width: 991px) {
+    .container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .row {
+        margin-left: -10px;
+        margin-right: -10px;
+    }
+
+    .col, [class*="col-"] {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .my-5 {
+        margin-top: 3rem !important;
+        margin-bottom: 3rem !important;
+    }
+
+    .py-5 {
+        padding-top: 3rem !important;
+        padding-bottom: 3rem !important;
+    }
+}
+
+/* Perbaikan untuk layar large (1200px - 900px) */
+@media (max-width: 1200px) {
+    /* Hero Section */
+    .hero-section {
+        height: auto;
+        min-height: 450px;
+    }
+
+    .hero-content {
+        padding: 2.5rem;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+        line-height: 1.2;
+    }
+
+    .hero-image {
+        min-height: 450px;
+        background-position: center center;
+    }
+
+    /* Predict Tool Section */
+    .predict-tool-section .card {
+        height: 100%;
+    }
+
+    .predict-tool-section .card-img-top {
+        height: 180px;
+        padding: 1rem;
+    }
+
+    .predict-tool-section .card-body {
+        padding: 1.25rem;
+    }
+
+    .predict-tool-section .card-title {
+        font-size: 1.2rem;
+    }
+
+    .predict-tool-section .card-text {
+        font-size: 0.9rem;
+    }
+
+    /* How it Works Section */
+    .rounded-image-container {
+        height: 400px;
+        margin-bottom: 0;
+    }
+
+    .neuron-image {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    /* Typography Adjustments */
+    h2 {
+        font-size: 2rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    /* Layout Adjustments */
+    .container {
+        max-width: 960px;
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .row {
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+
+    .col, [class*="col-"] {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    /* Spacing Adjustments */
+    .my-5 {
+        margin-top: 4rem !important;
+        margin-bottom: 4rem !important;
+    }
+
+    .py-5 {
+        padding-top: 4rem !important;
+        padding-bottom: 4rem !important;
+    }
+
+    /* Button Adjustments */
+    .btn {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+
+/* Specific fixes for screens between 900px and 991px */
+@media (min-width: 900px) and (max-width: 991px) {
+    .hero-section {
+        min-height: 400px;
+    }
+
+    .hero-image {
+        min-height: 400px;
+    }
+
+    .predict-tool-section .card-img-top {
+        height: 160px;
+    }
+
+    .rounded-image-container {
+        height: 350px;
+    }
+
+    .container {
+        max-width: 840px;
     }
 }

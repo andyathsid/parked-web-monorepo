@@ -22,11 +22,11 @@
                 <p class="text-center mb-5">Berikut adalah catatan diagnosis Anda sebelumnya.</p>
 
                 <div class="table-responsive">
-                    <table class="table table-hover" id="historyTable">
+                    <table class="table custom-table" id="historyTable">
                         <thead>
-                            <tr class="text-center" style="text-align: center!important">
+                            <tr>
                                 <th scope="col">Tanggal</th>
-                                <th scope="col">Tes Mengambar Spiral</th>
+                                <th scope="col">Tes Menggambar Spiral</th>
                                 <th scope="col">Tes Rekaman Suara</th>
                                 <th scope="col">Tes DaTScan</th>
                                 <th scope="col">Aksi</th>
@@ -34,31 +34,29 @@
                         </thead>
                         <tbody>
                             @foreach ($history as $his)
-                                <tr class="text-center ">
-                                    <td>{{ $his['created_at'] }}</td>
-                                    <td>
-                                        <span
-                                            class="badge text-white {{ $his['hasil_diagnosa1'] !== null ? ($his['hasil_diagnosa1'] ? 'bg-danger' : 'bg-success') : '' }}">
+                                <tr>
+                                    <td data-label="Tanggal">{{ $his['created_at'] }}</td>
+                                    <td data-label="Tes Menggambar Spiral">
+                                        <span class="badge text-white {{ $his['hasil_diagnosa1'] !== null ? ($his['hasil_diagnosa1'] ? 'bg-danger' : 'bg-success') : '' }}">
                                             {{ $his['hasil_diagnosa1'] !== null ? ($his['hasil_diagnosa1'] ? 'Terdeteksi' : 'Tidak Terdeteksi') : '-' }}
                                         </span>
                                     </td>
-                                    <td>
-                                        <span
-                                            class="badge  text-white {{ $his['hasil_diagnosa2'] !== null ? ($his['hasil_diagnosa2'] ? 'bg-danger' : 'bg-success') : '' }}">
+                                    <td data-label="Tes Rekaman Suara">
+                                        <span class="badge text-white {{ $his['hasil_diagnosa2'] !== null ? ($his['hasil_diagnosa2'] ? 'bg-danger' : 'bg-success') : '' }}">
                                             {{ $his['hasil_diagnosa2'] !== null ? ($his['hasil_diagnosa2'] ? 'Terdeteksi' : 'Tidak Terdeteksi') : '-' }}
                                         </span>
                                     </td>
-                                    <td>
-                                        <span
-                                            class="badge text-white {{ $his['hasil_diagnosa3'] !== null ? ($his['hasil_diagnosa3'] ? 'bg-danger' : 'bg-success') : '' }}">
+                                    <td data-label="Tes DaTScan">
+                                        <span class="badge text-white {{ $his['hasil_diagnosa3'] !== null ? ($his['hasil_diagnosa3'] ? 'bg-danger' : 'bg-success') : '' }}">
                                             {{ $his['hasil_diagnosa3'] !== null ? ($his['hasil_diagnosa3'] ? 'Terdeteksi' : 'Tidak Terdeteksi') : '-' }}
                                         </span>
                                     </td>
-
-                                    <td><button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal"
+                                    <td data-label="Aksi">
+                                        <button type="button" class="btn btn-sm btn-outline-warning" data-bs-toggle="modal"
                                             data-bs-target="#resultModal{{ $his['id'] }}">
                                             Lihat Hasil
-                                        </button></td>
+                                        </button>
+                                    </td>
                                 </tr>
 
                                 <!-- Modal -->
@@ -66,7 +64,6 @@
                                     aria-labelledby="resultModalLabel{{ $his['id'] }}" aria-hidden="true">
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content border-0">
-                                            <!-- Simplified Header -->
                                             <div class="modal-header border-0">
                                                 <h5 class="modal-title fw-bold" id="resultModalLabel{{ $his['id'] }}">
                                                     Detail Hasil Diagnosis
@@ -159,7 +156,6 @@
                                     </div>
                                 </div>
                             @endforeach
-
                         </tbody>
                     </table>
                 </div>
