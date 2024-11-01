@@ -87,4 +87,3 @@ Route::get('/detail/{id}', [HomeController::class, 'ResourcesDetail'])->name('de
 
 Route::post('/coba', [FormController::class, 'coba'])->name('coba');
 Route::get('/isi', [FormController::class, 'index'])->name('tabel');
-Route::apiResource('api/form-API', FormAPIController::class);
