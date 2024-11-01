@@ -67,6 +67,11 @@ class FormController extends Controller
             $apiResponse = $response->json();
             // \dd();
             // if ($request->fileModel3 != NULL) {
+            return response()->json([
+                'success' => true,
+                'data' => $apiResponse,
+                'upload' => $uploadedData
+            ]);
             DB::table('form')->insert([
                 'user_id' => auth()->id(),
                 'file_diagnosa1' => $fileModel1 ?? null,
