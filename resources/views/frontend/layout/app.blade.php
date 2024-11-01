@@ -99,6 +99,21 @@
                 }
             });
         }
+        @if (session('gagal'))
+            Swal.fire({
+                icon: 'warning',
+                title: 'Peringatan',
+                text: '{{ session('gagal') }}',
+            });
+        @endif
+
+        @if (session('success'))
+            Swal.fire({
+                icon: 'success',
+                title: 'Berhasil',
+                text: '{{ session('success') }}',
+            });
+        @endif
 
         // document.addEventListener('DOMContentLoaded', function() {
         //     // Menggunakan SweetAlert untuk notifikasi sukses

@@ -9,6 +9,7 @@ use App\Http\Controllers\HistoryFormController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PatientController;
+use App\Http\Controllers\PDFController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserManagementController;
 use Illuminate\Support\Facades\Route;
@@ -71,6 +72,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/patient-info', [PatientController::class, 'index'])->name('patient-info');
     Route::get('/form-diagnosa', [PatientController::class, 'DiagnosaForm'])->name('form-diagnosa');
     Route::post('/patient-form', [FormController::class, 'pastientUpload'])->name('patient-form');
+    Route::get('/result', [FormController::class, 'hasil'])->name('result');
+    Route::get('/download-pdf', [PDFController::class, 'PDFDownloadHasil'])->name('download-pdf');
 });
 
 Route::get('/information', [HomeController::class, 'Information'])->name('information');
