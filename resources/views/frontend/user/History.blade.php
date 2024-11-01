@@ -39,11 +39,16 @@
                                 <td><span class="badge bg-danger text-dark"style="color: white!important">false</span></td>
                                 <td><span class="badge bg-danger text-dark"style="color: white!important">false</span></td>
                                 <td><a href="#" class="btn btn-sm btn-outline-primary">Lihat Hasil</a></td>
+                            </tr><tr class="text-center ">
+                                <td>202-05-15</td>
+                                <td><span class="badge bg-success text-dark" style="color: white!important">True</span></td>
+                                <td><span class="badge bg-danger text-dark"style="color: white!important">false</span></td>
+                                <td><span class="badge bg-danger text-dark"style="color: white!important">false</span></td>
+                                <td><a href="#" class="btn btn-sm btn-outline-primary">Lihat Hasil</a></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-
             </div>
         </div>
     </div>
