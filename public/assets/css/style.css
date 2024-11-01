@@ -133,10 +133,7 @@ button {
 }
 
 .modal-content {
-    background-image: url('../img/Image\ \(4\).png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background-color: #ffffff;
     border-radius: 15px;
     border: none;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -144,26 +141,15 @@ button {
     overflow: hidden;
 }
 
-.modal-content::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(255, 255, 255, 0.7);
-    /* Warna putih dengan 70% opacity */
-    z-index: 0;
-}
-
 .modal-header,
 .modal-body {
     position: relative;
     z-index: 1;
+    background-color: #ffffff;
 }
 
 .modal-header {
-    border-bottom: none;
+    border-bottom: 1px solid #e9ecef;
     padding: 1rem 1rem 0.5rem;
 }
 
@@ -2075,5 +2061,181 @@ background-color: #FFF2C0; /* Warna oranye */
     
     .paginate_button {
         padding: 6px 12px !important;
+    }
+}
+
+/* Modal Styling */
+.modal-content {
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+    padding: 1.5rem 2rem;
+}
+
+.modal-title {
+    font-size: 1.5rem;
+    color: #2d3436;
+}
+
+/* Date Card Styling */
+.date-card {
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 12px;
+}
+
+.date-icon {
+    width: 45px;
+    height: 45px;
+    background: #ffd43b;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+/* Result Cards */
+.result-card {
+    background: #fff;
+    border: 1px solid #e9ecef;
+    border-radius: 16px;
+    padding: 1.25rem;
+    transition: all 0.3s ease;
+}
+
+.result-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+.result-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.result-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    margin-right: 1rem;
+}
+
+.spiral-icon {
+    background: #e3f2fd;
+    color: #2196f3;
+}
+
+.voice-icon {
+    background: #e8f5e9;
+    color: #4caf50;
+}
+
+.datscan-icon {
+    background: #fff3e0;
+    color: #ff9800;
+}
+
+.result-info {
+    flex-grow: 1;
+}
+
+.result-info h6 {
+    color: #2d3436;
+    font-weight: 600;
+}
+
+/* Status Badges */
+.status-badge {
+    padding: 0.35rem 1rem;
+    border-radius: 50px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.status-danger {
+    background: #ffe3e3;
+    color: #e03e3e;
+}
+
+/* Download Button Styling */
+.download-button {
+    padding: 8px 16px;
+    border: none;
+    background: #ffc107;
+    color: #fff;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.download-button i {
+    font-size: 1rem;
+}
+
+.download-button:hover {
+    background: #ffca2c;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 193, 7, 0.2);
+}
+
+.download-button:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+/* Close Button Styling */
+.close-button {
+    padding: 10px 24px;
+    border: 2px solid #e9ecef;
+    background: #fff;
+    color: #495057;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.close-button i {
+    font-size: 1rem;
+}
+
+.close-button:hover {
+    background: #f8f9fa;
+    border-color: #dee2e6;
+    color: #212529;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.close-button:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .download-button, .close-button {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+    }
+    
+    .download-button i, .close-button i {
+        font-size: 0.9rem;
     }
 }
