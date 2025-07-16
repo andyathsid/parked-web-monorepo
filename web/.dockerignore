@@ -1,0 +1,17 @@
+node_modules
+npm-debug.log
+yarn-error.log
+docker-compose.yml
+Dockerfile
+.git
+.gitignore
+.env
+.env.*
+tests
+phpunit.xml
+README.md
+.vscode
+.idea
+storage/*.key
+public/hot
+public/build
