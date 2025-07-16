@@ -1,5 +1,7 @@
 import tflite_runtime.interpreter as tflite
 import numpy as np
+from app.utils.model_path import get_model_path
+print(get_model_path)
 
 class HandwritingService:
     def __init__(self):
@@ -7,7 +9,7 @@ class HandwritingService:
         
     def _load_model(self):
         """Load the TFLite model"""
-        model_path = 'app/services/model_hw_newhandpd_aug-ilum_rasnet50.tflite'
+        model_path = get_model_path('model_hw_newhandpd_aug-ilum_rasnet50.tflite')
         interpreter = tflite.Interpreter(model_path=model_path)
         interpreter.allocate_tensors()
         return interpreter

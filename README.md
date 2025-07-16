@@ -1,7 +1,7 @@
 # 🧠 ParkED
 
 <div align="center">
-  <img src="./public/assets/logo/logo_ParkED_with_text.png" alt="ParkED Logo" width="300"/>
+  <img src="web/public/assets/logo/logo_ParkED_with_text.png" alt="ParkED Logo" width="300"/>
   
   <h2>🩺 AI-Powered Parkinson Screening Tool</h2>
   <p><em>ParkED: Parkinson Early Detecton System</em></p>
@@ -9,7 +9,7 @@
   [![Laravel](https://img.shields.io/badge/Laravel-10.x-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)](https://laravel.com/)
   [![Python](https://img.shields.io/badge/Python-3.8+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org/)
   [![TensorFlow](https://img.shields.io/badge/TensorFlow-2.10+-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)](https://tensorflow.org/)
-  [![AWS](https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white)](https://aws.amazon.com/)
+  [![Google Cloud](https://img.shields.io/badge/Google_Cloud-4285F4?style=for-the-badge&logo=google-cloud&logoColor=white)](https://cloud.google.com/)
   
   **🌐 [Live Application]() | 🗨️ [Project Presentation]() | 🧬 [Research](research/)**
 </div>
