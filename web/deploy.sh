@@ -40,6 +40,7 @@ gcloud run deploy "$SERVICE_NAME" \
   --region "$REGION" \
   --platform managed \
   --allow-unauthenticated \
+    --memory 2Gi \
   $( [[ -n "$ENV_VARS" ]] && echo --set-env-vars "$ENV_VARS" )
 
 echo "Deployment complete."
