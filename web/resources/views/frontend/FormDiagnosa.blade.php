@@ -1,7 +1,7 @@
 @extends('frontend.layout.app')
 
 @section('content')
-    <form action="/patient-form" method="POST" enctype="multipart/form-data">
+    <form id="patientForm" action="/patient-form" method="POST" enctype="multipart/form-data">
         @csrf
 
         <div class="main-content">
@@ -11,7 +11,7 @@
                     <div class="col-lg-10">
                         <!-- Header Section -->
                         <div class="text-center mb-5">
-                            <h2 class="display-5 fw-bold mb-3">Screening Test Parkinson</h2>
+                            <h2 class="display-5 fw-bold mb-3">Skrining Test Parkinson</h2>
                             <div class="row justify-content-center">
                                 <div class="col-md-8">
                                     <p class="lead text-muted">
@@ -215,7 +215,7 @@
                                                 onclick="document.getElementById('formdiagnosa-fileElem').click()">Pilih
                                                 berkas</button>
                                         </div>
-                                        <p class="text-muted small text-center mt-2">JPG, PNG / Maks. 60 MB / Min. 224px x
+                                        <p class="text-muted small text-center mt-2">JPG, PNG / Maks. 6 MB / Min. 224px x
                                             224px</p>
                                         <div class="text-center mt-3">
                                             <button type="button" class="btn btn-warning text-black"
@@ -324,6 +324,12 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div class="mt-2">
+                                                    <a href="https://onlineaudioconverter.com/"
+                                                        class="btn btn-warning text-black" target="_blank">
+                                                        <i class="fas fa-link me-2"></i>Website Konverter Audio
+                                                    </a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -353,6 +359,7 @@
                                                 <!-- Teks lengkap bisa ditambahkan di sini -->
                                             </p>
                                         </div>
+
                                     </div>
 
                                     <div class="mt-4 formdiagnosa-upload-section">
@@ -386,7 +393,7 @@
                                                         onclick="document.getElementById('audioFileElem').click()">Pilih
                                                         berkas audio</button>
                                                 </div>
-                                                <p class="text-muted small text-center mt-2"> WAV / Max. 10 MB / Max.
+                                                <p class="text-muted small text-center mt-2"> WAV / Max. 30 MB / Max.
                                                     30 seconds</p>
                                                 <div class="text-center mt-3">
                                                     <button type="button" class="btn btn-warning text-black"
@@ -399,6 +406,7 @@
                                                 <div class="text-center p-5 border border-dashed rounded">
                                                     <i class="fas fa-microphone fa-3x text-muted mb-3"></i>
                                                     <p class="mb-3">Klik tombol di bawah untuk mulai merekam</p>
+                                                    <input type="file" hidden name="audioUpload">
                                                     <a href="record" id="recordButton" class="btn btn-warning"
                                                         name="recordedAudio">
                                                         <i class="fas fa-microphone"></i> Mulai Merekam
@@ -576,7 +584,7 @@
                                             </button>
                                         </div>
                                         <p class="text-muted small text-center mt-2">
-                                            Format: JPG, PNG | Ukuran Maks: 60 MB | Resolusi Min: 224px x 224px
+                                            Format: JPG, PNG | Ukuran Maks: 6 MB | Resolusi Min: 224px x 224px
                                         </p>
                                         <div class="text-center mt-3">
                                             <button type="button" class="btn btn-warning text-black" id="changeFileBtn3"
@@ -589,13 +597,109 @@
                     </div>
                 </div>
             </div>
+            <div class="loading-container" style="display: none;">
+                <div class="loading-spinner"></div>
+                <div class="loading-text">Memproses Data...</div>
+                <div class="loading-subtext">Mohon tunggu sebentar</div>
+                <div class="progress-bar">
+                    <div class="progress"></div>
+                </div>
+            </div>
 
             <section class="bg-warning">
                 <h1 class="text-center py-5 text-bold text-black">Selesai!</h1>
                 <div class="text-center pb-5">
-                    <button type="submit" class="btn btn-custom btn-lg text-black">Kirim!</button>
+                    <button id="submitButton" type="submit" class="btn btn-custom btn-lg text-black">Kirim!</button>
                 </div>
             </section>
         </div>
     </form>
+
+    <script>
+        @if ($errors->any())
+            Swal.fire({
+                icon: 'error',
+                title: 'Validasi Gagal',
+                html: `
+            <ul style="text-align: left;">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>`
+            });
+        @endif
+        document.getElementById("submitButton").addEventListener("click", function(e) {
+            e.preventDefault(); // Mencegah form dikirim secara default
+
+            const form = document.getElementById("patientForm");
+            const formData = new FormData(form);
+            const loadingContainer = document.querySelector(".loading-container");
+            const submitButton = document.getElementById("submitButton");
+
+            // Tampilkan loading dan nonaktifkan tombol submit
+            loadingContainer.style.display = "block";
+            submitButton.disabled = true;
+
+            // Kirim form menggunakan fetch
+            fetch(form.action, {
+                    method: form.method,
+                    body: formData,
+                    headers: {
+                        'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value,
+                    },
+                })
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error("Gagal memproses data. Pastikan semua data diisi dengan benar.");
+                    }
+                    return response.json(); // Atau gunakan `.text()` jika respons server adalah HTML
+                })
+                .then((data) => {
+                    // Proses berhasil, navigasi ke halaman yang dikembalikan
+                    loadingContainer.style.display = "none";
+                    submitButton.disabled = false;
+
+                    if (data.redirect) {
+                        window.location.href = data.redirect; // Redirect ke URL dari server
+                    } else {
+                        Swal.fire({
+                            title: "Berhasil!",
+                            text: "Data berhasil dikirim!",
+                            icon: "success",
+                            confirmButtonText: "OK",
+                        });
+                    }
+                })
+                .catch((error) => {
+                    // Tangani error
+                    loadingContainer.style.display = "none";
+                    submitButton.disabled = false;
+
+                    Swal.fire({
+                        title: "Gagal!",
+                        text: error.message || "Terjadi kesalahan saat memproses data.",
+                        icon: "error",
+                        confirmButtonText: "OK",
+                    });
+                });
+        });
+
+
+
+        // document.getElementById("submitButton").addEventListener("click", function() {
+        //     // Tampilkan loading container
+        //     const loadingContainer = document.querySelector(".loading-container");
+        //     loadingContainer.style.display = "block";
+
+        //     setTimeout(() => {
+        //         loadingContainer.style.display = "none";
+        //         Swal.fire({
+        //             title: 'Berhasil!',
+        //             text: 'Data berhasil dikirim!',
+        //             icon: 'success',
+        //             confirmButtonText: 'OK',
+        //         });
+        //     }, 3000);
+        // });
+    </script>
 @endsection
