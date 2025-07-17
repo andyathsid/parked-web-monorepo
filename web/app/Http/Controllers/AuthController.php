@@ -53,7 +53,7 @@ class AuthController extends Controller
 
         $user->sendEmailVerificationNotification();
 
-        return redirect()->route('login')->with('Registrasi Sukses', 'Registration successful! Please verify your email.');
+        return redirect()->route('login')->with('Registrasi Sukses', 'Berhasil mendaftar! Silakan verifikasi email Anda.');
     }
 
     public function login(Request $request)
@@ -62,26 +62,30 @@ class AuthController extends Controller
             'email' => 'required|string|email',
             'password' => 'required|string',
         ]);
+
         $user = User::where('email', $request->email)->first();
+
         if ($user) {
             if ($user->email_verified_at === null) {
-                return redirect()->route('login')->with('loginGagal', "You haven't verified your email! Please check your email for verification.");
+                return redirect()->route('login')->with('EmailVerif', "Anda belum memverifikasi email Anda! Apakah Anda ingin mengirim ulang email verifikasi?");
             }
+
             if (Auth::attempt($request->only('email', 'password'))) {
+                $user->update(['last_login' => now()]);
+
                 if ($user->role == 'admin') {
-                    $user->update(['last_login' => now()]);
-                    return redirect()->route('login', compact('user'))->with('loginAdmin', 'Login successful! Welcome, Admin!');
+                    return redirect()->route('login', compact('user'))->with('loginAdmin', 'Login berhasil! Selamat datang, Admin!');
                 } else if ($user->role == 'user') {
-                    $user->update(['last_login' => now()]);
-                    return redirect()->route('login', compact('user'))->with('loginUser', 'Login successful! Welcome!');
+                    return redirect()->route('login', compact('user'))->with('loginUser', 'Login berhasil! Selamat datang!');
                 }
             } else {
-                return redirect()->route('login')->with('loginGagal', 'Wrong Email or Password!');
+                return redirect()->route('login')->with('loginGagal', 'Email atau Password salah!');
             }
         } else {
-            return redirect()->route('login')->with('loginGagal', 'Email not registered!');
+            return redirect()->route('login')->with('loginGagal', 'Email tidak terdaftar!');
         }
     }
+
 
     public function logout(Request $request)
     {
@@ -95,6 +99,27 @@ class AuthController extends Controller
         $request->user()->sendEmailVerificationNotification();
 
         return back()->with('message', 'Verification email has been resent.');
+    }
+
+    public function VerificationResendEmail(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email|exists:users,email',
+        ]);
+
+        $user = User::where('email', $request->email)->first();
+
+        if ($user->hasVerifiedEmail()) {
+            return back()->with('error', 'Akun Anda sudah diverifikasi.');
+        }
+
+        if ($request->user()->hasTooManyLoginAttempts()) {
+            return back()->with('error', 'Terlalu banyak permintaan. Coba lagi nanti.');
+        }
+
+        $user->sendEmailVerificationNotification();
+
+        return back()->with('message', 'Email verifikasi telah dikirim ulang.');
     }
     public function notVerif()
     {

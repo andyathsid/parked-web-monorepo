@@ -35,8 +35,7 @@ return [
         'client_secret' => env('GOOGLE_CLIENT_SECRET'),
         'redirect' => env('GOOGLE_REDIRECT_URL'),
     ],
-    'api' => [
-        'diagnosis' => env('API_DIAGNOSIS_URL'),
-    ],
+
+    'api_diagnosis_url' => env('API_DIAGNOSIS_URL'),
 
 ];

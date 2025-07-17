@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Form;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Config;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -73,7 +73,9 @@ class FormController extends Controller
         });
         // dd($filteredData);
 
-        $response = Http::post(config('services.api.diagnosis'), $filteredData);
+        $url = config('services.api_diagnosis_url');
+        $response = Http::post($url, $filteredData);
+        // $response = Http::post('https://6suy7b2n3j.execute-api.ap-southeast-1.amazonaws.com/test/detect', $uploadedData);
 
         if ($response->successful()) {
             $apiResponse = $response->json();

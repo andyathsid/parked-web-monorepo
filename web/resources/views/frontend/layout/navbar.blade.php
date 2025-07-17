@@ -11,7 +11,7 @@
                     <a class="nav-link {{ Request::is('/') ? 'actives' : '' }}" href="/">Beranda</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('resources') ? 'actives' : '' }}" href="/resources">Sumber
+                    <a class="nav-link {{ Request::is('resources') ? 'actives' : '' }}" href="{{ route('resources') }}">Sumber
                         Daya</a>
                 </li>
                 <li class="nav-item">

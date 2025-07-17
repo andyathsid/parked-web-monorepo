@@ -33,30 +33,25 @@
                 <div class="col-md-3 mb-4 mb-md-0">
                     <h3 class="h6 mb-3">Tautan Cepat</h3>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="text-white text-decoration-none">Beranda</a></li>
-                        <li><a href="#" class="text-white text-decoration-none">Tentang Parkinson</a></li>
-                        <li><a href="#" class="text-white text-decoration-none">Alat Diagnosis</a></li>
-                        <li><a href="#" class="text-white text-decoration-none">Sumber Daya</a></li>
+                        <li><a href="/" class="text-white text-decoration-none">Beranda</a></li>
+                        <li><a href="/resource" class="text-white text-decoration-none">Tentang Parkinson</a></li>
+                        <li><a href="/information" class="text-white text-decoration-none">Alat Diagnosis</a></li>
+                        <li><a href="/resorce" class="text-white text-decoration-none">Sumber Daya</a></li>
                         <li><a href="#" class="text-white text-decoration-none">Hubungi Kami</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3 mb-4 mb-md-0">
                     <h3 class="h6 mb-3">Alat Diagnosis</h3>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="text-white text-decoration-none">Tes Spiral</a></li>
-                        <li><a href="#" class="text-white text-decoration-none">Analisis Suara</a></li>
-                        <li><a href="#" class="text-white text-decoration-none">Analisis CT Scan</a></li>
+                        <li><a href="/form-diagnosa" class="text-white text-decoration-none">Tes Spiral</a></li>
+                        <li><a href="/form-diagnosa" class="text-white text-decoration-none">Analisis Suara</a></li>
+                        <li><a href="/form-diagnosa" class="text-white text-decoration-none">Analisis CT Scan</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3">
                     <h3 class="h6 mb-3">Sumber Daya</h3>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="text-white text-decoration-none">Artikel Edukasi</a></li>
-                        <li><a href="#" class="text-white text-decoration-none">Berita Penelitian</a></li>
-                        <li><a href="#" class="text-white text-decoration-none">Grup Dukungan</a></li>
-                        <li><a href="#" class="text-white text-decoration-none">Sumber Daya Pengasuh</a></li>
-                        <li><a href="#" class="text-white text-decoration-none">Tanya Jawab</a></li>
-                        <li><a href="#" class="text-white text-decoration-none">Glosarium</a></li>
+                        <li><a href="/information" class="text-white text-decoration-none">Artikel Edukasi</a></li>
                     </ul>
                 </div>
             </div>
