@@ -17,6 +17,7 @@ use Illuminate\Auth\Notifications\VerifyEmail;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
+use Illuminate\Support\Facades\Artisan;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +51,7 @@ Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $requ
 })->middleware(['auth', 'signed'])->name('verification.verify');
 
 Route::post('/email/resend', [AuthController::class, 'resendVerificationEmail'])->name('verification.resend');
+Route::get('/email/resend', [AuthController::class, 'VerificationResendEmail'])->name('resend.verification');
 
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
@@ -76,6 +78,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/patient-form', [FormController::class, 'pastientUpload'])->name('patient-form');
     Route::get('/result', [FormController::class, 'hasil'])->name('result');
     Route::get('/download-pdf', [PDFController::class, 'PDFDownloadHasil'])->name('download-pdf');
+});
+
+Route::get('/buat-storage-link', function () {
+    Artisan::call('storage:link');
+    return 'Storage link telah berhasil dibuat';
 });
 
 Route::get('/information', [HomeController::class, 'Information'])->name('information');
