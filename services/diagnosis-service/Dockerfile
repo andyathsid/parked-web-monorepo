@@ -1,24 +1,29 @@
-# Use the official Python image from the Docker Hub
 FROM python:3.11-slim
 
-# Set the working directory in the container
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    ffmpeg \
+    gcc \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install uv for dependency management
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /usr/local/bin/uv
+
 WORKDIR /app
 
-# Install uv (fast Python package manager)
-RUN pip install --no-cache-dir uv
+# Copy dependency files and install dependencies
+COPY pyproject.toml uv.lock ./
+RUN uv sync --frozen --no-install-project --no-dev
 
-# Copy the pyproject.toml file into the container
-COPY pyproject.toml .
-
-# Install the dependencies using uv
-RUN uv sync
-
-# Copy the rest of the application code into the container
+# Copy application code
 COPY . .
 
-# Expose the port the app runs on
-EXPOSE 5000
+# Place executables in the environment at the front of the path
+ENV PATH="/app/.venv/bin:$PATH"
 
-# Run the application with uvicorn
-CMD ["uv", "run", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "5000"]
-u
+# Expose FastAPI port
+EXPOSE 8080
+
+# Run FastAPI app with Uvicorn
+CMD ["uv", "run", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8080"]

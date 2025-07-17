@@ -18,7 +18,7 @@ class PredictRequest(BaseModel):
     ni_url: Optional[str] = Field(None, alias="ni-url")
 
     class Config:
-        allow_population_by_field_name = True
+        validate_by_name = True
 
 class PredictResponse(BaseModel):
     vm_result: Optional[Any] = Field(None, alias="vm-result")
@@ -32,6 +32,10 @@ class PredictResponse(BaseModel):
         allow_population_by_field_name = True
 
 app = FastAPI()
+
+@app.get("/healthz")
+async def healthz():
+    return {"status": "ok"}
 
 # CORS: allow all origins, methods, headers (matches Laravel config)
 app.add_middleware(

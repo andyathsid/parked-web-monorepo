@@ -8,7 +8,7 @@ maintainers = []
 
 dependencies = [
     "fastapi[standard]",
-    "uvicorn[standard]",
+    "uvicorn",
     "boto3==1.36.15",
     "keras-image-helper==0.0.1",
     "pandas==2.2.3",
@@ -18,7 +18,7 @@ dependencies = [
     "pyOpenSSL==25.0.0",
     "python-decouple==3.8",
     "requests==2.32.3",
-    "scikit-learn==1.6.1",
+    "scikit-learn==1.5.1",
     "tflite-runtime==2.14.0",
     "numpy==1.26.4"
 ]
