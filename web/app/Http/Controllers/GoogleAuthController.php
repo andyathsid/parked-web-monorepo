@@ -16,9 +16,11 @@ class GoogleAuthController extends Controller
     protected function redirectBasedOnRole($user)
     {
         if ($user->role == 'admin') {
-            return \redirect()->intended('/dashboard');
+            session()->flash('success', 'Login successful! Welcome, Admin!');
+            return redirect()->intended('/dashboard');
         } else if ($user->role == 'user') {
-            return \redirect()->intended('/profile');
+            session()->flash('success', 'Login successful! Welcome, User!');
+            return redirect()->intended('/profile');
         }
     }
 
@@ -41,13 +43,13 @@ class GoogleAuthController extends Controller
                     'last_login' => \now()
                 ]);
                 Auth::login($new_user);
-                if ($new_user->role == 'admin') {
-                    $new_user->update(['last_login' => now()]);
-                    return redirect()->route('login', compact('user'))->with('loginAdmin', 'Login successful! Welcome, Admin!');
-                } else if ($new_user->role == 'new_user') {
-                    $new_user->update(['last_login' => now()]);
-                    return redirect()->route('login', compact('user'))->with('loginUser', 'Login successful! Welcome!');
-                }
+                // if ($new_user->role == 'admin') {
+                //     $new_user->update(['last_login' => now()]);
+                //     return redirect()->route('login', compact('user'))->with('loginAdmin', 'Login successful! Welcome, Admin!');
+                // } else if ($new_user->role == 'new_user') {
+                //     $new_user->update(['last_login' => now()]);
+                //     return redirect()->route('login', compact('user'))->with('loginUser', 'Login successful! Welcome!');
+                // }
                 return $this->redirectBasedOnRole($new_user);
             } else {
                 Auth::login($user);
