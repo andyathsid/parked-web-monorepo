@@ -2469,7 +2469,13 @@ background-color: #FFF2C0; /* Warna oranye */
         padding-bottom: 3rem !important;
     }
 }
-
+/* Perbaikan untuk layar large (1200px - 900px) */
+@media (max-width: 1400px) {
+    .hero-content h1 {
+        font-size: 50px;
+        line-height: 1.2;
+    }
+}
 /* Perbaikan untuk layar large (1200px - 900px) */
 @media (max-width: 1200px) {
     /* Hero Section */
@@ -2483,7 +2489,7 @@ background-color: #FFF2C0; /* Warna oranye */
     }
 
     .hero-content h1 {
-        font-size: 2.5rem;
+        font-size: 40px;
         line-height: 1.2;
     }
 
@@ -3009,4 +3015,82 @@ background-color: #FFF2C0; /* Warna oranye */
         width: 40px;
         height: 40px;
     }
+}
+
+/* loading */
+/* Loading Container */
+.loading-container {
+    position: fixed; /* Tetap di layar meskipun halaman di-scroll */
+    top: 0;
+    left: 0;
+    width: 100%; /* Menutupi lebar layar penuh */
+    height: 100%; /* Menutupi tinggi layar penuh */
+    display: flex;
+    padding-top: 400px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.9); /* Background semi-transparan */
+    font-family: "DM Sans", sans-serif;
+    text-align: center;
+    z-index: 9999; /* Pastikan loading berada di atas elemen lain */
+}
+
+/* Spinner */
+.loading-spinner {
+    width: 100px;
+    height: 100px;
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #ffc107;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 20px;
+}
+
+/* Text Utama */
+.loading-text {
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* Text Sub */
+.loading-subtext {
+    color: #666;
+    font-size: 1rem;
+}
+
+/* Progress Bar */
+.progress-bar {
+    width: 200px;
+    height: 4px;
+    background-color: #f3f3f3;
+    border-radius: 2px;
+    margin: 20px auto;
+    overflow: hidden;
+}
+
+.progress {
+    width: 0%;
+    height: 100%;
+    background-color: #ffc107;
+    border-radius: 2px;
+    animation: progress 2s ease-in-out forwards;
+}
+
+/* Animasi */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+}
+
+@keyframes progress {
+    0% { width: 0%; }
+    100% { width: 100%; }
 }
