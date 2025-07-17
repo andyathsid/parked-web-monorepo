@@ -23,11 +23,11 @@
                                 <input type="password" class="form-control" id="password" name="password" required>
                             </div>
                             <div class="mb-4 d-flex justify-content-between align-items-center">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="rememberMe">
-                                    <label class="form-check-label" for="rememberMe">Ingat Saya</label>
-                                </div>
-                                <a href="/forgot" class="text-muted">Lupa kata sandi?</a>
+                                <!--<div class="form-check">-->
+                                <!--    <input class="form-check-input" type="checkbox" id="rememberMe">-->
+                                <!--    <label class="form-check-label" for="rememberMe">Ingat Saya</label>-->
+                                <!--</div>-->
+                                <!--<a href="/forgot" class="text-muted">Lupa kata sandi?</a>-->
                             </div>
                             <div class="d-grid gap-3">
                                 <button type="submit" class="btn btn-warning btn-login fw-bold">Masuk</button>
