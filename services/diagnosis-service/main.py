@@ -33,8 +33,8 @@ class PredictResponse(BaseModel):
 
 app = FastAPI()
 
-@app.get("/healthz")
-async def healthz():
+@app.get("/health")
+async def health():
     return {"status": "ok"}
 
 # CORS: allow all origins, methods, headers (matches Laravel config)
