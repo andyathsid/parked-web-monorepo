@@ -102,98 +102,96 @@ class HomeController extends Controller
             ];
         } else if ($id == 3) {
             $data = [
-                "judul" => "Psychotherapy for Parkinson's Disease",
+                "judul" => "Psikoterapi untuk Penyakit Parkinson",
                 "gambar" => "assets/img/psychoteraphy.jpg",
                 "isi" => "
-                <h2>What is Psychotherapy?</h2>
-                <p>Psychotherapy is an essential component in managing the mental and emotional aspects of Parkinson's disease. It involves talking with a mental health professional to address psychological challenges, improve coping skills, and enhance overall well-being. For Parkinson's patients, psychotherapy aims to manage depression, anxiety, and other emotional difficulties associated with the condition.</p>
+                <h2>Apa itu Psikoterapi?</h2>
+                <p>Psikoterapi adalah komponen penting dalam mengelola aspek mental dan emosional penyakit Parkinson. Ini melibatkan konsultasi dengan profesional kesehatan mental untuk mengatasi tantangan psikologis, meningkatkan kemampuan koping, dan meningkatkan kesejahteraan secara keseluruhan. Bagi pasien Parkinson, psikoterapi bertujuan untuk mengelola depresi, kecemasan, dan kesulitan emosional lain yang terkait dengan kondisi tersebut.</p>
                 
-                <h3>Key Psychotherapy Approaches for Parkinson's:</h3>
+                <h3>Pendekatan Utama Psikoterapi untuk Parkinson:</h3>
                 <ul>
-                    <li><strong>Cognitive Behavioral Therapy (CBT):</strong> Helps change negative thought patterns and behaviors.</li>
-                    <li><strong>Mindfulness-Based Therapy:</strong> Promotes present-moment awareness and stress reduction.</li>
-                    <li><strong>Acceptance and Commitment Therapy (ACT):</strong> Focuses on accepting challenges and committing to personal values.</li>
-                    <li><strong>Supportive Psychotherapy:</strong> Provides emotional support and validation.</li>
-                    <li><strong>Family Therapy:</strong> Addresses relationship dynamics and improves family support.</li>
-                    <li><strong>Group Therapy:</strong> Offers peer support and shared experiences.</li>
+                    <li><strong>Terapi Perilaku Kognitif (CBT):</strong> Membantu mengubah pola pikir dan perilaku negatif.</li>
+                    <li><strong>Terapi Berbasis Kesadaran:</strong> Meningkatkan kesadaran saat ini dan mengurangi stres.</li>
+                    <li><strong>Terapi Penerimaan dan Komitmen (ACT):</strong> Fokus pada penerimaan tantangan dan komitmen pada nilai pribadi.</li>
+                    <li><strong>Psikoterapi Suportif:</strong> Memberikan dukungan emosional dan validasi.</li>
+                    <li><strong>Terapi Keluarga:</strong> Mengatasi dinamika hubungan dan meningkatkan dukungan keluarga.</li>
+                    <li><strong>Terapi Kelompok:</strong> Menawarkan dukungan sebaya dan berbagi pengalaman.</li>
                 </ul>
                 
-                <h3>The Psychotherapy Process:</h3>
+                <h3>Proses Psikoterapi:</h3>
                 <ol>
-                    <li><strong>Initial Assessment:</strong> Evaluating the patient's psychological needs and concerns.</li>
-                    <li><strong>Goal Setting:</strong> Establishing realistic therapeutic objectives.</li>
-                    <li><strong>Treatment Plan:</strong> Designing a personalized therapy approach.</li>
-                    <li><strong>Regular Sessions:</strong> Engaging in ongoing therapeutic conversations and exercises.</li>
-                    <li><strong>Coping Strategies:</strong> Developing techniques for managing stress and emotions.</li>
-                    <li><strong>Progress Evaluation:</strong> Regular reviews to adjust the treatment plan as needed.</li>
+                    <li><strong>Penilaian Awal:</strong> Mengevaluasi kebutuhan dan masalah psikologis pasien.</li>
+                    <li><strong>Penetapan Tujuan:</strong> Menetapkan tujuan terapi yang realistis.</li>
+                    <li><strong>Rencana Perawatan:</strong> Merancang pendekatan terapi yang dipersonalisasi.</li>
+                    <li><strong>Sesi Rutin:</strong> Melakukan percakapan terapi dan latihan berkelanjutan.</li>
+                    <li><strong>Strategi Koping:</strong> Mengembangkan teknik untuk mengelola stres dan emosi.</li>
+                    <li><strong>Evaluasi Kemajuan:</strong> Tinjauan rutin untuk menyesuaikan rencana perawatan sesuai kebutuhan.</li>
                 </ol>
                 
-                <p>Psychotherapy for Parkinson's is an ongoing process that can significantly improve quality of life. It's most effective when integrated with medical treatment and started early in the disease progression.</p>
-                    "
+                <p>Psikoterapi untuk Parkinson adalah proses berkelanjutan yang dapat meningkatkan kualitas hidup secara signifikan. Ini paling efektif ketika diintegrasikan dengan perawatan medis dan dimulai sejak dini dalam perkembangan penyakit.</p>
+                "
             ];
         } else if ($id == 4) {
             $data = [
-                "judul" => "Deep Brain Stimulation for Parkinson's Disease",
+                "judul" => "Stimulasi Otak Dalam untuk Penyakit Parkinson",
                 "gambar" => "assets/img/DBS.jpg",
                 "isi" => "
-                <h2>What is Deep Brain Stimulation?</h2>
-                <p>Deep Brain Stimulation (DBS) is a surgical procedure used to treat various neurological symptoms of Parkinson's disease. It involves implanting electrodes in specific areas of the brain and connecting them to a small electrical device called a neurostimulator. This device sends electrical pulses to the brain to help control movement symptoms.</p>
+                <h2>Apa itu Stimulasi Otak Dalam?</h2>
+                <p>Stimulasi Otak Dalam (DBS) adalah prosedur bedah yang digunakan untuk mengobati berbagai gejala neurologis penyakit Parkinson. Prosedur ini melibatkan pemasangan elektroda di area tertentu otak dan menghubungkannya dengan alat kecil bernama neurostimulator. Alat ini mengirimkan pulsa listrik ke otak untuk membantu mengontrol gejala gerakan.</p>
                 
-                <h3>Key Aspects of Deep Brain Stimulation:</h3>
+                <h3>Aspek Utama Stimulasi Otak Dalam:</h3>
                 <ul>
-                    <li><strong>Target Areas:</strong> Usually the subthalamic nucleus or globus pallidus interna.</li>
-                    <li><strong>Symptom Management:</strong> Helps control tremors, rigidity, and bradykinesia.</li>
-                    <li><strong>Medication Reduction:</strong> Often allows for a decrease in Parkinson's medications.</li>
-                    <li><strong>Adjustable Treatment:</strong> Stimulation can be adjusted as the disease progresses.</li>
-                    <li><strong>Reversible Procedure:</strong> The device can be turned off or removed if necessary.</li>
-                    <li><strong>Bilateral Application:</strong> Often performed on both sides of the brain.</li>
+                    <li><strong>Area Target:</strong> Biasanya nukleus subtalamikus atau globus palidus interna.</li>
+                    <li><strong>Manajemen Gejala:</strong> Membantu mengontrol tremor, kekakuan, dan bradikinesia.</li>
+                    <li><strong>Pengurangan Obat:</strong> Sering memungkinkan pengurangan dosis obat Parkinson.</li>
+                    <li><strong>Perawatan yang Dapat Disesuaikan:</strong> Stimulasi dapat disesuaikan seiring perkembangan penyakit.</li>
+                    <li><strong>Prosedur Reversibel:</strong> Alat dapat dimatikan atau dilepas jika diperlukan.</li>
+                    <li><strong>Aplikasi Bilateral:</strong> Sering dilakukan pada kedua sisi otak.</li>
                 </ul>
                 
-                <h3>The DBS Process:</h3>
+                <h3>Proses DBS:</h3>
                 <ol>
-                    <li><strong>Patient Selection:</strong> Determining if DBS is appropriate for the individual.</li>
-                    <li><strong>Pre-surgical Evaluation:</strong> Comprehensive neurological and psychological assessments.</li>
-                    <li><strong>Surgery:</strong> Implantation of electrodes and neurostimulator.</li>
-                    <li><strong>Recovery:</strong> Initial healing period after surgery.</li>
-                    <li><strong>Programming:</strong> Adjusting the device settings for optimal symptom control.</li>
-                    <li><strong>Ongoing Management:</strong> Regular check-ups and adjustments as needed.</li>
+                    <li><strong>Seleksi Pasien:</strong> Menentukan apakah DBS sesuai untuk individu tersebut.</li>
+                    <li><strong>Evaluasi Pra-operasi:</strong> Penilaian neurologis dan psikologis menyeluruh.</li>
+                    <li><strong>Operasi:</strong> Pemasangan elektroda dan neurostimulator.</li>
+                    <li><strong>Pemulihan:</strong> Periode penyembuhan awal setelah operasi.</li>
+                    <li><strong>Pemrograman:</strong> Menyesuaikan pengaturan alat untuk kontrol gejala optimal.</li>
+                    <li><strong>Manajemen Berkelanjutan:</strong> Pemeriksaan rutin dan penyesuaian sesuai kebutuhan.</li>
                 </ol>
                 
-                <p>Deep Brain Stimulation can significantly improve quality of life for many Parkinson's patients, especially those who have had an inconsistent response to medication. However, it's not suitable for everyone, and a thorough evaluation is necessary to determine if it's the right treatment option.</p>
-                    "
-
+                <p>Stimulasi Otak Dalam dapat meningkatkan kualitas hidup secara signifikan bagi banyak pasien Parkinson, terutama mereka yang memiliki respons tidak konsisten terhadap pengobatan. Namun, prosedur ini tidak cocok untuk semua orang, dan evaluasi menyeluruh diperlukan untuk menentukan apakah ini adalah pilihan pengobatan yang tepat.</p>
+                "
             ];
         } else if ($id == 5) {
             $data = [
-                "judul" => "Gamma Knife Surgery for Parkinson's Disease",
+                "judul" => "Operasi Pisau Gamma untuk Penyakit Parkinson",
                 "gambar" => "assets/img/gamma-knife-surgery.jpg",
                 "isi" => "
-                <h2>What is Gamma Knife Surgery?</h2>
-                <p>Gamma Knife Surgery, also known as stereotactic radiosurgery, is a non-invasive treatment option for various neurological conditions, including certain symptoms of Parkinson's disease. It uses highly focused beams of gamma radiation to target specific areas of the brain without the need for traditional open surgery.</p>
+                <h2>Apa itu Operasi Pisau Gamma?</h2>
+                <p>Operasi Pisau Gamma, juga dikenal sebagai bedah stereotaktik radio, adalah pilihan pengobatan non-invasif untuk berbagai kondisi neurologis, termasuk gejala tertentu penyakit Parkinson. Prosedur ini menggunakan sinar gamma yang terfokus untuk menargetkan area spesifik di otak tanpa perlu melakukan pembedahan tradisional.</p>
                 
-                <h3>Key Aspects of Gamma Knife Surgery:</h3>
+                <h3>Aspek Utama Operasi Pisau Gamma:</h3>
                 <ul>
-                    <li><strong>Non-Invasive:</strong> No incisions are made; treatment is delivered through the skull.</li>
-                    <li><strong>Precise Targeting:</strong> Allows for accurate treatment of small brain areas.</li>
-                    <li><strong>Single Session:</strong> Usually completed in one treatment session.</li>
-                    <li><strong>Minimal Side Effects:</strong> Fewer complications compared to traditional brain surgery.</li>
-                    <li><strong>Outpatient Procedure:</strong> Patients typically go home the same day.</li>
-                    <li><strong>Tremor Management:</strong> Particularly effective for treating tremors in Parkinson's patients.</li>
+                    <li><strong>Non-Invasif:</strong> Tidak ada sayatan yang dibuat; pengobatan diberikan melalui tengkorak.</li>
+                    <li><strong>Penargetan Presisi:</strong> Memungkinkan pengobatan akurat pada area otak yang kecil.</li>
+                    <li><strong>Sesi Tunggal:</strong> Biasanya selesai dalam satu sesi pengobatan.</li>
+                    <li><strong>Efek Samping Minimal:</strong> Komplikasi lebih sedikit dibanding operasi otak tradisional.</li>
+                    <li><strong>Prosedur Rawat Jalan:</strong> Pasien biasanya bisa pulang di hari yang sama.</li>
+                    <li><strong>Manajemen Tremor:</strong> Sangat efektif untuk mengobati tremor pada pasien Parkinson.</li>
                 </ul>
                 
-                <h3>The Gamma Knife Surgery Process:</h3>
+                <h3>Proses Operasi Pisau Gamma:</h3>
                 <ol>
-                    <li><strong>Patient Evaluation:</strong> Determining if Gamma Knife is suitable for the individual.</li>
-                    <li><strong>Treatment Planning:</strong> Detailed imaging and planning of the radiation delivery.</li>
-                    <li><strong>Frame Placement:</strong> A lightweight frame is attached to the patient's head for precision.</li>
-                    <li><strong>Radiation Delivery:</strong> The patient lies still while radiation is delivered to the target area.</li>
-                    <li><strong>Recovery:</strong> Brief observation period after the procedure.</li>
-                    <li><strong>Follow-up:</strong> Regular check-ups to monitor the treatment's effectiveness.</li>
+                    <li><strong>Evaluasi Pasien:</strong> Menentukan apakah Pisau Gamma cocok untuk individu tersebut.</li>
+                    <li><strong>Perencanaan Pengobatan:</strong> Pencitraan detail dan perencanaan pemberian radiasi.</li>
+                    <li><strong>Pemasangan Bingkai:</strong> Bingkai ringan dipasang di kepala pasien untuk presisi.</li>
+                    <li><strong>Pemberian Radiasi:</strong> Pasien berbaring diam saat radiasi diberikan ke area target.</li>
+                    <li><strong>Pemulihan:</strong> Periode observasi singkat setelah prosedur.</li>
+                    <li><strong>Tindak Lanjut:</strong> Pemeriksaan rutin untuk memantau efektivitas pengobatan.</li>
                 </ol>
                 
-                <p>Gamma Knife Surgery can be an effective option for managing certain Parkinson's symptoms, particularly tremors, in cases where medication is not providing adequate relief. However, it's not suitable for all Parkinson's symptoms or all patients. A thorough evaluation by a specialist is necessary to determine if it's an appropriate treatment option.</p>
-                    "
-
+                <p>Operasi Pisau Gamma dapat menjadi pilihan efektif untuk mengelola gejala Parkinson tertentu, terutama tremor, dalam kasus di mana pengobatan tidak memberikan bantuan yang memadai. Namun, prosedur ini tidak cocok untuk semua gejala Parkinson atau semua pasien. Evaluasi menyeluruh oleh spesialis diperlukan untuk menentukan apakah ini adalah pilihan pengobatan yang tepat.</p>
+                "
             ];
         }
 
