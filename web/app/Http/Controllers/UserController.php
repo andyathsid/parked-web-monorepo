@@ -20,7 +20,7 @@ class UserController extends Controller
         // echo $user->tgl_ulangtahun->format('d-m-Y');
         // \dd($user);
         $user->formatted_tgl_ulangtahun = Carbon::parse($user->tgl_ulangtahun)->format('Y-m-d');
-        return \view('frontend/user/profile', \compact('user', 'tittle'));
+        return \view('frontend.user.Profile', \compact('user', 'tittle'));
     }
 
     public function updateProfile(Request $request)
@@ -39,7 +39,7 @@ class UserController extends Controller
             'occupation' => 'nullable|string|max:255',
             'password' => $user->password ? 'nullable|min:8' : 'required|min:8',
             'old_password' => $user->password ? 'required' : 'nullable',
-        ],);
+        ]);
         // \dd($request);
 
         if ($request->hasFile('photo')) {
@@ -74,7 +74,7 @@ class UserController extends Controller
             'photo' => $user->photo ?? null,
         ]);
 
-        return redirect('/profile')->with('success', 'Profile updated successfully!');
+        return redirect('/Profile')->with('success', 'Profile updated successfully!');
     }
 
 
@@ -82,8 +82,10 @@ class UserController extends Controller
     {
         $user = Auth::user();
         $tittle = 'History User';
-        $history = Form::all();
+        $history = Form::where('user_id', '=', $user->id)
+            ->orderBy('created_at', 'DESC')
+            ->get();
 
-        return \view('frontend/user/history', \compact('user', 'tittle', 'history'));
+        return \view('frontend/user/History', \compact('user', 'tittle', 'history'));
     }
 }
