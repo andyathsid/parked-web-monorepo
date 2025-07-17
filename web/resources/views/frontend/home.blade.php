@@ -6,7 +6,7 @@
             <div class="col-md-6 hero-content">
                 <h1 class="display-4 fw-bold">ParkED: Sistem Deteksi Dini Penyakit Parkinson Berbasis AI</h1>
                 <p class="lead">Temukan cara untuk mengelola</p>
-                <a class="btn btn-light btn-ripple" href="/patient-info">Diagnosa Sekarang</a>
+                <a class="btn btn-light btn-ripple" href="/patient-info">Cek Sekarang</a>
             </div>
             <div class="col-md-6 hero-image"></div>
         </div>
@@ -39,7 +39,7 @@
                         <div class="row row-cols-1 row-cols-md-3 g-4">
                             <div class="col">
                                 <div class="card h-100 bg-custom">
-                                    <img src="assets/img/Spiral.png" class="card-img-top py-2 px-2" alt="Gambar Otak"
+                                    <img src="assets/img/Spiral copy.png" class="card-img-top py-2 px-2" alt="Spiral"
                                         loading="lazy">
                                     <div class="card-body">
                                         <h5 class="card-title">Skrining 1</h5>
@@ -61,7 +61,7 @@
                             </div>
                             <div class="col">
                                 <div class="card h-100 bg-custom">
-                                    <img src="assets/img/CTscan.png" class="card-img-top py-2 px-2" alt="Gambar Otak"
+                                    <img src="assets/img/Ctscan.png" class="card-img-top py-2 px-2" alt="Gambar Otak"
                                         loading="lazy">
                                     <div class="card-body">
                                         <h5 class="card-title">Skrining 3</h5>

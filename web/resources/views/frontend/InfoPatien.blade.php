@@ -118,7 +118,7 @@
                         <div class="action-button">
                             <a href="/form-diagnosa" class="btn btn-warning btn-lg start-test-btn">
                                 <i class="fas fa-stethoscope me-2"></i>
-                                Diagnosa Sekarang!
+                                Cek Sekarang!
                             </a>
                         </div>
                     </div>

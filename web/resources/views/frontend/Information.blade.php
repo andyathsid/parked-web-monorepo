@@ -57,7 +57,7 @@
                         <div class="method-icon">
                             <img src="assets/img/Voice.png" alt="Voice Analysis" class="img-fluid">
                         </div>
-                        <h4>Diagnosis Melalui Pengukuran Suara</h4>
+                        <h4>Skrining Melalui Pengukuran Suara</h4>
                         <ul class="method-features">
                             <li>
                                 <strong>Sumber Penelitian:</strong>
@@ -73,10 +73,6 @@
                                 <p>scikit-learn's KNN Classifier</p>
                             </li>
                         </ul>
-                        <div class="accuracy">
-                            <span class="accuracy-value">90%</span>
-                            <span class="accuracy-label">Akurasi</span>
-                        </div>
                     </div>
                 </div>
 
@@ -86,7 +82,7 @@
                         <div class="method-icon">
                             <img src="assets/img/Spiral copy.png" alt="Spiral Test" class="img-fluid">
                         </div>
-                        <h4>Diagnosis Melalui Gambar Spiral</h4>
+                        <h4>Skrining Melalui Gambar Spiral</h4>
                         <ul class="method-features">
                             <li>
                                 <strong>Sumber Penelitian:</strong>
@@ -102,10 +98,6 @@
                                 <p>TensorFlow/Keras's RasNet50 (Pre-Trained Model)</p>
                             </li>
                         </ul>
-                        <div class="accuracy">
-                            <span class="accuracy-value">97%</span>
-                            <span class="accuracy-label">Akurasi</span>
-                        </div>
                     </div>
                 </div>
 
@@ -113,9 +105,9 @@
                 <div class="col-lg-4 col-md-6 mb-4 information-fade-in">
                     <div class="method-card">
                         <div class="method-icon">
-                            <img src="assets/img/CTscan.png" alt="Medical Image Analysis" class="img-fluid">
+                            <img src="assets/img/Ctscan.png" alt="Medical Image Analysis" class="img-fluid">
                         </div>
-                        <h4>Diagnosis Melalui Citra Medis</h4>
+                        <h4>Skrining Melalui Citra Medis</h4>
                         <ul class="method-features">
                             <li>
                                 <strong>Sumber Penelitian:</strong>
@@ -131,10 +123,6 @@
                                 <p>TensorFlow/Keras's RasNet50 (Pre-Trained Model)</p>
                             </li>
                         </ul>
-                        <div class="accuracy">
-                            <span class="accuracy-value">98%</span>
-                            <span class="accuracy-label">Akurasi</span>
-                        </div>
                     </div>
                 </div>
             </div>
