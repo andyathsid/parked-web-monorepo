@@ -39,8 +39,12 @@ RUN composer install
 # Clear Laravel config and cache
 RUN php artisan config:clear && php artisan cache:clear
 
+# Create storage symlink for public file access
+RUN php artisan storage:link
+
 # Set permissions
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+RUN chown -R www-data:www-data /var/www/html/public/assets
 
 RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
