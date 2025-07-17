@@ -75,6 +75,22 @@
                     button: "OK",
                 });
             @endif
+            
+            @if(session('EmailVerif'))
+                Swal.fire({
+                    title: 'Peringatan',
+                    text: '{{ session('EmailVerif') }}',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Ya, kirim ulang!',
+                    cancelButtonText: 'Tidak'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Mengirim ulang verifikasi email
+                        window.location.href = '{{ route("resend.verification", $user->id) }}'; // Ubah dengan rute yang sesuai untuk mengirim ulang verifikasi
+                    }
+                });
+            @endif
         });
     </script>
 </body>
