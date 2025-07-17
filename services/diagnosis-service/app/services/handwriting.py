@@ -1,7 +1,6 @@
 import tflite_runtime.interpreter as tflite
 import numpy as np
 from app.utils.model_path import get_model_path
-print(get_model_path)
 
 class HandwritingService:
     def __init__(self):
@@ -26,7 +25,7 @@ class HandwritingService:
             self.model.invoke()
             prediction = self.model.get_tensor(output_index)
             
-            # Process result (threshold at 0.8 as in lambda function)
+            # Process result 
             final_prediction = bool(prediction[0][0] >= 0.8)
             return final_prediction, None
             
