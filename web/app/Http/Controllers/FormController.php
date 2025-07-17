@@ -73,7 +73,7 @@ class FormController extends Controller
         });
         // dd($filteredData);
 
-        $url = config('services.api_diagnosis_url');
+        $url = rtrim(config('services.api_diagnosis_url'), '/') . '/api/predict';
         $response = Http::post($url, $filteredData);
         // $response = Http::post('https://6suy7b2n3j.execute-api.ap-southeast-1.amazonaws.com/test/detect', $uploadedData);
 
